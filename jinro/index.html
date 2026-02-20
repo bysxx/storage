@@ -325,19 +325,7 @@
       }
 
       .today-line::before {
-        content: "오늘";
-        position: absolute;
-        top: -22px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 9px;
-        font-weight: 700;
-        color: var(--today);
-        background: rgba(248, 113, 104, 0.15);
-        padding: 1px 6px;
-        border-radius: 2px;
-        white-space: nowrap;
-        letter-spacing: 0.5px;
+        display: none;
       }
 
       /* Bars */
@@ -589,7 +577,7 @@
           class="legend-dot"
           style="background: var(--today); border-radius: 50%"
         ></div>
-        오늘 (2/20)
+        오늘 (<span id="today-label"></span>)
       </div>
     </div>
 
@@ -664,8 +652,10 @@
       const TOTAL_WEEKS = 6;
       const TOTAL_DAYS = TOTAL_WEEKS * 7;
 
-      // Today
-      const TODAY = new Date(2025, 1, 20);
+      // Today (KST) — 연도는 프로젝트 기준, 월/일은 실제 오늘
+      const NOW_KST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
+      const TODAY = new Date(WEEK_START.getFullYear(), NOW_KST.getMonth(), NOW_KST.getDate());
+      document.getElementById("today-label").textContent = `${TODAY.getMonth() + 1}/${TODAY.getDate()}`;
 
       const tasks = [
         // Phase 1: 2/20 ~ 3/3 — SEO 홈페이지 아티클
