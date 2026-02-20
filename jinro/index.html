@@ -529,6 +529,15 @@
       .gantt-row:nth-child(12) .bar-wrapper {
         animation-delay: 0.6s;
       }
+      .gantt-row:nth-child(13) .bar-wrapper {
+        animation-delay: 0.65s;
+      }
+      .gantt-row:nth-child(14) .bar-wrapper {
+        animation-delay: 0.7s;
+      }
+      .gantt-row:nth-child(15) .bar-wrapper {
+        animation-delay: 0.75s;
+      }
 
       @media (max-width: 1100px) {
         body {
@@ -653,9 +662,16 @@
       const TOTAL_DAYS = TOTAL_WEEKS * 7;
 
       // Today (KST) — 연도는 프로젝트 기준, 월/일은 실제 오늘
-      const NOW_KST = new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
-      const TODAY = new Date(WEEK_START.getFullYear(), NOW_KST.getMonth(), NOW_KST.getDate());
-      document.getElementById("today-label").textContent = `${TODAY.getMonth() + 1}/${TODAY.getDate()}`;
+      const NOW_KST = new Date(
+        new Date().toLocaleString("en-US", { timeZone: "Asia/Seoul" }),
+      );
+      const TODAY = new Date(
+        WEEK_START.getFullYear(),
+        NOW_KST.getMonth(),
+        NOW_KST.getDate(),
+      );
+      document.getElementById("today-label").textContent =
+        `${TODAY.getMonth() + 1}/${TODAY.getDate()}`;
 
       const tasks = [
         // Phase 1: 2/20 ~ 3/3 — SEO 홈페이지 아티클
