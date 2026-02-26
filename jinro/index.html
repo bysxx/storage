@@ -766,10 +766,10 @@
           </p>
         </div>
         <div class="summary-card s3">
-          <h3>Phase 2 · SEO 홈페이지 아티클</h3>
-          <div class="date-range-text">2월 4주 ~ 3월 1주</div>
+          <h3>Phase 1 · SEO 홈페이지 아티클</h3>
+          <div class="date-range-text">2월 4주 ~ 3월 2주</div>
           <p>
-            현재 홈페이지 진단 및 트렌드·SEO 기반 아티클 제작·발행 루틴 확립
+            아티클 플래닝 마무리 (~ 3/2) → 첫 글 초안 마무리 (~ 3/8)
           </p>
         </div>
       </div>
@@ -845,23 +845,23 @@
         `${TODAY.getMonth() + 1}/${TODAY.getDate()}`;
 
       const tasks = [
-        // Phase 1: 2/20 ~ 3/3 — SEO 홈페이지 아티클
+        // Phase 1: 2/20 ~ 3/8 — SEO 홈페이지 아티클
         {
           type: "phase",
           phase: "p1",
           id: "PH-1",
           title: "Phase 1 · SEO 홈페이지 아티클",
           start: new Date(2025, 1, 20),
-          end: new Date(2025, 2, 3),
+          end: new Date(2025, 2, 8),
           status: "in-progress",
         },
         {
           type: "task",
           phase: "p1",
           id: "SE-01",
-          title: "아티클 제작 트렌드 조사",
+          title: "아티클 플래닝 마무리",
           start: new Date(2025, 1, 20),
-          end: new Date(2025, 1, 25),
+          end: new Date(2025, 2, 2),
           status: "in-progress",
           assignee: "백윤성/신채연",
         },
@@ -869,19 +869,9 @@
           type: "task",
           phase: "p1",
           id: "SE-02",
-          title: "아티클 초안 제작 (트렌드 및 SEO 고려)",
-          start: new Date(2025, 1, 25),
-          end: new Date(2025, 1, 27),
-          status: "todo",
-          assignee: "백윤성/신채연",
-        },
-        {
-          type: "task",
-          phase: "p1",
-          id: "SE-03",
-          title: "아티클 최종본 작성",
-          start: new Date(2025, 1, 27),
-          end: new Date(2025, 2, 3),
+          title: "첫 글 초안 마무리",
+          start: new Date(2025, 2, 3),
+          end: new Date(2025, 2, 8),
           status: "todo",
           assignee: "백윤성/신채연",
         },
