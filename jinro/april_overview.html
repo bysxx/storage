@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JINRO × Creatip — April 2026 콘텐츠 기획 총정리</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --black: #111;
+        --dark: #222;
+        --gray: #666;
+        --light: #999;
+        --border: #e0e0e0;
+        --bg: #fafafa;
+        --white: #fff;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        line-height: 1.8;
+        color: var(--dark);
+        background: var(--white);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 24px 80px;
+      }
+
+      .page-title {
+        font-family: "Noto Serif", serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 8px;
+      }
+
+      .page-subtitle {
+        font-size: 16px;
+        color: var(--gray);
+        font-weight: 300;
+        margin-bottom: 40px;
+        padding-bottom: 32px;
+        border-bottom: 2px solid var(--black);
+      }
+
+      /* Schedule Table */
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 48px;
+        font-size: 14px;
+      }
+      .schedule-table th {
+        background: var(--black);
+        color: var(--white);
+        padding: 10px 14px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .schedule-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+      }
+      .schedule-table tr:hover td {
+        background: var(--bg);
+      }
+      .status-done {
+        display: inline-block;
+        background: var(--black);
+        color: var(--white);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        border-radius: 3px;
+      }
+      .status-pending {
+        display: inline-block;
+        background: var(--bg);
+        color: var(--light);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        border-radius: 3px;
+        border: 1px solid var(--border);
+      }
+
+      /* Article Section */
+      .article-section {
+        margin-bottom: 64px;
+        padding-bottom: 64px;
+        border-bottom: 1px solid var(--border);
+      }
+      .article-section:last-child {
+        border-bottom: none;
+      }
+
+      .article-number {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--light);
+        margin-bottom: 8px;
+      }
+
+      .article-section h2 {
+        font-family: "Noto Serif", serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 6px;
+        line-height: 1.3;
+      }
+
+      .article-meta-row {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+        color: var(--light);
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .article-meta-row span {
+        background: var(--bg);
+        padding: 3px 10px;
+        border-radius: 3px;
+      }
+
+      .article-section h3 {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--black);
+        margin-top: 28px;
+        margin-bottom: 8px;
+      }
+
+      .article-section p {
+        margin-bottom: 16px;
+        color: var(--dark);
+      }
+
+      .article-section ul {
+        margin-bottom: 16px;
+        padding-left: 20px;
+      }
+      .article-section li {
+        margin-bottom: 4px;
+      }
+
+      .description-block {
+        font-size: 15px;
+        color: var(--gray);
+        font-style: italic;
+        margin-bottom: 20px;
+        padding: 16px 20px;
+        background: var(--bg);
+        border-radius: 6px;
+      }
+
+      .keywords-block {
+        font-size: 12px;
+        color: var(--light);
+        margin-bottom: 20px;
+        line-height: 2;
+      }
+      .keywords-block span {
+        display: inline-block;
+        background: var(--bg);
+        padding: 2px 8px;
+        border-radius: 3px;
+        margin: 0 3px 4px 0;
+      }
+
+      .title-options {
+        margin-bottom: 20px;
+      }
+      .title-options .option {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--black);
+        margin-bottom: 6px;
+      }
+
+      /* Image Grid */
+      .image-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 24px 0;
+      }
+      .image-grid img {
+        width: 100%;
+        border-radius: 6px;
+        display: block;
+      }
+      .image-grid .full-width {
+        grid-column: 1 / -1;
+      }
+      .image-grid .img-caption {
+        font-size: 11px;
+        color: var(--light);
+        margin-top: 4px;
+        text-align: center;
+      }
+      .image-grid .img-item {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: 600px) {
+        .page-title { font-size: 24px; }
+        .article-section h2 { font-size: 22px; }
+        .image-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-container">
+
+      <div class="page-title">April 2026 콘텐츠 기획 총정리</div>
+      <div class="page-subtitle">JINRO × Creatip — 4월 아티클 4건 기획서 + 이미지 통합본</div>
+
+      <!-- SCHEDULE TABLE -->
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>제목</th>
+            <th>카테고리</th>
+            <th>발행일</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Fruit Love Island x JINRO</td>
+            <td>Pop Culture & Trend</td>
+            <td>04.07</td>
+            <td><span class="status-done">아티클 완성</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>April Fools' Brand Marketing</td>
+            <td>Marketing & Culture</td>
+            <td>04.14</td>
+            <td><span class="status-done">아티클 완성</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>JINRO Moment Relay</td>
+            <td>Brand & Social Media</td>
+            <td>04.21~</td>
+            <td><span class="status-pending">기획서 (추후 작성)</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>The Perfect Anju</td>
+            <td>Food & Culture</td>
+            <td>04.28~</td>
+            <td><span class="status-pending">기획서 (추후 작성)</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ============================================ -->
+      <!-- ARTICLE 1: FRUIT LOVE ISLAND -->
+      <!-- ============================================ -->
+      <div class="article-section">
+        <div class="article-number">Article 01</div>
+        <h2>Fruit Love Island x JINRO</h2>
+        <div class="article-meta-row">
+          <span>Pop Culture & Trend</span>
+          <span>2026.04.07(화)</span>
+          <span>아티클 완성</span>
+        </div>
+
+        <h3>소구점</h3>
+        <p>TikTok 역사상 가장 빠르게 성장한 AI 과일 리얼리티 쇼 Fruit Love Island의 열풍을 분석하고, 과일 캐릭터 × JINRO 과일맛 소주의 "커플링"을 통해 브랜드를 자연스럽게 노출하는 트렌드 밀착형 콘텐츠.</p>
+
+        <h3>기획 의도 & 기대 효과</h3>
+        <p>글로벌 TikTok 바이럴 현상을 활용해 콘텐츠 화제성 확보, JINRO 과일맛 소주 라인업(Green Grape, Strawberry, Plum 등)을 Fruit Love Island 캐릭터와 1:1 매칭하여 제품 인지도 확대. "커플링 세레모니" 컨셉으로 소주 페어링을 재미있게 제안하며 Gen Z 타겟 브랜드 친밀도 강화.</p>
+
+        <h3>Description</h3>
+        <div class="description-block">What is Fruit Love Island? It's TikTok's fastest-growing AI-generated reality dating show — and every character is a fruit. With 300M+ views and 3.3M followers in just 11 days, this series has taken over For You Pages worldwide. Here's the complete guide to every character, why millions can't stop watching, and which JINRO fruit soju perfectly matches each islander.</div>
+
+        <h3>SEO 키워드</h3>
+        <div class="keywords-block">
+          <span>#FruitLoveIsland</span><span>#WhatIsFruitLoveIsland</span><span>#AIFruitLoveIsland</span><span>#TikTokViral</span><span>#TikTokTrend2026</span><span>#AIGeneratedShow</span><span>#Watermelina</span><span>#Strawberina</span><span>#Grapenzo</span><span>#FruitLoveIslandCharacters</span><span>#JinroSoju</span><span>#FruitSoju</span><span>#SojuPairing</span><span>#JINROGreenGrape</span><span>#JINROStrawberry</span><span>#KoreanSoju</span><span>#CouplingCeremony</span><span>#SojuDrinkingGame</span><span>#GenZTrend</span>
+        </div>
+
+        <h3>주요 콘텐츠 구성</h3>
+        <ul>
+          <li><strong>도입</strong> — Fruit Love Island란? 9일 만에 310만 팔로워, 총 조회수 3억+</li>
+          <li><strong>AI Fruit 밈의 기원</strong> — @trombonechef의 Cheating AI Fruit에서 시작</li>
+          <li><strong>캐릭터 × JINRO 소주 커플링</strong> — Strawberina × Strawberry, Grapenzo × Green Grape 등 7종 매칭</li>
+          <li><strong>바이럴 성공 요인</strong> — 마이크로드라마, 클리프행어, 관객 참여, absurdist humor</li>
+          <li><strong>브랜드 활용 사례</strong> — Slim Jim, Dr. Miami, Love Island USA 출연자</li>
+          <li><strong>JINRO 워치파티 가이드</strong> — 캐릭터 선택 → 소주 매칭 → 시청 → 리커플링 시 한잔</li>
+        </ul>
+
+        <h3>Title Options</h3>
+        <div class="title-options">
+          <div class="option">1. "TikTok's Hottest Show Stars Fruit — And We Found Their Perfect Soju Match"</div>
+          <div class="option">2. "Fruit Love Island Is Taking Over TikTok. Here's the Only Drinking Game You Need."</div>
+        </div>
+
+        <h3>이미지</h3>
+        <div class="image-grid">
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/kVngDRms/fruit-love-island-thumbnail.jpg" alt="Fruit Love Island thumbnail" />
+            <div class="img-caption">썸네일 — 과일 캐릭터 빌라 풀사이드</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/5Wd6CZ0s/cheating-fruit-origin.jpg" alt="Cheating AI Fruit origin" />
+            <div class="img-caption">Cheating AI Fruit 기원</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/zVhHxYyW/coupling-infographic.jpg" alt="Coupling infographic" />
+            <div class="img-caption">캐릭터 × JINRO 커플링</div>
+          </div>
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/LD4ZkyVN/watch-party-soju.jpg" alt="Watch party" />
+            <div class="img-caption">JINRO 워치파티 무드 컷</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- ARTICLE 2: APRIL FOOLS -->
+      <!-- ============================================ -->
+      <div class="article-section">
+        <div class="article-number">Article 02</div>
+        <h2>April Fools' Brand Marketing Roundup</h2>
+        <div class="article-meta-row">
+          <span>Marketing & Culture</span>
+          <span>2026.04.14(화)</span>
+          <span>아티클 완성</span>
+        </div>
+
+        <h3>소구점</h3>
+        <p>글로벌 브랜드들의 역대급 만우절 마케팅 사례를 정리하고, JINRO가 실제로 해온 만우절 캠페인(한방울잔, 19금 치약, 핵아이셔에이슬)을 조명 — 장난 같은 제품을 진짜로 만드는 브랜드로서의 포지셔닝.</p>
+
+        <h3>기획 의도 & 기대 효과</h3>
+        <p>만우절 시즌 콘텐츠로 화제성 확보, 글로벌 브랜드 마케팅 사례 큐레이션으로 인사이트 콘텐츠 가치 확보. JINRO의 실제 만우절 캠페인 히스토리(2018~2025)를 조명하여 "만우절 마케팅의 최종 진화형" 브랜드 이미지 강화.</p>
+
+        <h3>Description</h3>
+        <div class="description-block">The best April Fools' Day brand campaigns of 2024 and 2025 — from Duolingo's world cruise to KFC's fried chicken toothpaste that actually sold out. Plus: how JINRO mastered the art of the April Fools' prank-to-product pipeline with their giant soju glass (2018), soju-shaped toothpaste (2019), and extreme sour soju that everyone thought was a joke (2025). The complete guide to brand marketing on April 1st.</div>
+
+        <h3>SEO 키워드</h3>
+        <div class="keywords-block">
+          <span>#AprilFoolsDay</span><span>#AprilFoolsMarketing</span><span>#BestAprilFoolsCampaigns</span><span>#AprilFools2025</span><span>#AprilFools2026</span><span>#BrandMarketing</span><span>#BrandPrankIdeas</span><span>#Duolingo</span><span>#KFC</span><span>#Dunkin</span><span>#SourPatchKids</span><span>#Olipop</span><span>#IKEA</span><span>#TacoBell</span><span>#JinroSoju</span><span>#JINROAprilFools</span><span>#KoreanAlcoholBrand</span><span>#KoreanSojuBrand</span><span>#ViralMarketing</span><span>#MarketingStrategy</span><span>#FoodBrandMarketing</span><span>#PrankToProduct</span>
+        </div>
+
+        <h3>주요 콘텐츠 구성</h3>
+        <ul>
+          <li><strong>2025 베스트</strong> — Duolingo 크루즈, KFC 치킨치약(실제판매!), Sour Patch Kids, Dunkin 100만잔, Olipop Ranch소다, Welch's $19 구미, Crunch 무음바</li>
+          <li><strong>2024 하이라이트</strong> — Smoothie King $41 스무디, Krispy Kreme 글레이즈, 7-Eleven 핫도그 탄산수, Sweetgreen 치약</li>
+          <li><strong>명예의 전당</strong> — Taco Bell 자유의종(1996), Google Gmail(2004), Burger King 초콜릿와퍼, IKEA 직선매장</li>
+          <li><strong>성공 공식</strong> — "Is It Real?" 존, 프로덕션 퀄리티, 셀프패러디, 장난→실제제품 파이프라인</li>
+          <li><strong>JINRO는?</strong> — 한방울잔(2018, 만우절 장난→실제 판매 서버 마비), 19금 치약(2019, LG페리오 콜라보), 핵아이셔에이슬(2025, 만우절 티저→실제 출시)</li>
+          <li><strong>JINRO's Superpower</strong> — "만우절급 제품을 365일 진짜로 만드는 브랜드"</li>
+        </ul>
+
+        <h3>Title Options</h3>
+        <div class="title-options">
+          <div class="option">1. "The Best April Fools' Brand Campaigns — And How JINRO Turned Pranks Into Real Products"</div>
+          <div class="option">2. "KFC Made Chicken Toothpaste. Duolingo Launched a Cruise. But JINRO's April Fools' Strategy Is On Another Level."</div>
+        </div>
+
+        <h3>이미지</h3>
+        <div class="image-grid">
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/WpRYzVKC/april-fools-brands-thumbnail.jpg" alt="April Fools brands collage" />
+            <div class="img-caption">썸네일 — 만우절 캠페인 콜라주</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/S7nJxsxp/is-it-real-spectrum.jpg" alt="Is It Real spectrum" />
+            <div class="img-caption">FAKE ↔ REAL 스펙트럼</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/pvk6SYRs/jinro-fake-products.jpg" alt="JINRO fake products" />
+            <div class="img-caption">JINRO 가짜 제품 목업</div>
+          </div>
+          <div class="img-item">
+            <img src="https://img.insight.co.kr/static/2018/06/05/700/8ub7n0y99fsj432ujk04.jpg" alt="한방울잔" />
+            <div class="img-caption">한방울잔 (2018) — 만우절 장난→실제 판매</div>
+          </div>
+          <div class="img-item">
+            <img src="https://cdnweb01.wikitree.co.kr/webdata/editor/201904/05/img_20190405141328_2bae24e2.gif" alt="19금 치약" />
+            <div class="img-caption">19금 치약 (2019) — 참이슬 × LG페리오</div>
+          </div>
+          <div class="img-item full-width">
+            <img src="https://cdn.kfenews.co.kr/news/photo/202504/634537_106781_256.jpg" alt="핵아이셔에이슬" />
+            <div class="img-caption">핵아이셔에이슬 (2025) — 만우절 티저→실제 출시</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- ARTICLE 3: MOMENT RELAY -->
+      <!-- ============================================ -->
+      <div class="article-section">
+        <div class="article-number">Article 03</div>
+        <h2>JINRO Moment Relay 시리즈 소개</h2>
+        <div class="article-meta-row">
+          <span>Brand & Social Media</span>
+          <span>2026.04.21(화)~ 소셜 업로드 후</span>
+          <span>기획서 (추후 작성)</span>
+        </div>
+
+        <h3>소구점</h3>
+        <p>JINRO가 글로벌 소셜 미디어에서 시작한 오리지널 뮤직 릴레이 시리즈 "JINRO Moment Relay"를 소개하며, 음악 × 소주 × 글로벌 인플루언서의 조합이 만들어내는 새로운 브랜드 경험을 전달. 글로벌 소셜 계정 팔로우 및 시리즈 시청 유도.</p>
+
+        <h3>기획 의도 & 기대 효과</h3>
+        <p>JINRO의 글로벌 뮤직 릴레이 시리즈를 기사형 콘텐츠로 소개하여 소셜 채널 유입 및 팔로우 유도. "음악과 소주"라는 보편적 공감대를 통해 브랜드 정서적 유대감 강화. 릴레이 구조와 월별 테마로 지속적 시청 동기 부여.</p>
+
+        <h3>Description</h3>
+        <div class="description-block">JINRO just launched a new original music series on their global social channels. JINRO Moment Relay connects musicians from across Asia and beyond in a soju-fueled relay — each artist covering a song, then passing the Chamisul bottle to the next. From night markets in Southeast Asia to solo drinking bars in Tokyo, here's the global music series redefining how the world drinks soju.</div>
+
+        <h3>SEO 키워드</h3>
+        <div class="keywords-block">
+          <span>#JINRO</span><span>#JINROMomentRelay</span><span>#SojuMusic</span><span>#SojuVibes</span><span>#KoreanSoju</span><span>#MusicCollab</span><span>#LiveCover</span><span>#AsianMusic</span><span>#AsianInfluencer</span><span>#JINROGlobal</span><span>#JINROSocial</span><span>#KoreanDrinkingCulture</span><span>#SojuDrinkingCulture</span><span>#MusicRelay</span><span>#Chamisul</span><span>#ChamisulFresh</span><span>#GlobalMusic</span><span>#NightMarketVibes</span>
+        </div>
+
+        <h3>시리즈 구조</h3>
+        <ul>
+          <li><strong>컨셉</strong> — 각국 뮤직 인플루언서 릴레이 라이브 시리즈</li>
+          <li><strong>포맷</strong> — 월 1회, 롱폼 1건 (3분) + 숏폼 1건 (하이라이트)</li>
+          <li><strong>핵심 장치</strong> — 참이슬 병을 건네는 시그니처 모션으로 다음 인플루언서에게 연결</li>
+          <li><strong>참여 국가</strong> — 일본, 중국, 베트남, 필리핀, 인도네시아, 캄보디아 외</li>
+          <li><strong>오케이션</strong> — Night Market (동남아), 혼술 (일본), Pre-Game (북미/유럽), Home & Social</li>
+          <li><strong>4월 테마</strong> — 여름 나기</li>
+          <li><strong>4월 라인업 (확인 중)</strong> — Renee Dominique (93.8K), Daniel Matsunaga (67K), Illa Ham (27K)</li>
+        </ul>
+
+        <h3>기사 구조 방향 (추후 작성)</h3>
+        <ul>
+          <li>도입 → 시리즈 소개 → 왜 음악인가 → 릴레이 구조 → 첫 에피소드 하이라이트 → 팔로우 유도</li>
+        </ul>
+
+        <h3>Title Options</h3>
+        <div class="title-options">
+          <div class="option">1. "JINRO Just Started a Global Music Relay — And You'll Want to Follow Along"</div>
+          <div class="option">2. "One Bottle, One Song, One Relay: Inside JINRO's New Music Series"</div>
+        </div>
+
+        <h3>이미지</h3>
+        <div class="image-grid">
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/M5QpSwS6/moment-relay-thumbnail.jpg" alt="Moment Relay thumbnail" />
+            <div class="img-caption">썸네일 — 글로벌 뮤직 릴레이</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/m5b3M411/occasion-night-market.jpg" alt="Night market occasion" />
+            <div class="img-caption">Night Market 오케이션</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/BVyJ8bVF/occasion-solo-drinking.jpg" alt="Solo drinking occasion" />
+            <div class="img-caption">혼술 오케이션</div>
+          </div>
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/zTbPFRzv/occasion-pregame.jpg" alt="Pre-game occasion" />
+            <div class="img-caption">Pre-Game 오케이션</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- ARTICLE 4: THE PERFECT ANJU -->
+      <!-- ============================================ -->
+      <div class="article-section">
+        <div class="article-number">Article 04</div>
+        <h2>The Perfect Anju 시리즈 소개</h2>
+        <div class="article-meta-row">
+          <span>Food & Culture</span>
+          <span>2026.04.28(화)~ 소셜 업로드 후</span>
+          <span>기획서 (추후 작성)</span>
+        </div>
+
+        <h3>소구점</h3>
+        <p>JINRO가 글로벌 소셜 미디어에서 시작한 오리지널 푸드 시리즈 "The Perfect Anju"를 소개. 한식 안주 문화를 글로벌 관점으로 재해석하여, 세계 각국의 요리와 소주 페어링을 제안하는 시리즈의 매력을 전달.</p>
+
+        <h3>기획 의도 & 기대 효과</h3>
+        <p>소주의 음용 상황을 한식에서 글로벌 다이닝으로 확장. 한식 안주와 유사한 페어링 구조를 가진 글로벌 메뉴를 통해 한국 음주 문화에 대한 친근감과 이해를 동시에 제공. 현지 촬영 콘텐츠로 진정성 확보.</p>
+
+        <h3>Description</h3>
+        <div class="description-block">What is anju? In Korea, it's the food you eat while drinking soju — and it's the key to understanding Korean drinking culture. JINRO's new series "The Perfect Anju" takes this tradition global, pairing soju with dishes from Vietnam, Japan, the Philippines, and beyond. This month: Vietnamese braised chicken (gà kho sả ớt) meets Chamisul Fresh. Here's your guide to the best soju food pairings around the world.</div>
+
+        <h3>SEO 키워드</h3>
+        <div class="keywords-block">
+          <span>#JINRO</span><span>#ThePerfectAnju</span><span>#WhatIsAnju</span><span>#Anju</span><span>#SojuPairing</span><span>#SojuFoodPairing</span><span>#BestSojuFood</span><span>#KoreanDrinkingCulture</span><span>#KoreanDrinkingFood</span><span>#SojuAndFood</span><span>#GlobalFood</span><span>#FoodPairing</span><span>#VietnameseFood</span><span>#JINROGlobal</span><span>#Chamisul</span><span>#SojuDining</span><span>#SojuFoodGuide</span><span>#AsianFood</span>
+        </div>
+
+        <h3>시리즈 구조</h3>
+        <ul>
+          <li><strong>컨셉</strong> — 한식 "소주 안주"를 글로벌 관점으로 재해석, 세계 각국 메뉴 × 소주 페어링</li>
+          <li><strong>포맷</strong> — 월 1회, 숏폼 1건</li>
+          <li><strong>핵심 장치</strong> — 한식 안주와 유사한 페어링 구조 연결 + 현지 쿠킹 스튜디오 촬영 + 나레이션 스토리라인</li>
+          <li><strong>기획 의도</strong> — 소주 음용 상황을 한식→글로벌 다이닝으로 확장, 현지성으로 오케이션 설득력 확보</li>
+          <li><strong>4월 메뉴</strong> — 베트남식 닭볶음탕 gà kho sả ớt (가코사옷) / 베트남 현지 촬영</li>
+        </ul>
+
+        <h3>기사 구조 방향 (추후 작성)</h3>
+        <ul>
+          <li>도입 ("안주란?") → Anju 문화 설명 → 시리즈 소개 → 왜 통하는가 → 첫 에피소드 → 팔로우 유도</li>
+        </ul>
+
+        <h3>Title Options</h3>
+        <div class="title-options">
+          <div class="option">1. "The Perfect Anju Isn't Just Korean — JINRO's New Series Proves It"</div>
+          <div class="option">2. "What's Your Country's Perfect Soju Pairing? JINRO Wants to Find Out."</div>
+        </div>
+
+        <h3>이미지</h3>
+        <div class="image-grid">
+          <div class="img-item full-width">
+            <img src="https://i.ibb.co/99Z1p8g3/perfect-anju-thumbnail.jpg" alt="Perfect Anju thumbnail" />
+            <div class="img-caption">썸네일 — 글로벌 안주 × 소주 페어링</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/FkmqNkng/vietnamese-chicken-soju.jpg" alt="Vietnamese chicken with soju" />
+            <div class="img-caption">베트남 가코사옷 × 소주</div>
+          </div>
+          <div class="img-item">
+            <img src="https://i.ibb.co/9mZkvwtG/korean-vs-vietnamese-anju.jpg" alt="Korean vs Vietnamese anju" />
+            <div class="img-caption">한식 vs 베트남 안주 비교</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="text-align: center; font-size: 13px; color: var(--light); margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);">
+        JINRO × Creatip · April 2026 콘텐츠 기획<br />
+        <small>Generated 2026.03.26</small>
+      </div>
+
+    </div>
+  </body>
+</html>
