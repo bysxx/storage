@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>데스커 SNS AI 자동화 프로젝트 미팅 회의록</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #111111;
+      --dark-gray: #333333;
+      --medium-gray: #666666;
+      --light-gray: #999999;
+      --border-gray: #e0e0e0;
+      --bg-gray: #f5f5f5;
+      --white: #ffffff;
+      --blue: #2563eb;
+      --blue-light: #eff6ff;
+      --blue-border: #bfdbfe;
+      --green: #059669;
+      --green-light: #ecfdf5;
+      --green-border: #a7f3d0;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --purple-border: #c4b5fd;
+      --orange: #ea580c;
+      --orange-light: #fff7ed;
+      --orange-border: #fed7aa;
+      --rose: #e11d48;
+      --rose-light: #fff1f2;
+      --rose-border: #fecdd3;
+      --teal: #0d9488;
+      --teal-light: #f0fdfa;
+      --teal-border: #99f6e4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--dark-gray);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    p { margin-bottom: 15px; }
+    ul, ol { padding-left: 20px; margin-bottom: 15px; }
+    li { margin-bottom: 6px; }
+    strong { font-weight: 700; }
+
+    @media print {
+      body { font-size: 12px; }
+      .container { max-width: 100%; padding: 20px; }
+      .cover { padding: 60px 0 40px; }
+      .section { page-break-inside: avoid; }
+      table { page-break-inside: avoid; }
+      .highlight-box { break-inside: avoid; }
+    }
+
+    .cover {
+      text-align: center;
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--black);
+      margin-bottom: 60px;
+    }
+
+    .cover-label {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-bottom: 40px;
+    }
+
+    .cover-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .cover-subtitle {
+      font-size: 16px;
+      color: var(--medium-gray);
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .cover-meta {
+      font-size: 13px;
+      color: var(--light-gray);
+    }
+
+    .toc {
+      margin-bottom: 60px;
+    }
+
+    .toc-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--light-gray);
+      margin-bottom: 20px;
+    }
+
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px dotted var(--border-gray);
+      font-size: 14px;
+    }
+
+    .toc-item a {
+      color: var(--dark-gray);
+      text-decoration: none;
+    }
+
+    .toc-item a:hover {
+      color: var(--black);
+    }
+
+    .toc-number {
+      color: var(--light-gray);
+      margin-right: 10px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--light-gray);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--black);
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 15px;
+      margin-bottom: 30px;
+    }
+
+    .subsection-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+      font-size: 13px;
+    }
+
+    th {
+      background-color: var(--black);
+      color: var(--white);
+      font-weight: 500;
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border-gray);
+    }
+
+    tr:nth-child(even) td {
+      background: var(--bg-gray);
+    }
+
+    .highlight-box {
+      background: var(--bg-gray);
+      padding: 25px 30px;
+      border-left: 3px solid var(--dark-gray);
+      margin: 25px 0;
+    }
+
+    .highlight-box p { margin-bottom: 10px; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    .highlight-box ul { margin: 10px 0; padding-left: 20px; }
+    .highlight-box li { margin-bottom: 6px; }
+    .highlight-box strong { color: var(--black); }
+
+    .highlight-box.blue { background: var(--blue-light); border-left-color: var(--blue); }
+    .highlight-box.green { background: var(--green-light); border-left-color: var(--green); }
+    .highlight-box.purple { background: var(--purple-light); border-left-color: var(--purple); }
+    .highlight-box.orange { background: var(--orange-light); border-left-color: var(--orange); }
+    .highlight-box.rose { background: var(--rose-light); border-left-color: var(--rose); }
+    .highlight-box.teal { background: var(--teal-light); border-left-color: var(--teal); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-high { background-color: var(--black); color: var(--white); }
+    .badge-medium { background-color: var(--medium-gray); color: var(--white); }
+    .badge-low { background-color: var(--border-gray); color: var(--dark-gray); }
+    .badge-blue { background-color: var(--blue); color: var(--white); }
+    .badge-green { background-color: var(--green); color: var(--white); }
+    .badge-purple { background-color: var(--purple); color: var(--white); }
+    .badge-orange { background-color: var(--orange); color: var(--white); }
+    .badge-rose { background-color: var(--rose); color: var(--white); }
+    .badge-teal { background-color: var(--teal); color: var(--white); }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 30px 0;
+    }
+
+    .stat-card {
+      background: var(--bg-gray);
+      border: 1px solid var(--border-gray);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-card .stat-value {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .stat-card .stat-label {
+      font-size: 13px;
+      color: var(--light-gray);
+      margin-top: 6px;
+    }
+
+    .stat-card.blue { border-top: 3px solid var(--blue); }
+    .stat-card.green { border-top: 3px solid var(--green); }
+    .stat-card.purple { border-top: 3px solid var(--purple); }
+    .stat-card.orange { border-top: 3px solid var(--orange); }
+    .stat-card.rose { border-top: 3px solid var(--rose); }
+    .stat-card.teal { border-top: 3px solid var(--teal); }
+
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin: 24px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border-gray);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--black);
+      border: 2px solid var(--white);
+    }
+
+    .timeline-item .timeline-date {
+      font-size: 13px;
+      color: var(--light-gray);
+      font-weight: 600;
+    }
+
+    .timeline-item .timeline-content { margin-top: 4px; }
+
+    .tool-card {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      border: 1px solid var(--border-gray);
+      margin-bottom: 16px;
+    }
+
+    .tool-card-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--black);
+    }
+
+    .tool-card-content { flex: 1; }
+
+    .tool-card-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+
+    .tool-card-role {
+      font-size: 12px;
+      color: var(--light-gray);
+      margin-bottom: 8px;
+    }
+
+    .tool-card-desc {
+      font-size: 13px;
+      color: var(--medium-gray);
+      line-height: 1.7;
+    }
+
+    .tool-card.blue { background: var(--blue-light); border-left: 4px solid var(--blue); }
+    .tool-card.blue .tool-card-icon { background: var(--blue); }
+    .tool-card.green { background: var(--green-light); border-left: 4px solid var(--green); }
+    .tool-card.green .tool-card-icon { background: var(--green); }
+    .tool-card.purple { background: var(--purple-light); border-left: 4px solid var(--purple); }
+    .tool-card.purple .tool-card-icon { background: var(--purple); }
+    .tool-card.orange { background: var(--orange-light); border-left: 4px solid var(--orange); }
+    .tool-card.orange .tool-card-icon { background: var(--orange); }
+
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-gray);
+      font-size: 12px;
+      color: var(--light-gray);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- 커버 -->
+    <div class="cover">
+      <div class="cover-label">Meeting Minutes</div>
+      <h1 class="cover-title">데스커 SNS AI 자동화<br>프로젝트 협력 미팅</h1>
+      <div class="cover-subtitle">데스커(하파시스 그룹) &times; 클팀(에이전시) &mdash; AI 기반 SNS 운영 자동화 시스템 구축 협의</div>
+      <div class="cover-meta">2026년 4월 1일 (화) 14:00 ~ 14:37<br>녹취 기반 회의록</div>
+    </div>
+
+    <!-- 목차 -->
+    <div class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <div class="toc-item"><a href="#s1"><span class="toc-number">01</span> 회의 개요</a></div>
+      <div class="toc-item"><a href="#s2"><span class="toc-number">02</span> 프로젝트 배경 및 현황</a></div>
+      <div class="toc-item"><a href="#s3"><span class="toc-number">03</span> 요구 기능 범위</a></div>
+      <div class="toc-item"><a href="#s4"><span class="toc-number">04</span> 현재 개발 현황 (바이브코딩 프로토타입)</a></div>
+      <div class="toc-item"><a href="#s5"><span class="toc-number">05</span> 이미지/디자인 관련 논의</a></div>
+      <div class="toc-item"><a href="#s6"><span class="toc-number">06</span> 계약 형태 및 비용 구조</a></div>
+      <div class="toc-item"><a href="#s7"><span class="toc-number">07</span> 일정 및 Next Steps</a></div>
+      <div class="toc-item"><a href="#s8"><span class="toc-number">08</span> 핵심 합의 사항 및 액션 아이템</a></div>
+    </div>
+
+    <!-- Section 01: 회의 개요 -->
+    <div class="section" id="s1">
+      <div class="section-number">Section 01</div>
+      <h2 class="section-title">회의 개요</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card blue">
+          <div class="stat-value">37분</div>
+          <div class="stat-label">회의 시간</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-value">10+명</div>
+          <div class="stat-label">참석자</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-value">2개</div>
+          <div class="stat-label">대상 계정 (오피셜/디퍼)</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-value">~40%</div>
+          <div class="stat-label">현재 프로토타입 완성도</div>
+        </div>
+      </div>
+
+      <table>
+        <tr>
+          <th>구분</th>
+          <th>참석자(추정)</th>
+          <th>역할</th>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">데스커</span></td>
+          <td>화자 1 (상인님)</td>
+          <td>SNS 운영 실무, 바이브코딩 프로토타입 개발자</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">데스커</span></td>
+          <td>화자 2 (차장님)</td>
+          <td>AI 대시보드 담당, 프로젝트 총괄</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">클팀</span></td>
+          <td>화자 3 (부대표님)</td>
+          <td>클팀 부대표, 의사결정권자</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">클팀</span></td>
+          <td>화자 6</td>
+          <td>클팀 기술 담당 (블로그 자동화 등)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">클팀</span></td>
+          <td>화자 8</td>
+          <td>클팀 AI/개발팀 (뷰저블 개발 출신)</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">클팀</span></td>
+          <td>화자 9</td>
+          <td>클팀 기획/사업 담당</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-purple">기타</span></td>
+          <td>화자 4, 5, 7, 10~13</td>
+          <td>양측 실무진</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Section 02: 프로젝트 배경 -->
+    <div class="section" id="s2">
+      <div class="section-number">Section 02</div>
+      <h2 class="section-title">프로젝트 배경 및 현황</h2>
+
+      <h3 class="subsection-title">회사 상황</h3>
+      <p>하파시스 그룹(데스커 모기업)은 AI 도입에 매우 적극적인 기조를 보이고 있으며, 그중에서도 데스커가 그룹 내에서 가장 빠르게 움직이고 있다. 경영진은 <strong>AI로 대체 가능한 영역을 모두 대체</strong>하겠다는 방향성을 갖고 있으며, 바이브코딩을 포함한 AI 활용을 적극 권장하고 있다.</p>
+
+      <div class="highlight-box blue">
+        <p><strong>핵심 배경</strong></p>
+        <ul>
+          <li>그룹사 차원에서 SNS 에이전시 계약 구조가 변화 중</li>
+          <li>인하우스 전환 추진 &mdash; 사람 충원 대신 AI 자동화로 대체 모색</li>
+          <li>바이브코딩으로 내부 프로토타입을 만들었으나, 본업과 병행하며 개발하기 어려운 상황</li>
+          <li>클팀은 데스커 업무를 오래 담당해 온 에이전시로, 업무 이해도가 높아 파트너로 적합</li>
+        </ul>
+      </div>
+
+      <h3 class="subsection-title">프로젝트의 핵심 목표</h3>
+      <p>단순히 콘텐츠를 만드는 것이 아니라, <strong>SNS 운영의 시작부터 끝까지 전체 프로세스를 AI 에이전트로 자동화</strong>하는 것이 궁극적 목표이다.</p>
+
+      <!-- 프로세스 SVG -->
+      <svg width="820" height="320" viewBox="0 0 820 320" xmlns="http://www.w3.org/2000/svg" style="margin: 30px 0; display: block;">
+        <rect width="820" height="320" fill="#fafafa" rx="4"/>
+        <text x="410" y="30" text-anchor="middle" font-family="Noto Serif KR" font-size="16" font-weight="700" fill="#111">SNS 운영 전체 프로세스 (자동화 목표)</text>
+
+        <!-- Row 1 -->
+        <rect x="20" y="55" width="150" height="60" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="95" y="82" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#2563eb">1. 콘텐츠 취합</text>
+        <text x="95" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">팀 내 소식 수집</text>
+
+        <line x1="170" y1="85" x2="190" y2="85" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="190" y="55" width="150" height="60" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <text x="265" y="82" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#2563eb">2. 월별 스케줄링</text>
+        <text x="265" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">캘린더 / 플래너</text>
+
+        <line x1="340" y1="85" x2="360" y2="85" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="360" y="55" width="150" height="60" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+        <text x="435" y="82" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#059669">3. 콘텐츠 제작</text>
+        <text x="435" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">카피 + 이미지 생성</text>
+
+        <line x1="510" y1="85" x2="530" y2="85" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="530" y="55" width="130" height="60" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+        <text x="595" y="82" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#059669">4. Variation</text>
+        <text x="595" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">채널별 최적화</text>
+
+        <line x1="660" y1="85" x2="680" y2="85" stroke="#999" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+        <rect x="680" y="55" width="120" height="60" rx="4" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <text x="740" y="82" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#7c3aed">5. 컨펌/발행</text>
+        <text x="740" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">승인 후 게시</text>
+
+        <!-- Row 2 -->
+        <rect x="20" y="150" width="150" height="60" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="95" y="177" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#ea580c">6. 성과 분석</text>
+        <text x="95" y="195" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">메타 API 연동</text>
+
+        <rect x="190" y="150" width="150" height="60" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="265" y="177" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#ea580c">7. 댓글/DM 응대</text>
+        <text x="265" y="195" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">자동 초안 생성</text>
+
+        <rect x="360" y="150" width="150" height="60" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="435" y="177" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#ea580c">8. 이벤트 관리</text>
+        <text x="435" y="195" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">댓글 취합 / 당첨자</text>
+
+        <rect x="530" y="150" width="130" height="60" rx="4" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="595" y="177" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#0d9488">9. 자동 메일링</text>
+        <text x="595" y="195" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">취합 요청/리마인드</text>
+
+        <rect x="680" y="150" width="120" height="60" rx="4" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+        <text x="740" y="177" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#0d9488">10. 대시보드</text>
+        <text x="740" y="195" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">현황 모니터링</text>
+
+        <!-- Legend -->
+        <rect x="20" y="250" width="14" height="14" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+        <text x="40" y="262" font-family="Noto Sans KR" font-size="11" fill="#666">기획/취합</text>
+
+        <rect x="130" y="250" width="14" height="14" rx="2" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+        <text x="150" y="262" font-family="Noto Sans KR" font-size="11" fill="#666">제작</text>
+
+        <rect x="210" y="250" width="14" height="14" rx="2" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+        <text x="230" y="262" font-family="Noto Sans KR" font-size="11" fill="#666">발행</text>
+
+        <rect x="290" y="250" width="14" height="14" rx="2" fill="#fff7ed" stroke="#ea580c" stroke-width="1"/>
+        <text x="310" y="262" font-family="Noto Sans KR" font-size="11" fill="#666">운영/관리</text>
+
+        <rect x="410" y="250" width="14" height="14" rx="2" fill="#f0fdfa" stroke="#0d9488" stroke-width="1"/>
+        <text x="430" y="262" font-family="Noto Sans KR" font-size="11" fill="#666">자동화/알림</text>
+
+        <text x="410" y="300" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#999">* 대상 계정: 데스커 오피셜 + 디퍼(DIFFER) 계정</text>
+
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Section 03: 요구 기능 범위 -->
+    <div class="section" id="s3">
+      <div class="section-number">Section 03</div>
+      <h2 class="section-title">요구 기능 범위</h2>
+
+      <h3 class="subsection-title">대시보드 / 콘텐츠 관리</h3>
+      <table>
+        <tr>
+          <th>기능</th>
+          <th>상세 내용</th>
+          <th>우선순위</th>
+        </tr>
+        <tr>
+          <td>콘텐츠 현황 대시보드</td>
+          <td>월별 발행 계획 대비 진행 상태 (발행 완료 / 대기 / 컨펌 중 등) 한눈에 파악</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+        <tr>
+          <td>계정별 분리 관리</td>
+          <td>데스커 오피셜, 디퍼 계정을 분리하여 각각의 콘텐츠 파이프라인 관리</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+        <tr>
+          <td>담당자 배정 및 리마인더</td>
+          <td>콘텐츠별 담당자 지정, 매일 아침 "오늘 나가야 할 콘텐츠" 알림</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+        <tr>
+          <td>월별 스케줄링</td>
+          <td>캘린더 형태로 콘텐츠 발행 일정 관리 (기존 구글 플래너 대체)</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+      </table>
+
+      <h3 class="subsection-title">콘텐츠 제작 자동화</h3>
+      <table>
+        <tr>
+          <th>기능</th>
+          <th>상세 내용</th>
+          <th>우선순위</th>
+        </tr>
+        <tr>
+          <td>AI 콘텐츠 생성</td>
+          <td>자연어 입력 &rarr; 브랜드 가이드 기반 풀 콘텐츠(카피+이미지) 자동 생성</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+        <tr>
+          <td>브랜드 가이드 학습</td>
+          <td>데스커/디퍼 브랜드 어투, 톤앤매너, 디자인 가이드 학습 적용</td>
+          <td><span class="badge badge-high">최우선</span></td>
+        </tr>
+        <tr>
+          <td>템플릿 기반 이미지</td>
+          <td>디자인팀 제공 템플릿에 제품 이미지+카피+로고를 자동 배치</td>
+          <td><span class="badge badge-medium">중요</span></td>
+        </tr>
+        <tr>
+          <td>AI 배경 이미지 생성</td>
+          <td>제품 실사 이미지 유지 + 배경(공간/인테리어)을 AI로 생성</td>
+          <td><span class="badge badge-medium">중요</span></td>
+        </tr>
+        <tr>
+          <td>아이디어 제안 기능</td>
+          <td>미라(Mira) 서비스처럼 콘텐츠 아이디어를 자동 제안</td>
+          <td><span class="badge badge-low">희망</span></td>
+        </tr>
+      </table>
+
+      <h3 class="subsection-title">운영 자동화</h3>
+      <table>
+        <tr>
+          <th>기능</th>
+          <th>상세 내용</th>
+          <th>우선순위</th>
+        </tr>
+        <tr>
+          <td>자동 메일링 (취합 요청)</td>
+          <td>전월 20일 자동으로 관련자에게 콘텐츠 소재 취합 요청 메일 발송</td>
+          <td><span class="badge badge-medium">중요</span></td>
+        </tr>
+        <tr>
+          <td>컨펌 메일링</td>
+          <td>최종 담당자에게 콘텐츠 컨펌 요청 자동 발송</td>
+          <td><span class="badge badge-medium">중요</span></td>
+        </tr>
+        <tr>
+          <td>메타 성과 데이터 연동</td>
+          <td>메타 API 통해 성과 데이터 자동 수집 (현재 가능 확인됨)</td>
+          <td><span class="badge badge-medium">중요</span></td>
+        </tr>
+        <tr>
+          <td>댓글/DM 자동 응대 초안</td>
+          <td>컨택센터 기존 답변 DB 기반 자동 응대 초안 생성</td>
+          <td><span class="badge badge-low">검토 필요</span></td>
+        </tr>
+        <tr>
+          <td>이벤트 댓글 취합/당첨자 선정</td>
+          <td>이벤트 댓글 자동 수집 및 당첨자 추출</td>
+          <td><span class="badge badge-low">희망</span></td>
+        </tr>
+      </table>
+
+      <div class="highlight-box orange">
+        <p><strong>자동 업로드에 대한 합의</strong></p>
+        <p>SNS 채널 직접 업로드 자동화는 계정 차단/밴 위험이 있어 <strong>제외</strong>. 대신 구글 스프레드시트 등에 콘텐츠를 자동 축적하고, 담당자가 복사-붙여넣기로 수동 게시하는 방식으로 합의. 브랜드 자산 보호가 최우선.</p>
+      </div>
+    </div>
+
+    <!-- Section 04: 현재 개발 현황 -->
+    <div class="section" id="s4">
+      <div class="section-number">Section 04</div>
+      <h2 class="section-title">현재 개발 현황 (바이브코딩 프로토타입)</h2>
+
+      <p>데스커 내부에서 상인님이 Claude Code(바이브코딩)를 활용해 약 <strong>40% 미만</strong> 수준의 프로토타입을 개발한 상태이다. 차장님이 해당 폴더를 인수받아 Claude Code로 구조를 분석하여 파악하였다.</p>
+
+      <h3 class="subsection-title">프로토타입 에이전트 구조</h3>
+
+      <!-- 에이전트 구조 SVG -->
+      <svg width="820" height="280" viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg" style="margin: 20px 0; display: block;">
+        <rect width="820" height="280" fill="#fafafa" rx="4"/>
+        <text x="410" y="30" text-anchor="middle" font-family="Noto Serif KR" font-size="15" font-weight="700" fill="#111">AI 에이전트 아키텍처 (프로토타입)</text>
+
+        <!-- 에이전트 (팀장) -->
+        <rect x="310" y="50" width="200" height="50" rx="4" fill="#7c3aed" stroke="#7c3aed"/>
+        <text x="410" y="72" text-anchor="middle" font-family="Noto Sans KR" font-size="13" font-weight="700" fill="#fff">Agent (팀장 역할)</text>
+        <text x="410" y="90" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#e8e0ff">전체 워크플로우 오케스트레이션</text>
+
+        <!-- Lines down -->
+        <line x1="340" y1="100" x2="340" y2="130" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="410" y1="100" x2="410" y2="130" stroke="#ccc" stroke-width="1.5"/>
+        <line x1="480" y1="100" x2="480" y2="130" stroke="#ccc" stroke-width="1.5"/>
+
+        <!-- Skills (실무) -->
+        <rect x="50" y="130" width="160" height="45" rx="4" fill="#2563eb" stroke="#2563eb"/>
+        <text x="130" y="150" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#fff">Skill: 카피 작성</text>
+        <text x="130" y="166" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#bfdbfe">콘텐츠 원고 생성</text>
+
+        <rect x="230" y="130" width="160" height="45" rx="4" fill="#2563eb" stroke="#2563eb"/>
+        <text x="310" y="150" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#fff">Skill: 이미지 생성</text>
+        <text x="310" y="166" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#bfdbfe">템플릿 기반 에셋</text>
+
+        <rect x="410" y="130" width="160" height="45" rx="4" fill="#2563eb" stroke="#2563eb"/>
+        <text x="490" y="150" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#fff">Skill: 검수 요청</text>
+        <text x="490" y="166" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#bfdbfe">컨펌 프로세스</text>
+
+        <rect x="590" y="130" width="180" height="45" rx="4" fill="#2563eb" stroke="#2563eb"/>
+        <text x="680" y="150" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#fff">Skill: 캘린더 관리</text>
+        <text x="680" y="166" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#bfdbfe">현황 대시보드</text>
+
+        <!-- Lines to skills -->
+        <line x1="340" y1="100" x2="130" y2="130" stroke="#ccc" stroke-width="1"/>
+        <line x1="340" y1="100" x2="310" y2="130" stroke="#ccc" stroke-width="1"/>
+        <line x1="480" y1="100" x2="490" y2="130" stroke="#ccc" stroke-width="1"/>
+        <line x1="480" y1="100" x2="680" y2="130" stroke="#ccc" stroke-width="1"/>
+
+        <!-- Rules (브랜드 룰) -->
+        <rect x="50" y="210" width="230" height="50" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="165" y="232" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#ea580c">Rule: 브랜드 가이드</text>
+        <text x="165" y="250" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">어투, 톤앤매너, 금지 표현 등</text>
+
+        <rect x="300" y="210" width="230" height="50" rx="4" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+        <text x="415" y="232" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#ea580c">Rule: 브랜드 위키</text>
+        <text x="415" y="250" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">제품 정보, 레퍼런스 데이터</text>
+
+        <rect x="550" y="210" width="220" height="50" rx="4" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5"/>
+        <text x="660" y="232" text-anchor="middle" font-family="Noto Sans KR" font-size="12" font-weight="700" fill="#e11d48">Rule: 보호 규칙</text>
+        <text x="660" y="250" text-anchor="middle" font-family="Noto Sans KR" font-size="10" fill="#666">프로덕트 폴더 수정 금지 등</text>
+
+        <!-- Connecting lines -->
+        <line x1="130" y1="175" x2="165" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="310" y1="175" x2="165" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="310" y1="175" x2="415" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="490" y1="175" x2="415" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4"/>
+        <line x1="680" y1="175" x2="660" y2="210" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4"/>
+      </svg>
+
+      <div class="highlight-box purple">
+        <p><strong>프로토타입에서 확인된 구현 사항</strong></p>
+        <ul>
+          <li><strong>에이전트 = 팀장</strong>: 전체 워크플로우를 관장하는 오케스트레이터</li>
+          <li><strong>스킬 = 실무자</strong>: 카피 작성, 이미지 합성, 검수 요청 등 개별 기능</li>
+          <li><strong>룰 = 브랜드 가이드</strong>: 브랜드 위키, 제품 레퍼런스, 디자인 규칙 등</li>
+          <li>피그마 연동, 구글 계정 연동, 이미지 자동 생성까지 구현 시도</li>
+          <li>브랜드 가이드(어미, 어투, 단어 사용 규칙)가 코딩 파일로 학습됨</li>
+          <li>"프로덕트 폴더는 절대 건들지 마" 등 보호 룰 설정</li>
+        </ul>
+      </div>
+
+      <h3 class="subsection-title">현재 한계점</h3>
+      <ul>
+        <li>디자인 품질이 만족스럽지 못함 &mdash; 디자인팀과 인하우스 간 인식 간극</li>
+        <li>수정 작업에 사람 손이 많이 들어감</li>
+        <li>메타 API 직접 연동 시 30분마다 토큰 갱신 필요 &rarr; 브랜드워치 등 간접 연동 고려</li>
+        <li>이미지 AI 생성은 로고/텍스트 렌더링 문제로 어려움</li>
+        <li>본업 병행으로 개발 지속 불가</li>
+      </ul>
+    </div>
+
+    <!-- Section 05: 이미지/디자인 -->
+    <div class="section" id="s5">
+      <div class="section-number">Section 05</div>
+      <h2 class="section-title">이미지/디자인 관련 논의</h2>
+
+      <h3 class="subsection-title">합의된 접근 방식</h3>
+
+      <div class="tool-card blue">
+        <div class="tool-card-icon">T</div>
+        <div class="tool-card-content">
+          <div class="tool-card-name">템플릿 기반 접근 <span class="badge badge-blue">1차 방향</span></div>
+          <div class="tool-card-role">디자인팀 제작 템플릿 + AI 콘텐츠 합성</div>
+          <div class="tool-card-desc">디자인팀이 다양한 템플릿을 제작하고, AI가 제품 이미지 + 카피 + 로고를 자동으로 배치. 완전한 AI 이미지 생성이 아닌, 기존 에셋을 활용한 조합 방식. 로고/텍스트 렌더링 오류 위험 없음.</div>
+        </div>
+      </div>
+
+      <div class="tool-card green">
+        <div class="tool-card-icon">B</div>
+        <div class="tool-card-content">
+          <div class="tool-card-name">AI 배경 생성 <span class="badge badge-green">추가 가능</span></div>
+          <div class="tool-card-role">제품 유지 + 배경 변환</div>
+          <div class="tool-card-desc">데스커 제품 실사 이미지를 유지하면서 배경(인테리어, 공간 등)만 AI로 변경. 체험단 이미지 스타일의 "데스크테리어" 이미지 생성. 클팀에서 충분히 가능하다고 확인.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box rose">
+        <p><strong>디자인팀과의 간극</strong></p>
+        <p>AI로 만든 콘텐츠에 대해 디자인팀 일부에서 "데스커답지 않다"는 의견. 데스커 제품이 간결하고 단조로운 특성 때문에 에셋 소스 자체가 부족한 근본적 문제도 있음. 디자인팀이 직접 템플릿을 만들어 제공하는 방향으로 해소 예정.</p>
+      </div>
+    </div>
+
+    <!-- Section 06: 계약 형태 -->
+    <div class="section" id="s6">
+      <div class="section-number">Section 06</div>
+      <h2 class="section-title">계약 형태 및 비용 구조</h2>
+
+      <h3 class="subsection-title">데스커 측 구상</h3>
+      <p>기존 SNS 운영 에이전시 계약이 아닌 <strong>"AI 프로그램 구축 및 유지보수 계약"</strong>으로 재정의. 학습된 폴더(에이전트 시스템)를 하나의 프로그램으로 보고 납품받는 형태.</p>
+
+      <!-- 계약 구조 SVG -->
+      <svg width="820" height="220" viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg" style="margin: 20px 0; display: block;">
+        <rect width="820" height="220" fill="#fafafa" rx="4"/>
+        <text x="410" y="30" text-anchor="middle" font-family="Noto Serif KR" font-size="15" font-weight="700" fill="#111">계약 구조 (안)</text>
+
+        <!-- Phase 1: 구축 -->
+        <rect x="40" y="55" width="220" height="80" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <text x="150" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="14" font-weight="700" fill="#2563eb">Phase 1. 구축</text>
+        <text x="150" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">에이전트 시스템 개발</text>
+        <text x="150" y="118" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">브랜드 학습 / 템플릿 구축</text>
+
+        <text x="290" y="95" text-anchor="middle" font-family="Noto Sans KR" font-size="20" fill="#ccc">&rarr;</text>
+
+        <!-- Phase 2: POC -->
+        <rect x="310" y="55" width="200" height="80" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+        <text x="410" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="14" font-weight="700" fill="#059669">Phase 2. POC</text>
+        <text x="410" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">만족스러운 결과물 검증</text>
+        <text x="410" y="118" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">경영진 보고 기준 충족</text>
+
+        <text x="540" y="95" text-anchor="middle" font-family="Noto Sans KR" font-size="20" fill="#ccc">&rarr;</text>
+
+        <!-- Phase 3: 유지보수 -->
+        <rect x="560" y="55" width="220" height="80" rx="4" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+        <text x="670" y="80" text-anchor="middle" font-family="Noto Sans KR" font-size="14" font-weight="700" fill="#7c3aed">Phase 3. 유지보수</text>
+        <text x="670" y="100" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">지속적 학습/업데이트</text>
+        <text x="670" y="118" text-anchor="middle" font-family="Noto Sans KR" font-size="11" fill="#666">분기별 갱신 또는 구독형</text>
+
+        <!-- 비용 구조 -->
+        <rect x="40" y="160" width="220" height="40" rx="4" fill="#fff" stroke="#2563eb" stroke-width="1"/>
+        <text x="150" y="185" text-anchor="middle" font-family="Noto Sans KR" font-size="12" fill="#2563eb">초기 구축비 (선금)</text>
+
+        <rect x="310" y="160" width="200" height="40" rx="4" fill="#fff" stroke="#059669" stroke-width="1"/>
+        <text x="410" y="185" text-anchor="middle" font-family="Noto Sans KR" font-size="12" fill="#059669">POC 결과 기반 조정</text>
+
+        <rect x="560" y="160" width="220" height="40" rx="4" fill="#fff" stroke="#7c3aed" stroke-width="1"/>
+        <text x="670" y="185" text-anchor="middle" font-family="Noto Sans KR" font-size="12" fill="#7c3aed">유지보수비 (잔금 누적)</text>
+      </svg>
+
+      <h3 class="subsection-title">비용 지불 방식 논의</h3>
+      <table>
+        <tr>
+          <th>방식</th>
+          <th>내용</th>
+          <th>데스커 선호도</th>
+        </tr>
+        <tr>
+          <td>일시불 구축비</td>
+          <td>초기 구축비를 한 번에 지불하고 프로그램(폴더) 납품</td>
+          <td><span class="badge badge-green">선호</span> (재경적으로 편함)</td>
+        </tr>
+        <tr>
+          <td>구독형 월정액</td>
+          <td>매달 유지보수비를 정기 지급</td>
+          <td><span class="badge badge-orange">검토 가능</span></td>
+        </tr>
+        <tr>
+          <td>분기별 갱신</td>
+          <td>분기마다 프로그램 갱신 계약</td>
+          <td><span class="badge badge-orange">검토 가능</span></td>
+        </tr>
+        <tr>
+          <td>선금 + 잔금 누적</td>
+          <td>초기 구축비 선금 후, 유지보수비 누적 잔금 정산</td>
+          <td><span class="badge badge-green">실무 선호</span></td>
+        </tr>
+      </table>
+
+      <div class="highlight-box teal">
+        <p><strong>결과물 납품 형태</strong></p>
+        <p>"학습된 폴더"를 하나의 프로그램으로 간주하여 납품. 소스코드/에이전트 시스템 전체를 폴더 형태로 전달. 일부 에이전시에서는 이러한 결과물에 대해 제한(판권)을 두는 사례도 있다는 언급이 있었으며, 클팀 내부에서 별도 검토 예정.</p>
+      </div>
+    </div>
+
+    <!-- Section 07: 일정 -->
+    <div class="section" id="s7">
+      <div class="section-number">Section 07</div>
+      <h2 class="section-title">일정 및 Next Steps</h2>
+
+      <h3 class="subsection-title">목표 일정</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2026년 Q2 (4~6월) &mdash; POC 및 의사결정</div>
+          <div class="timeline-content">
+            <p>업무 범위 확정 &rarr; 1차 가격 견적 &rarr; 범위 조정 &rarr; 브랜드 학습 시작</p>
+            <p>분기 안에 결론을 내고 테스트 돌려보는 것이 목표</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2026년 Q3 (7~9월) &mdash; 완성 및 본격 운영</div>
+          <div class="timeline-content">
+            <p>시스템 완성 &rarr; 실 운영 적용 &rarr; 경영진 보고</p>
+            <p>디퍼 계정 및 추가 채널(Threads 등)로 확장 검토</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">이후 &mdash; 확산</div>
+          <div class="timeline-content">
+            <p>성공 시 그룹사 내 다른 브랜드로 확대 가능</p>
+            <p>클팀 측 사업 레퍼런스로 활용 가능 (데스커 측 동의)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>데스커 내부 상황</strong></p>
+        <p>부사장님께 지속적으로 결과물을 보고하고 있는 상황. 바이브코딩 시연으로 "뭔가 진행되고 있다"는 인식은 확보. 분기 내 구체적 결과물이 필요한 상황.</p>
+      </div>
+    </div>
+
+    <!-- Section 08: 핵심 합의 및 액션 아이템 -->
+    <div class="section" id="s8">
+      <div class="section-number">Section 08</div>
+      <h2 class="section-title">핵심 합의 사항 및 액션 아이템</h2>
+
+      <h3 class="subsection-title">핵심 합의 사항</h3>
+      <div class="highlight-box green">
+        <ul>
+          <li><strong>양측 모두 협업 의지 확인</strong> &mdash; 클팀 부대표 "무조건 같이 작업하는 건 의미 있다", 데스커 "레퍼런스로 쓰셔도 된다"</li>
+          <li><strong>계약 형태</strong>: SNS 운영 계약이 아닌, AI 프로그램 구축/유지보수 계약</li>
+          <li><strong>자동 업로드 제외</strong>: 계정 차단 위험으로 스프레드시트 축적 &rarr; 수동 게시</li>
+          <li><strong>이미지 방향</strong>: 완전 AI 생성이 아닌 템플릿 기반 + 배경 생성 병행</li>
+          <li><strong>클팀의 강점</strong>: 데스커 업무 이해도 + 개발 역량(뷰저블 개발팀 보유)</li>
+          <li><strong>데스커가 레퍼런스 사례 제공에 동의</strong></li>
+        </ul>
+      </div>
+
+      <h3 class="subsection-title">클팀 액션 아이템</h3>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>액션 아이템</th>
+          <th>담당</th>
+          <th>비고</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>전체 업무 범위 설계서 작성 (어디까지 자동화 가능한지 정리)</td>
+          <td>클팀 전체</td>
+          <td>현재 SNS 운영 프로세스 A~Z 기준</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>기능별 구현 가능 여부 및 난이도 평가</td>
+          <td>개발팀 (화자 8)</td>
+          <td>완전 자동화 / 부분 자동화 / 불가 구분</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>1차 가격 견적서 제출</td>
+          <td>화자 9 + 개발팀</td>
+          <td>구축비 + 유지보수비 분리 산출</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>개발 일정(안) 수립</td>
+          <td>클팀 전체</td>
+          <td>POC &rarr; 본 구축 &rarr; 운영 단계별</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>소스코드/폴더 납품의 판권/저작권 구조 내부 검토</td>
+          <td>클팀 경영진</td>
+          <td>계약 형태와 연계</td>
+        </tr>
+      </table>
+
+      <h3 class="subsection-title">데스커 액션 아이템</h3>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>액션 아이템</th>
+          <th>담당</th>
+          <th>비고</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>기존 프로토타입 폴더 정리 및 클팀 전달</td>
+          <td>차장님</td>
+          <td>상인님 개발분 + 추가 학습 데이터</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>디자인팀과 템플릿 제작 방향 협의</td>
+          <td>상인님 + 디자인팀</td>
+          <td>AI 적용 가능한 템플릿 규격 정의</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>디퍼 계정 브랜드 가이드 정리</td>
+          <td>담당자</td>
+          <td>오피셜과 별도로 정리 필요</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>컨택센터 기존 답변 DB 제공 여부 확인</td>
+          <td>관련부서</td>
+          <td>DM 자동응대용</td>
+        </tr>
+      </table>
+
+      <h3 class="subsection-title">양측 공통 과제</h3>
+      <div class="highlight-box blue">
+        <ul>
+          <li>클팀 견적 제출 후 범위/비용 조정 미팅 진행</li>
+          <li>브랜드 학습 데이터 범위 및 양 확정</li>
+          <li>Q2 내 POC 수행 일정 확정</li>
+          <li>성공 시 그룹사 확산 시나리오 별도 논의</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+      본 회의록은 녹취 스크립트 기반으로 작성되었습니다.<br>
+      참석자 구분은 화자 번호 기준 추정이며, 실제와 다를 수 있습니다.<br>
+      2026년 4월 1일
+    </div>
+
+  </div>
+</body>
+</html>
