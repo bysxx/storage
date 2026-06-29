@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="패션근육 특화 분할 — 측면델트›전완›등상부›삼두, 하체 최소. 종목·세트·횟수·강도·폼영상을 한 화면에. 월·수·금 워크아웃 가이드.">
+<meta name="description" content="패션근육 특화 분할 — 측면델트›전완›등상부›삼두, 가슴·하체 최소. 종목·세트·횟수·강도·한국어 폼 쇼츠를 한 화면에. 월·수·금 워크아웃 가이드.">
 <title>패션근육 분할 · 워크아웃</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,10 +30,10 @@ header{padding:34px 0 12px}
 .kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
 h1{font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--ink)}
 .sub{color:var(--muted);font-size:13.5px;margin-top:7px;font-weight:500}
-.prio{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.prio{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;align-items:center}
 .prio span{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
 .prio span.s1{background:var(--ink);color:#fff;border-color:var(--ink)}
-.prio b{color:var(--faint);font-weight:700;margin:0 1px}
+.prio b{color:var(--faint);font-weight:700}
 
 /* rules accordion */
 .rules{border:1px solid var(--border);border-radius:14px;margin:18px 0 2px;overflow:hidden}
@@ -85,15 +85,16 @@ h1{font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--ink)}
 .tip{font-size:12.5px;color:var(--muted);margin-top:11px;padding-left:11px;border-left:2px solid var(--line);font-weight:500}
 .tip .star{color:var(--ink);font-weight:700}
 
-/* video facade */
-.video{position:relative;margin-top:12px;border-radius:11px;overflow:hidden;background:var(--surface2);aspect-ratio:16/9;cursor:pointer}
+/* video facade — vertical shorts */
+.video{position:relative;margin:12px auto 0;border-radius:12px;overflow:hidden;background:#18181b;aspect-ratio:9/16;max-width:296px;cursor:pointer}
 .video img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.02);transition:.2s}
 .video:hover img{filter:grayscale(0)}
-.video .play{position:absolute;inset:0;margin:auto;width:54px;height:54px;border:0;border-radius:50%;
-  background:rgba(24,24,27,.78);display:grid;place-items:center;cursor:pointer}
-.video .play::after{content:"";border-left:17px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
-.video .lbl{position:absolute;left:9px;bottom:8px;font-size:10.5px;font-weight:600;color:#fff;
-  background:rgba(24,24,27,.72);padding:3px 8px;border-radius:6px}
+.video .play{position:absolute;inset:0;margin:auto;width:56px;height:56px;border:0;border-radius:50%;
+  background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 18px -4px rgba(0,0,0,.5)}
+.video .play::after{content:"";border-left:18px solid var(--ink);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.video .lbl{position:absolute;left:9px;bottom:9px;font-size:10.5px;font-weight:600;color:#fff;
+  background:rgba(24,24,27,.78);padding:3px 8px;border-radius:6px;max-width:calc(100% - 18px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.video .sh{position:absolute;right:9px;top:9px;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--ink);background:#fff;padding:3px 7px;border-radius:6px}
 .video iframe{width:100%;height:100%;border:0;display:block}
 
 /* set dots */
@@ -132,7 +133,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
   <header>
     <div class="kicker">Workout Guide</div>
     <h1>패션근육 분할</h1>
-    <div class="sub">측면델트 우선 · 전완 강화 · 하체 최소 — 월·수·금</div>
+    <div class="sub">측면델트 우선 · 전완 강화 · 가슴·하체 최소 — 월·수·금</div>
     <div class="prio">
       <span class="s1">측면델트</span><b>›</b>
       <span>전완</span><b>›</b>
@@ -145,9 +146,10 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
     <summary>공통 규칙<span class="chev">▾</span></summary>
     <div class="body">
       <div class="rule"><span class="em">강도</span><div><b>복합 1~2 RIR / 고립은 실패+부분반복.</b> 측면델트·전완 같은 소근육은 실패까지, 프레스·로우는 1~2개 남겨 관절 보호.</div></div>
-      <div class="rule"><span class="em">과부하</span><div><b>더블 프로그레션.</b> 범위 상단을 모든 세트에서 치면 무게 ↑. <b>전완·리스트컬도 꼭 기록</b>해서 매주 올림 — 안 그러면 전완은 안 큼.</div></div>
-      <div class="rule"><span class="em">전완</span><div>3갈래 다 침: <b>해머/리버스컬</b>(윗두께·상완요골근) + <b>리스트컬</b>(안쪽 굴근) + <b>리버스 리스트컬</b>(바깥 신근). 고반복(15~20)·고빈도 OK.</div></div>
-      <div class="rule"><span class="em">빈도</span><div>측면델트·전완·등 <b>주3회</b>(회복 빠름), 삼두·이두 주2회. 월·금 거의 동일(삼두만 변형), 수는 변형일.</div></div>
+      <div class="rule"><span class="em">볼륨</span><div>부위별 <b>주간 MAV</b> 맞춤(측면델트~16·전완~17·등~12·삼두~10). 비우선(가슴·하체)은 최소 유지. <b>한 무게에 2~4주</b>는 정상.</div></div>
+      <div class="rule"><span class="em">과부하</span><div><b>더블 프로그레션.</b> 범위 상단을 모든 세트에서 치면 무게 ↑. <b>전완·리스트컬도 꼭 기록</b>해서 매주 올림.</div></div>
+      <div class="rule"><span class="em">전완</span><div>3갈래 다 침: <b>해머/리버스컬</b>(상완요골근) + <b>리스트컬</b>(굴근) + <b>리버스 리스트컬</b>(신근). 고반복·고빈도 OK.</div></div>
+      <div class="rule"><span class="em">빈도</span><div>측면델트·전완·등 <b>주3회</b>, 삼두·가슴 주2회. 월·금 거의 동일(삼두만 변형), 수는 변형일.</div></div>
       <div class="rule"><span class="em">디로드</span><div><b>5~7주에 1주</b> — 세트 절반 + 여유 있게. 피로만 리셋.</div></div>
       <div class="rule"><span class="em">영양</span><div>유지 <b>+200~300kcal</b>, 단백질 <b>2g/kg</b>. 유지칼로리에선 과부하 한계.</div></div>
     </div>
@@ -166,8 +168,8 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
   <button class="reset" id="reset">오늘(이 날) 체크 초기화</button>
 
   <footer>
-    측면델트 스트레치/수축 분리 · Maeo 2023(삼두 오버헤드) · 전완 3갈래 직접자극<br>
-    폼 영상은 각 채널 저작권. 통증·부상은 자세 먼저 점검하고 무리 말 것.
+    볼륨 Pelland 2024 · RIR Refalo/Robinson 2024 · 삼두 오버헤드 Maeo 2023<br>
+    폼 영상: 한국 유튜버 쇼츠 (각 채널 저작권). 통증·부상은 자세 먼저 점검하고 무리 말 것.
   </footer>
 </div>
 
@@ -189,33 +191,35 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
 
 <script>
 const ROUTINE = {
-  mon:{d:"월", t:"메인", sub:"측면델트·등·삼두·전완", ex:[
-    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"케이블을 몸 앞으로 가로질러 — 늘어난 구간에서 장력 유지. 1순위, 볼륨 몰빵.", v:"qitQHqNZbeM"},
-    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:3, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"팔로 당기지 말고 견갑을 끝까지 모았다 풀기. 등 두께·뒤태.", v:"FU6YQawma2Q"},
-    {nm:"삼두 오버헤드 익스텐션", en:"Overhead Triceps Extension", sets:3, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔을 머리 위로 — 장두 스트레치(Maeo 1.4배).", v:"1657VVZi0Ms"},
-    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"중립그립 — 상완요골근(전완 윗두께) + 이두 동시. 가성비 甲. ★", v:"zC3nLlEvin4"},
-    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"손바닥 위로, 손목만 말아올림. 전완 안쪽 볼륨. 무게 기록해 과부하. ★", v:"qMtmHwaCmYI"},
-    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"K5n2vg3oZa4"},
+  mon:{d:"월", t:"메인", sub:"측면델트·등·가슴·삼두·전완", ex:[
+    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:5, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"케이블을 몸 앞으로 가로질러 — 늘어난 구간 장력 유지. 1순위, 볼륨 몰빵.", v:"4hrf6PuPVgE", ch:"헬쌤"},
+    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:4, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"팔로 당기지 말고 견갑을 끝까지 모았다 풀기. 등 두께·뒤태.", v:"Pt9SsmK7Y_c", ch:"쇠질인생"},
+    {nm:"인클라인 덤벨 프레스", en:"Incline DB Press", sets:3, reps:"8–12", rir:"1–2", mus:"가슴", fa:0, min:1, tip:"가슴 최소 유지(맨몸 핏 보완). 깊게 내려 스트레치.", v:"o0RrsRC47RY", ch:"육체미 빅터"},
+    {nm:"삼두 오버헤드 익스텐션", en:"Overhead Triceps Extension", sets:4, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔을 머리 위로 — 장두 스트레치(Maeo 1.4배).", v:"g-KpdznbYwQ", ch:"명민정"},
+    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"중립그립 — 상완요골근(전완 윗두께) + 이두 동시. ★", v:"G3erEXi3bGg", ch:"피지컬뷰티"},
+    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"손바닥 위로, 손목만 말아올림. 전완 안쪽 볼륨. 기록해 과부하. ★", v:"DwPA31mKiFI", ch:"피지컬뷰티"},
+    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"E0Gf13U7bVY", ch:"서울예스병원"},
   ]},
   wed:{d:"수", t:"변형", sub:"프레스·너비·이두·전완", ex:[
-    {nm:"오버헤드 프레스", en:"Overhead Press", sets:3, reps:"6–10", rir:"1–2", mus:"어깨", fa:0, tip:"코어 단단히 조이고 풀가동. 허리 과신전 금지.", v:"F3QY5vMz_6I"},
-    {nm:"덤벨 레터럴 레이즈", en:"DB Lateral Raise · 수축", sets:3, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"맨 위 수축 강조(새끼손가락 살짝 위로). 스트레치판과 짝.", v:"3VcKaXpzqRo"},
-    {nm:"랫풀다운", en:"Lat Pulldown", sets:3, reps:"10–12", rir:"1–2", mus:"광배", fa:0, tip:"광배 너비용. 견갑을 내리며 당겨 V-테이퍼.", v:"CAwf7n6Luuc"},
-    {nm:"바벨 컬", en:"Barbell Curl", sets:3, reps:"8–12", rir:"0–1", mus:"이두", fa:0, tip:"반동 없이. 내릴 때 천천히 버티기.", v:"QZEqB6wUPxQ"},
-    {nm:"리버스 컬", en:"Reverse Curl", sets:3, reps:"12–15", rir:"0–1", mus:"전완·신근", fa:1, tip:"오버그립(손등 위) — 상완요골근 + 전완 신근. 윗두께 3번째 자극. ★", v:"didEQUuieRQ"},
-    {nm:"리버스 리스트 컬", en:"Reverse Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 신근", fa:1, tip:"손등 위로 들어올림. 바깥쪽·균형·팔꿈치 건강. ★", v:"sDXAYbrWO1Q"},
+    {nm:"오버헤드 프레스", en:"Overhead Press", sets:3, reps:"6–10", rir:"1–2", mus:"어깨", fa:0, tip:"코어 단단히 조이고 풀가동. 허리 과신전 금지.", v:"f_syArBFPm8", ch:"퍼스트 피지오"},
+    {nm:"덤벨 레터럴 레이즈", en:"DB Lateral Raise · 수축", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"맨 위 수축 강조. 승모근 개입 없이.", v:"1HhMAvo9zTg", ch:"홈블리 FITVELY"},
+    {nm:"랫풀다운", en:"Lat Pulldown", sets:4, reps:"10–12", rir:"1–2", mus:"광배", fa:0, tip:"광배 너비용. 견갑을 내리며 당겨 V-테이퍼.", v:"fai7ppeU1do", ch:"마순호"},
+    {nm:"바벨 컬", en:"Barbell Curl", sets:4, reps:"8–12", rir:"0–1", mus:"이두", fa:0, tip:"반동 없이. 내릴 때 천천히 버티기.", v:"_AaVfJAkUrw", ch:"양선수 YangPT"},
+    {nm:"리버스 컬", en:"Reverse Curl", sets:3, reps:"12–15", rir:"0–1", mus:"전완·신근", fa:1, tip:"오버그립(손등 위) — 상완요골근 + 전완 신근. 니파드 추천. ★", v:"3zQFZDrkTF4", ch:"쇠질인생"},
+    {nm:"리버스 리스트 컬", en:"Reverse Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 신근", fa:1, tip:"손등 위로 들어올림. 바깥쪽·균형·팔꿈치 건강. ★", v:"YpI-g8NWNNY", ch:"알쓸참본"},
   ]},
-  fri:{d:"금", t:"메인", sub:"측면델트·등·삼두·전완", ex:[
-    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"몸 앞 가로질러 스트레치. 측면델트 주3번째 — 1순위라 볼륨 몰빵.", v:"qitQHqNZbeM"},
-    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:3, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"견갑 끝까지 모으기. 등 두께·뒤태 라인.", v:"FU6YQawma2Q"},
-    {nm:"트라이셉 푸시다운", en:"Triceps Pushdown", sets:3, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔꿈치 고정. 끝에 부분반복으로 털기. (월 오버헤드와 변형)", v:"i14hrj7l7CI"},
-    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"전완 윗두께 2번째 자극. 무게 기록해 과부하. ★", v:"zC3nLlEvin4"},
-    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"굴근 2번째. 전완은 과부하 안 하면 절대 안 큼. ★", v:"qMtmHwaCmYI"},
-    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"K5n2vg3oZa4"},
+  fri:{d:"금", t:"메인", sub:"측면델트·등·가슴·삼두·전완", ex:[
+    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:5, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"몸 앞 가로질러 스트레치. 측면델트 주3번째 — 1순위라 볼륨 몰빵.", v:"4hrf6PuPVgE", ch:"헬쌤"},
+    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:4, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"견갑 끝까지 모으기. 등 두께·뒤태 라인.", v:"Pt9SsmK7Y_c", ch:"쇠질인생"},
+    {nm:"인클라인 덤벨 프레스", en:"Incline DB Press", sets:3, reps:"8–12", rir:"1–2", mus:"가슴", fa:0, min:1, tip:"가슴 최소 유지. 깊게 내려 스트레치.", v:"o0RrsRC47RY", ch:"육체미 빅터"},
+    {nm:"트라이셉 푸시다운", en:"Triceps Pushdown", sets:4, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔꿈치 고정. 끝에 부분반복으로 털기. (월 오버헤드와 변형)", v:"94Hqm8rVVAE", ch:"닥터핏24"},
+    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"전완 윗두께 2번째 자극. 무게 기록해 과부하. ★", v:"G3erEXi3bGg", ch:"피지컬뷰티"},
+    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"굴근 2번째. 전완은 과부하 안 하면 절대 안 큼. ★", v:"DwPA31mKiFI", ch:"피지컬뷰티"},
+    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"E0Gf13U7bVY", ch:"서울예스병원"},
   ]},
 };
 
-const KEY="compound-fashion-v1";
+const KEY="compound-fashion-v2";
 const store=JSON.parse(localStorage.getItem(KEY)||"{}");
 const save=()=>localStorage.setItem(KEY,JSON.stringify(store));
 let cur="mon";
@@ -269,9 +273,10 @@ function render(){
       </div>
       <div class="tip">${tip}</div>
       <div class="video" data-v="${x.v}">
-        <img loading="lazy" src="https://i.ytimg.com/vi/${x.v}/hqdefault.jpg" alt="${x.nm} 폼 영상">
+        <img loading="lazy" src="https://i.ytimg.com/vi/${x.v}/oar2.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/${x.v}/hqdefault.jpg'" alt="${x.nm} 폼 쇼츠">
+        <span class="sh">SHORTS</span>
         <button class="play" aria-label="영상 재생"></button>
-        <span class="lbl">▶ 폼 영상</span>
+        <span class="lbl">▶ ${x.ch}</span>
       </div>
       <div class="sets"><span class="lab">세트</span>${dots}</div>`;
     listEl.appendChild(card);
@@ -291,7 +296,7 @@ function render(){
   listEl.querySelectorAll(".video").forEach(v=>{
     v.onclick=()=>{
       const id=v.dataset.v;
-      v.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1" title="폼 영상" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+      v.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1" title="폼 쇼츠" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
       v.style.cursor="default";
     };
   });
