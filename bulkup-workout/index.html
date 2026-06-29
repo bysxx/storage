@@ -44,7 +44,9 @@ h1{font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--ink)}
 .rules .body{padding:0 15px 13px}
 .rule{display:flex;gap:11px;padding:9px 0;font-size:13px;color:var(--muted);border-top:1px solid var(--border)}
 .rule b{color:var(--text);font-weight:700}
-.rule .em{display:inline-block;min-width:46px;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.02em}
+.rule .em{display:inline-block;min-width:54px;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.02em}
+.rule .em i{color:var(--faint);font-style:normal;margin-right:3px}
+.rule .cite{display:inline-block;margin-left:5px;font-size:10px;font-weight:600;color:var(--faint);background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:0 6px;white-space:nowrap}
 
 /* day tabs */
 .tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;
@@ -143,15 +145,16 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
   </header>
 
   <details class="rules">
-    <summary>공통 규칙<span class="chev">▾</span></summary>
+    <summary>📚 최신 이론 핵심 <span style="color:var(--faint);font-weight:500">— 영향 큰 순</span><span class="chev">▾</span></summary>
     <div class="body">
-      <div class="rule"><span class="em">강도</span><div><b>복합 1~2 RIR / 고립은 실패+부분반복.</b> 측면델트·전완 같은 소근육은 실패까지, 프레스·로우는 1~2개 남겨 관절 보호.</div></div>
-      <div class="rule"><span class="em">볼륨</span><div>부위별 <b>주간 MAV</b> 맞춤(측면델트~16·전완~17·등~12·삼두~10). 비우선(가슴·하체)은 최소 유지. <b>한 무게에 2~4주</b>는 정상.</div></div>
-      <div class="rule"><span class="em">과부하</span><div><b>더블 프로그레션.</b> 범위 상단을 모든 세트에서 치면 무게 ↑. <b>전완·리스트컬도 꼭 기록</b>해서 매주 올림.</div></div>
-      <div class="rule"><span class="em">전완</span><div>3갈래 다 침: <b>해머/리버스컬</b>(상완요골근) + <b>리스트컬</b>(굴근) + <b>리버스 리스트컬</b>(신근). 고반복·고빈도 OK.</div></div>
-      <div class="rule"><span class="em">빈도</span><div>측면델트·전완·등 <b>주3회</b>, 삼두·가슴 주2회. 월·금 거의 동일(삼두만 변형), 수는 변형일.</div></div>
-      <div class="rule"><span class="em">디로드</span><div><b>5~7주에 1주</b> — 세트 절반 + 여유 있게. 피로만 리셋.</div></div>
-      <div class="rule"><span class="em">영양</span><div>유지 <b>+200~300kcal</b>, 단백질 <b>2g/kg</b>. 유지칼로리에선 과부하 한계.</div></div>
+      <div class="rule"><span class="em"><i>1</i>볼륨</span><div><b>볼륨이 성장의 1순위.</b> 부위당 <b>주 12~20세트</b>(MAV)가 생산 구간. 정체기 돌파 = 볼륨 +20%(무게 욕심 아님).<span class="cite">Pelland 2024</span></div></div>
+      <div class="rule"><span class="em"><i>2</i>과부하</span><div><b>더블 프로그레션.</b> 모든 세트가 렙 상단 치면 → 무게 ↑. <b>기록 안 하면 성장 확인 불가</b>(전완·리스트컬도 꼭 기록).</div></div>
+      <div class="rule"><span class="em"><i>3</i>강도</span><div><b>실패까지 안 가도 됨.</b> 복합 <b>1~2 RIR</b> / 고립 <b>실패+부분반복</b>. 복합 실패는 회복비용만 큼.<span class="cite">Refalo·Robinson 24</span></div></div>
+      <div class="rule"><span class="em"><i>4</i>빈도</span><div>부위당 <b>주 2~3회</b>(볼륨 분배용). 세션당 한 부위 8~10세트 넘기면 정크. 빈도 자체는 근비대에 미미.<span class="cite">Pelland 2024</span></div></div>
+      <div class="rule"><span class="em"><i>5</i>스트레치</span><div>늘어난 위치에서 장력: <b>케이블 레터럴·오버헤드 삼두·해머/리버스컬</b>(전완 3갈래). 전가동 + 천천히 내리기.<span class="cite">Maeo 2023</span></div></div>
+      <div class="rule"><span class="em"><i>6</i>디로드</span><div><b>5~7주에 1주</b> — 세트 절반 + 여유 있게. 피로만 리셋, 근손실 없음.</div></div>
+      <div class="rule"><span class="em"><i>7</i>영양</span><div>유지 <b>+200~300kcal</b>, 단백질 <b>2g/kg</b>, 한 달 0.25~0.5kg. 유지칼로리에선 과부하 한계.</div></div>
+      <div class="rule"><span class="em"><i>8</i>순서</span><div><b>1순위(측면델트) 먼저</b>(가장 신선할 때) → 등·가슴 → 삼두 → 전완은 <b>당기기 뒤에</b>(그립 보호) → 하체 맨 끝.</div></div>
     </div>
   </details>
 
