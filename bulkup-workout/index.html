@@ -3,148 +3,153 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#14130f">
-<meta name="description" content="주 3회 풀바디 루틴 — 종목·세트·횟수·RIR·폼영상을 한 화면에. 헬스장에서 보면서 운동하는 COMPOUND 워크아웃 가이드.">
-<title>주3회 풀바디 · COMPOUND</title>
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="패션근육 특화 분할 — 측면델트›전완›등상부›삼두, 하체 최소. 종목·세트·횟수·강도·폼영상을 한 화면에. 월·수·금 워크아웃 가이드.">
+<title>패션근육 분할 · 워크아웃</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%234338ca'/><text x='50' y='73' font-size='60' font-family='Georgia,serif' fill='white' text-anchor='middle'>3</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2318181b'/><text x='50' y='71' font-size='52' font-family='Helvetica,Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>F</text></svg>">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
-  --bg:#14130f; --surface:#1b1a15; --surface2:#24221b; --border:#34312a;
-  --text:#f4f1ea; --muted:#a8a194; --faint:#6f6a60;
-  --accent:#818cf8; --good:#34d399; --warn:#fbbf24;
-  --day:#818cf8;
+  --bg:#ffffff; --surface:#f4f4f5; --surface2:#e9e9eb; --border:#e4e4e7; --line:#d4d4d8;
+  --ink:#18181b; --text:#27272a; --muted:#71717a; --faint:#a1a1aa;
 }
 html{-webkit-text-size-adjust:100%}
 body{
   background:var(--bg); color:var(--text);
-  font-family:Inter,system-ui,-apple-system,sans-serif;
-  line-height:1.5; letter-spacing:-.01em;
-  padding:0 0 130px; min-height:100vh;
-  background-image:radial-gradient(1200px 500px at 50% -10%, rgba(129,140,248,.08), transparent 70%);
+  font-family:"Noto Sans KR",system-ui,-apple-system,sans-serif;
+  line-height:1.55; letter-spacing:-.01em;
+  padding:0 0 128px; min-height:100vh;
 }
-.wrap{max-width:640px;margin:0 auto;padding:0 16px}
-.serif{font-family:Fraunces,Georgia,serif}
+.wrap{max-width:600px;margin:0 auto;padding:0 18px}
 
 /* header */
-header{padding:30px 0 14px;text-align:center}
-.kicker{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-h1{font-family:Fraunces,serif;font-weight:600;font-size:30px;letter-spacing:-.02em}
-.sub{color:var(--muted);font-size:14px;margin-top:8px}
+header{padding:34px 0 12px}
+.kicker{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+h1{font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--ink)}
+.sub{color:var(--muted);font-size:13.5px;margin-top:7px;font-weight:500}
+.prio{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.prio span{font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:99px;background:var(--surface);color:var(--muted);border:1px solid var(--border)}
+.prio span.s1{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prio b{color:var(--faint);font-weight:700;margin:0 1px}
 
 /* rules accordion */
-.rules{background:var(--surface);border:1px solid var(--border);border-radius:16px;margin:16px 0 4px;overflow:hidden}
-.rules > summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:8px}
+.rules{border:1px solid var(--border);border-radius:14px;margin:18px 0 2px;overflow:hidden}
+.rules > summary{list-style:none;cursor:pointer;padding:13px 15px;font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:8px;color:var(--ink)}
 .rules > summary::-webkit-details-marker{display:none}
-.rules > summary .chev{margin-left:auto;color:var(--muted);transition:transform .2s}
+.rules > summary .chev{margin-left:auto;color:var(--faint);transition:transform .2s;font-size:11px}
 .rules[open] > summary .chev{transform:rotate(180deg)}
-.rules .body{padding:2px 16px 16px;border-top:1px solid var(--border);margin-top:2px}
-.rule{display:flex;gap:10px;padding:9px 0;font-size:13.5px;color:var(--muted);border-bottom:1px dashed var(--border)}
-.rule:last-child{border-bottom:0}
-.rule b{color:var(--text);font-weight:600}
-.rule .em{display:inline-block;min-width:54px;color:var(--accent);font-weight:700;font-size:12px}
+.rules .body{padding:0 15px 13px}
+.rule{display:flex;gap:11px;padding:9px 0;font-size:13px;color:var(--muted);border-top:1px solid var(--border)}
+.rule b{color:var(--text);font-weight:700}
+.rule .em{display:inline-block;min-width:46px;color:var(--ink);font-weight:700;font-size:11.5px;letter-spacing:.02em}
 
 /* day tabs */
-.tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;
-  padding:12px 0;background:linear-gradient(var(--bg) 72%, rgba(20,19,15,0));backdrop-filter:blur(6px)}
-.tab{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--muted);
-  border-radius:13px;padding:9px 6px 10px;text-align:center;cursor:pointer;transition:.15s;font-family:inherit}
-.tab b{display:block;font-size:16px;font-weight:700;color:var(--text);font-family:Fraunces,serif}
-.tab span{display:block;font-size:11px;margin-top:2px}
-.tab.active{border-color:var(--tc);background:color-mix(in srgb,var(--tc) 16%,var(--surface));box-shadow:0 4px 18px -8px var(--tc)}
-.tab.active b{color:var(--tc)}
-.tab.active span{color:var(--text)}
+.tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;
+  padding:11px 0;background:linear-gradient(var(--bg) 76%, rgba(255,255,255,0))}
+.tab{appearance:none;border:1px solid var(--border);background:var(--bg);color:var(--muted);
+  border-radius:11px;padding:8px 6px 9px;text-align:center;cursor:pointer;transition:.14s;font-family:inherit}
+.tab b{display:block;font-size:16px;font-weight:900;color:var(--text);letter-spacing:-.02em}
+.tab span{display:block;font-size:11px;margin-top:1px;font-weight:500}
+.tab.active{border-color:var(--ink);background:var(--ink)}
+.tab.active b{color:#fff}
+.tab.active span{color:#d4d4d8}
 
 /* day meta + progress */
-.daymeta{display:flex;align-items:center;gap:12px;margin:4px 0 14px}
-.daymeta .t{font-size:13px;color:var(--muted)}
-.daymeta .t b{color:var(--text);font-weight:600}
-.bar{flex:1;height:7px;border-radius:99px;background:var(--surface2);overflow:hidden}
-.bar > i{display:block;height:100%;width:0;background:var(--day);border-radius:99px;transition:width .3s}
-.pct{font-size:12px;font-weight:700;color:var(--day);min-width:34px;text-align:right}
+.daymeta{display:flex;align-items:center;gap:12px;margin:3px 0 16px}
+.daymeta .t{font-size:12.5px;color:var(--muted);font-weight:500}
+.daymeta .t b{color:var(--ink);font-weight:700}
+.bar{flex:1;height:6px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.bar > i{display:block;height:100%;width:0;background:var(--ink);border-radius:99px;transition:width .3s}
+.pct{font-size:12px;font-weight:700;color:var(--ink);min-width:34px;text-align:right;font-variant-numeric:tabular-nums}
 
 /* exercise card */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:14px;margin-bottom:14px}
-.card.done{border-color:color-mix(in srgb,var(--good) 40%,var(--border));background:color-mix(in srgb,var(--good) 6%,var(--surface))}
+.card{border:1px solid var(--border);border-radius:16px;padding:15px;margin-bottom:12px;background:var(--bg)}
+.card.done{background:var(--surface);border-color:var(--line)}
 .chead{display:flex;gap:12px;align-items:flex-start}
-.num{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-  background:color-mix(in srgb,var(--day) 20%,var(--surface2));color:var(--day);font-weight:800;font-size:14px;font-family:Fraunces,serif}
+.num{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+  background:var(--surface);color:var(--muted);font-weight:900;font-size:13px;border:1px solid var(--border)}
+.card.done .num{background:var(--ink);color:#fff;border-color:var(--ink)}
 .titles{flex:1;min-width:0}
-.nm{font-weight:700;font-size:16.5px;letter-spacing:-.02em}
-.en{font-size:12px;color:var(--faint);margin-top:1px}
+.nm{font-weight:700;font-size:16px;letter-spacing:-.02em;color:var(--ink)}
+.en{font-size:11.5px;color:var(--faint);margin-top:1px;font-weight:500}
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin:11px 0 2px}
-.bdg{font-size:12.5px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--surface2);color:var(--text);white-space:nowrap}
+.bdg{font-size:12px;font-weight:600;padding:4px 9px;border-radius:7px;background:var(--surface);color:var(--text);white-space:nowrap;border:1px solid var(--border)}
 .bdg .l{color:var(--faint);font-weight:600;margin-right:4px;font-size:11px}
-.bdg.rir{background:color-mix(in srgb,var(--warn) 14%,var(--surface2))}
-.bdg.rir .v{color:var(--warn)}
-.bdg.mus{background:color-mix(in srgb,var(--day) 14%,var(--surface2))}
-.bdg.mus .v{color:var(--day)}
-.tip{font-size:13px;color:var(--muted);margin-top:10px;padding-left:11px;border-left:2px solid var(--border)}
+.bdg.rir{background:var(--bg)}
+.bdg.fa{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bdg.fa .l{color:#a1a1aa}
+.bdg.min{background:var(--bg);color:var(--faint);border-style:dashed}
+.tip{font-size:12.5px;color:var(--muted);margin-top:11px;padding-left:11px;border-left:2px solid var(--line);font-weight:500}
+.tip .star{color:var(--ink);font-weight:700}
 
 /* video facade */
-.video{position:relative;margin-top:12px;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;cursor:pointer}
-.video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.82;transition:.2s}
-.video:hover img{opacity:1}
-.video .play{position:absolute;inset:0;margin:auto;width:58px;height:58px;border:0;border-radius:50%;
-  background:rgba(20,19,15,.62);backdrop-filter:blur(2px);display:grid;place-items:center;cursor:pointer}
-.video .play::after{content:"";border-left:18px solid var(--text);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
-.video .lbl{position:absolute;left:10px;bottom:9px;font-size:11px;font-weight:600;color:#fff;
-  background:rgba(0,0,0,.55);padding:3px 8px;border-radius:7px;backdrop-filter:blur(2px)}
+.video{position:relative;margin-top:12px;border-radius:11px;overflow:hidden;background:var(--surface2);aspect-ratio:16/9;cursor:pointer}
+.video img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.02);transition:.2s}
+.video:hover img{filter:grayscale(0)}
+.video .play{position:absolute;inset:0;margin:auto;width:54px;height:54px;border:0;border-radius:50%;
+  background:rgba(24,24,27,.78);display:grid;place-items:center;cursor:pointer}
+.video .play::after{content:"";border-left:17px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.video .lbl{position:absolute;left:9px;bottom:8px;font-size:10.5px;font-weight:600;color:#fff;
+  background:rgba(24,24,27,.72);padding:3px 8px;border-radius:6px}
 .video iframe{width:100%;height:100%;border:0;display:block}
 
 /* set dots */
-.sets{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
-.sets .lab{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-right:2px}
-.dot{width:38px;height:38px;border-radius:11px;border:1.5px solid var(--border);background:var(--surface2);
+.sets{display:flex;align-items:center;gap:7px;margin-top:14px;flex-wrap:wrap}
+.sets .lab{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+.dot{width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);
   color:var(--muted);font-weight:700;font-size:14px;cursor:pointer;transition:.12s;display:grid;place-items:center;font-family:inherit}
 .dot:active{transform:scale(.92)}
-.dot.on{background:var(--good);border-color:var(--good);color:#06281b}
+.dot.on{background:var(--ink);border-color:var(--ink);color:#fff}
 
 /* reset */
-.reset{display:block;width:100%;margin:6px 0 30px;padding:12px;border:1px solid var(--border);background:transparent;
-  color:var(--muted);border-radius:13px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.reset{display:block;width:100%;margin:4px 0 28px;padding:12px;border:1px solid var(--border);background:var(--bg);
+  color:var(--muted);border-radius:11px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
 .reset:active{background:var(--surface)}
 
 /* footer */
-footer{text-align:center;color:var(--faint);font-size:12px;padding:8px 0 0;line-height:1.7}
-footer a{color:var(--muted)}
+footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;line-height:1.7;font-weight:500}
 
 /* rest timer */
-.timer{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;pointer-events:none;padding:0 16px 18px}
-.timer .inner{pointer-events:auto;width:100%;max-width:608px;background:color-mix(in srgb,var(--surface) 88%,#000);
-  border:1px solid var(--border);border-radius:18px;padding:10px;box-shadow:0 14px 40px -16px #000;backdrop-filter:blur(10px)}
-.tdisplay{display:flex;align-items:center;gap:12px;margin-bottom:9px;padding:2px 6px}
-.tdisplay .clock{font-family:Fraunces,serif;font-weight:600;font-size:30px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.tdisplay .clock.run{color:var(--accent)}
-.tdisplay .st{font-size:12px;color:var(--muted);flex:1}
-.tdisplay .stop{border:0;background:var(--surface2);color:var(--text);border-radius:9px;padding:7px 12px;font-family:inherit;font-weight:600;font-size:12px;cursor:pointer}
+.timer{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;pointer-events:none;padding:0 18px 16px}
+.timer .inner{pointer-events:auto;width:100%;max-width:564px;background:rgba(255,255,255,.92);
+  border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 10px 36px -14px rgba(0,0,0,.28);backdrop-filter:blur(10px)}
+.tdisplay{display:flex;align-items:center;gap:12px;margin-bottom:9px;padding:1px 5px}
+.tdisplay .clock{font-weight:900;font-size:27px;font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:var(--ink)}
+.tdisplay .st{font-size:12px;color:var(--muted);flex:1;font-weight:500}
+.tdisplay .stop{border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;padding:7px 12px;font-family:inherit;font-weight:600;font-size:12px;cursor:pointer}
 .presets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.presets button{border:1px solid var(--border);background:var(--surface2);color:var(--text);border-radius:11px;
-  padding:11px 4px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:.12s}
-.presets button:active{transform:scale(.94);background:color-mix(in srgb,var(--accent) 22%,var(--surface2))}
-@media (max-width:380px){h1{font-size:26px}.dot{width:34px;height:34px}}
+.presets button{border:1px solid var(--border);background:var(--bg);color:var(--ink);border-radius:10px;
+  padding:11px 4px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:.12s;font-variant-numeric:tabular-nums}
+.presets button:active{transform:scale(.94);background:var(--ink);color:#fff}
+@media (max-width:380px){h1{font-size:27px}.dot{width:34px;height:34px}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="kicker">COMPOUND · Workout</div>
-    <h1 class="serif">주 3회 풀바디</h1>
-    <div class="sub">A·B·C 로테이션 — 정체기 돌파판 (12~20세트/부위 · 스트레치 강조)</div>
+    <div class="kicker">Workout Guide</div>
+    <h1>패션근육 분할</h1>
+    <div class="sub">측면델트 우선 · 전완 강화 · 하체 최소 — 월·수·금</div>
+    <div class="prio">
+      <span class="s1">측면델트</span><b>›</b>
+      <span>전완</span><b>›</b>
+      <span>등상부</span><b>›</b>
+      <span>삼두</span>
+    </div>
   </header>
 
   <details class="rules">
-    <summary>📋 공통 규칙 (탭해서 펼치기)<span class="chev">▾</span></summary>
+    <summary>공통 규칙<span class="chev">▾</span></summary>
     <div class="body">
-      <div class="rule"><span class="em">RIR</span><div><b>복합 2~3 / 고립 0~2.</b> 실패까지 안 가도 됨. 큰 운동은 2~3개 남기고, 고립은 마지막 세트만 실패.</div></div>
-      <div class="rule"><span class="em">과부하</span><div><b>더블 프로그레션.</b> 모든 세트가 횟수 <b>상단</b>에 닿으면 → 다음에 무게 ↑ (제일 작은 원판). 한 무게에 2~4주는 정상.</div></div>
-      <div class="rule"><span class="em">스트레치</span><div>전가동범위 + <b>천천히 내리고</b> 늘어난 바닥에서 1초 멈춤. 종목마다 늘어난 구간 강조.</div></div>
-      <div class="rule"><span class="em">디로드</span><div><b>5~7주에 1주</b> — 세트 절반 + 3~4 RIR. 근육 안 빠지고 피로만 리셋.</div></div>
-      <div class="rule"><span class="em">영양</span><div>유지 <b>+200~300kcal</b>, 단백질 <b>2g/kg</b>, 한 달 0.25~0.5kg. 유지칼로리에선 과부하 한계.</div></div>
-      <div class="rule"><span class="em">영상</span><div>각 운동 썸네일을 <b>탭하면 폼 영상</b> 재생. 세트 동그라미는 누르면 완료 체크(자동 저장).</div></div>
+      <div class="rule"><span class="em">강도</span><div><b>복합 1~2 RIR / 고립은 실패+부분반복.</b> 측면델트·전완 같은 소근육은 실패까지, 프레스·로우는 1~2개 남겨 관절 보호.</div></div>
+      <div class="rule"><span class="em">과부하</span><div><b>더블 프로그레션.</b> 범위 상단을 모든 세트에서 치면 무게 ↑. <b>전완·리스트컬도 꼭 기록</b>해서 매주 올림 — 안 그러면 전완은 안 큼.</div></div>
+      <div class="rule"><span class="em">전완</span><div>3갈래 다 침: <b>해머/리버스컬</b>(윗두께·상완요골근) + <b>리스트컬</b>(안쪽 굴근) + <b>리버스 리스트컬</b>(바깥 신근). 고반복(15~20)·고빈도 OK.</div></div>
+      <div class="rule"><span class="em">빈도</span><div>측면델트·전완·등 <b>주3회</b>(회복 빠름), 삼두·이두 주2회. 월·금 거의 동일(삼두만 변형), 수는 변형일.</div></div>
+      <div class="rule"><span class="em">디로드</span><div><b>5~7주에 1주</b> — 세트 절반 + 여유 있게. 피로만 리셋.</div></div>
+      <div class="rule"><span class="em">영양</span><div>유지 <b>+200~300kcal</b>, 단백질 <b>2g/kg</b>. 유지칼로리에선 과부하 한계.</div></div>
     </div>
   </details>
 
@@ -158,10 +163,10 @@ footer a{color:var(--muted)}
 
   <main id="list"></main>
 
-  <button class="reset" id="reset">↺ 오늘(이 날) 체크 초기화</button>
+  <button class="reset" id="reset">오늘(이 날) 체크 초기화</button>
 
   <footer>
-    근거: Pelland 2024(볼륨) · Refalo/Robinson 2024(RIR) · Maeo 2023(스트레치)<br>
+    측면델트 스트레치/수축 분리 · Maeo 2023(삼두 오버헤드) · 전완 3갈래 직접자극<br>
     폼 영상은 각 채널 저작권. 통증·부상은 자세 먼저 점검하고 무리 말 것.
   </footer>
 </div>
@@ -184,47 +189,44 @@ footer a{color:var(--muted)}
 
 <script>
 const ROUTINE = {
-  A:{title:"가슴·등 강조", color:"#818cf8", ex:[
-    {nm:"인클라인 덤벨 벤치프레스", en:"Incline DB Bench Press", sets:3, reps:"6–8", rir:"2–3", mus:"가슴", tip:"깊게 내려 가슴을 늘림. 바닥에서 살짝 멈췄다 밀기.", v:"8iPEnn-ltC8"},
-    {nm:"풀업 / 랫풀다운", en:"Pull-up / Lat Pulldown", sets:3, reps:"8–10", rir:"2", mus:"등·광배", tip:"맨 위에서 견갑 끝까지 올려 광배 스트레치 확보.", v:"CAwf7n6Luuc"},
-    {nm:"레그프레스", en:"Leg Press", sets:3, reps:"10–12", rir:"2–3", mus:"대퇴", tip:"무릎을 깊게 굽혀 가동범위 확보(허리 안 뜨는 선까지).", v:"K5n2vg3oZa4"},
-    {nm:"케이블 사이드 레터럴 레이즈", en:"Cable Lateral Raise", sets:4, reps:"12–15", rir:"0–1", mus:"측면델트", tip:"케이블을 몸 앞으로 가로질러 — 늘어난 구간에서 장력 유지.", v:"qitQHqNZbeM"},
-    {nm:"인클라인 덤벨 컬", en:"Incline DB Curl", sets:3, reps:"10–12", rir:"0–2", mus:"이두", tip:"팔꿈치를 몸 뒤로 두면 이두가 깊게 늘어남.", v:"rAx_tf13V5k"},
-    {nm:"시티드 레그컬", en:"Seated Leg Curl", sets:3, reps:"10–12", rir:"0–1", mus:"햄스트링", tip:"고관절 굽힌 시티드가 라잉보다 햄 자극 큼.", v:"oFxEDkppbSQ"},
+  mon:{d:"월", t:"메인", sub:"측면델트·등·삼두·전완", ex:[
+    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"케이블을 몸 앞으로 가로질러 — 늘어난 구간에서 장력 유지. 1순위, 볼륨 몰빵.", v:"qitQHqNZbeM"},
+    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:3, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"팔로 당기지 말고 견갑을 끝까지 모았다 풀기. 등 두께·뒤태.", v:"FU6YQawma2Q"},
+    {nm:"삼두 오버헤드 익스텐션", en:"Overhead Triceps Extension", sets:3, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔을 머리 위로 — 장두 스트레치(Maeo 1.4배).", v:"1657VVZi0Ms"},
+    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"중립그립 — 상완요골근(전완 윗두께) + 이두 동시. 가성비 甲. ★", v:"zC3nLlEvin4"},
+    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"손바닥 위로, 손목만 말아올림. 전완 안쪽 볼륨. 무게 기록해 과부하. ★", v:"qMtmHwaCmYI"},
+    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"K5n2vg3oZa4"},
   ]},
-  B:{title:"어깨·하체 강조", color:"#fbbf24", ex:[
-    {nm:"바벨 오버헤드 프레스", en:"Barbell Overhead Press", sets:3, reps:"6–8", rir:"2–3", mus:"어깨", tip:"코어 단단히 조이고 풀가동. 허리 과신전 금지.", v:"F3QY5vMz_6I"},
-    {nm:"루마니안 데드리프트", en:"Romanian Deadlift", sets:3, reps:"8–10", rir:"2–3", mus:"햄·둔근", tip:"엉덩이를 뒤로 밀며 햄 늘림. 등은 곧게.", v:"uhghy9pFIPY"},
-    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:3, reps:"8–10", rir:"2", mus:"등 상부", tip:"팔로 당기지 말고 견갑을 끝까지 모았다 풀기.", v:"FU6YQawma2Q"},
-    {nm:"케이블 사이드 레터럴 레이즈", en:"Cable Lateral Raise", sets:4, reps:"12–15", rir:"0–1", mus:"측면델트", tip:"오늘 어깨 2번째 자극. 반동 없이 천천히.", v:"qitQHqNZbeM"},
-    {nm:"오버헤드 케이블 트라이셉 익스텐션", en:"Overhead Cable Triceps Ext.", sets:3, reps:"10–12", rir:"0–2", mus:"삼두", tip:"팔을 머리 위로 — 장두가 늘어나 성장 1.4배(Maeo).", v:"1657VVZi0Ms"},
-    {nm:"스탠딩 카프레이즈", en:"Standing Calf Raise", sets:4, reps:"10–15", rir:"0–1", mus:"종아리", tip:"바닥에서 깊게 늘리고 1초 멈춤, 맨 위에서 쥐어짜기.", v:"SVtg-1loH4c"},
+  wed:{d:"수", t:"변형", sub:"프레스·너비·이두·전완", ex:[
+    {nm:"오버헤드 프레스", en:"Overhead Press", sets:3, reps:"6–10", rir:"1–2", mus:"어깨", fa:0, tip:"코어 단단히 조이고 풀가동. 허리 과신전 금지.", v:"F3QY5vMz_6I"},
+    {nm:"덤벨 레터럴 레이즈", en:"DB Lateral Raise · 수축", sets:3, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"맨 위 수축 강조(새끼손가락 살짝 위로). 스트레치판과 짝.", v:"3VcKaXpzqRo"},
+    {nm:"랫풀다운", en:"Lat Pulldown", sets:3, reps:"10–12", rir:"1–2", mus:"광배", fa:0, tip:"광배 너비용. 견갑을 내리며 당겨 V-테이퍼.", v:"CAwf7n6Luuc"},
+    {nm:"바벨 컬", en:"Barbell Curl", sets:3, reps:"8–12", rir:"0–1", mus:"이두", fa:0, tip:"반동 없이. 내릴 때 천천히 버티기.", v:"QZEqB6wUPxQ"},
+    {nm:"리버스 컬", en:"Reverse Curl", sets:3, reps:"12–15", rir:"0–1", mus:"전완·신근", fa:1, tip:"오버그립(손등 위) — 상완요골근 + 전완 신근. 윗두께 3번째 자극. ★", v:"didEQUuieRQ"},
+    {nm:"리버스 리스트 컬", en:"Reverse Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 신근", fa:1, tip:"손등 위로 들어올림. 바깥쪽·균형·팔꿈치 건강. ★", v:"sDXAYbrWO1Q"},
   ]},
-  C:{title:"팔·균형", color:"#fb7185", ex:[
-    {nm:"하이바 백스쿼트", en:"High-Bar Back Squat", sets:3, reps:"6–8", rir:"2–3", mus:"대퇴·둔근", tip:"깊게 앉아 가동범위 확보. 무릎 발끝 방향.", v:"jb6AyMlVDuI"},
-    {nm:"딥스", en:"Dips (Chest)", sets:3, reps:"8–10", rir:"2", mus:"가슴·삼두", tip:"상체를 앞으로 기울이면 가슴 비중 ↑.", v:"8UugSoVJLag"},
-    {nm:"랫풀다운 / 로우", en:"Lat Pulldown / Row", sets:3, reps:"10–12", rir:"2", mus:"등", tip:"A일에 안 한 패턴(수직↔수평)으로 골라 균형.", v:"CAwf7n6Luuc"},
-    {nm:"케이블 사이드 레터럴 레이즈", en:"Cable Lateral Raise", sets:3, reps:"15–20", rir:"0", mus:"측면델트", tip:"어깨 3번째 — 고반복 펌핑으로 마무리.", v:"qitQHqNZbeM"},
-    {nm:"페이스풀", en:"Face Pull", sets:3, reps:"15–20", rir:"0–1", mus:"후면델트", tip:"팔꿈치 높게, 양손을 귀 옆으로. 자세·균형용.", v:"ljgqer1ZpXg"},
-    {nm:"바벨 컬", en:"Barbell Curl", sets:3, reps:"10–12", rir:"0–1", mus:"이두", tip:"반동 없이. 내릴 때 천천히 버티기.", v:"QZEqB6wUPxQ"},
-    {nm:"트라이셉 푸시다운", en:"Triceps Pushdown", sets:3, reps:"10–12", rir:"0", mus:"삼두", tip:"바벨 컬과 슈퍼세트로. 끝에 부분반복으로 털기.", v:"i14hrj7l7CI"},
+  fri:{d:"금", t:"메인", sub:"측면델트·등·삼두·전완", ex:[
+    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"몸 앞 가로질러 스트레치. 측면델트 주3번째 — 1순위라 볼륨 몰빵.", v:"qitQHqNZbeM"},
+    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:3, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"견갑 끝까지 모으기. 등 두께·뒤태 라인.", v:"FU6YQawma2Q"},
+    {nm:"트라이셉 푸시다운", en:"Triceps Pushdown", sets:3, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔꿈치 고정. 끝에 부분반복으로 털기. (월 오버헤드와 변형)", v:"i14hrj7l7CI"},
+    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"전완 윗두께 2번째 자극. 무게 기록해 과부하. ★", v:"zC3nLlEvin4"},
+    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:3, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"굴근 2번째. 전완은 과부하 안 하면 절대 안 큼. ★", v:"qMtmHwaCmYI"},
+    {nm:"레그프레스", en:"Leg Press", sets:2, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 최소 유지 — 가볍게 2세트. 균형·부상 보험용.", v:"K5n2vg3oZa4"},
   ]},
 };
 
-const KEY="compound-w3-v1";
+const KEY="compound-fashion-v1";
 const store=JSON.parse(localStorage.getItem(KEY)||"{}");
 const save=()=>localStorage.setItem(KEY,JSON.stringify(store));
-let cur="A";
+let cur="mon";
 
 const $=s=>document.querySelector(s);
 const tabsEl=$("#tabs"), listEl=$("#list");
 
-// build tabs
 Object.entries(ROUTINE).forEach(([k,d])=>{
   const b=document.createElement("button");
   b.className="tab"; b.dataset.k=k;
-  b.style.setProperty("--tc",d.color);
-  b.innerHTML=`<b>Day ${k}</b><span>${d.title}</span>`;
+  b.innerHTML=`<b>${d.d}</b><span>${d.t}</span>`;
   b.onclick=()=>{cur=k;render()};
   tabsEl.appendChild(b);
 });
@@ -233,9 +235,8 @@ function setKey(k,i,s){return `${k}.${i}.${s}`}
 
 function render(){
   const d=ROUTINE[cur];
-  document.documentElement.style.setProperty("--day",d.color);
   [...tabsEl.children].forEach(b=>b.classList.toggle("active",b.dataset.k===cur));
-  $("#dayTitle").innerHTML=`<b>Day ${cur}</b> · ${d.title}`;
+  $("#dayTitle").innerHTML=`<b>${d.d}요일 · ${d.t}</b> · ${d.sub}`;
 
   listEl.innerHTML="";
   let total=0, done=0;
@@ -247,10 +248,11 @@ function render(){
     let exDone=0;
     for(let s=0;s<x.sets;s++){
       const on=store[setKey(cur,i,s)];
-      if(on){done++;exDone++}
+      if(on){exDone++; done++;}
       dots+=`<button class="dot${on?" on":""}" data-i="${i}" data-s="${s}">${s+1}</button>`;
     }
     if(exDone===x.sets) card.classList.add("done");
+    const tip=x.tip.replace(/★/g,'<span class="star">★</span>');
     card.innerHTML=`
       <div class="chead">
         <div class="num">${i+1}</div>
@@ -261,10 +263,11 @@ function render(){
       </div>
       <div class="badges">
         <span class="bdg"><span class="l">세트</span>${x.sets} × ${x.reps}</span>
-        <span class="bdg rir"><span class="l">RIR</span><span class="v">${x.rir}</span></span>
-        <span class="bdg mus"><span class="v">${x.mus}</span></span>
+        <span class="bdg rir"><span class="l">강도</span>${x.rir}</span>
+        <span class="bdg ${x.fa?"fa":""}">${x.mus}</span>
+        ${x.min?'<span class="bdg min">최소</span>':''}
       </div>
-      <div class="tip">${x.tip}</div>
+      <div class="tip">${tip}</div>
       <div class="video" data-v="${x.v}">
         <img loading="lazy" src="https://i.ytimg.com/vi/${x.v}/hqdefault.jpg" alt="${x.nm} 폼 영상">
         <button class="play" aria-label="영상 재생"></button>
@@ -274,12 +277,10 @@ function render(){
     listEl.appendChild(card);
   });
 
-  // progress
   const p=total?Math.round(done/total*100):0;
   $("#barFill").style.width=p+"%";
   $("#pct").textContent=p+"%";
 
-  // wire dots
   listEl.querySelectorAll(".dot").forEach(dot=>{
     dot.onclick=()=>{
       const k=setKey(cur,+dot.dataset.i,+dot.dataset.s);
@@ -287,7 +288,6 @@ function render(){
       save();render();
     };
   });
-  // wire videos (facade → iframe)
   listEl.querySelectorAll(".video").forEach(v=>{
     v.onclick=()=>{
       const id=v.dataset.v;
@@ -319,17 +319,17 @@ function beep(){
     o.start();o.stop(a.currentTime+.5);
   }catch(e){}
 }
-function stopTimer(){clearInterval(tInt);tInt=null;clock.classList.remove("run");tstop.style.display="none";
+function stopTimer(){clearInterval(tInt);tInt=null;tstop.style.display="none";
   tstate.textContent="휴식 타이머 — 세트 사이 눌러서 시작";clock.textContent="0:00"}
 function startTimer(sec){
   clearInterval(tInt);
   tEnd=performance.now()+sec*1000;
-  clock.classList.add("run");tstop.style.display="";
+  tstop.style.display="";
   const tick=()=>{
     const left=tEnd-performance.now();
     clock.textContent=fmt(left);
     tstate.textContent="휴식 중…";
-    if(left<=0){clearInterval(tInt);tInt=null;clock.textContent="0:00";clock.classList.remove("run");
+    if(left<=0){clearInterval(tInt);tInt=null;clock.textContent="0:00";
       tstop.style.display="none";tstate.textContent="✅ 휴식 끝 — 다음 세트!";
       beep();if(navigator.vibrate)navigator.vibrate([200,90,200]);}
   };
