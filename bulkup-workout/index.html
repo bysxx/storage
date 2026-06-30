@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="패션근육 특화 분할 — 측면델트›전완›등상부›삼두, 가슴·하체 최소. 종목·세트·횟수·강도·한국어 폼 쇼츠를 한 화면에. 월·수·금 워크아웃 가이드.">
+<meta name="description" content="패션근육 특화 — 3분할/4분할 전환. 측면델트›전완›등상부›삼두, 가슴·하체 보강. 종목·세트·강도·한국어 폼 쇼츠를 한 화면에.">
 <title>패션근육 분할 · 워크아웃</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,22 +48,32 @@ h1{font-weight:900;font-size:30px;letter-spacing:-.03em;color:var(--ink)}
 .rule .em i{color:var(--faint);font-style:normal;margin-right:3px}
 .rule .cite{display:inline-block;margin-left:5px;font-size:10px;font-weight:600;color:var(--faint);background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:0 6px;white-space:nowrap}
 
+/* plan toggle */
+.plans{display:flex;gap:8px;margin:16px 0 2px}
+.plans button{flex:1;border:1px solid var(--border);background:var(--bg);color:var(--muted);border-radius:12px;
+  padding:11px 6px;font-family:inherit;cursor:pointer;transition:.14s;text-align:center}
+.plans button b{font-size:15px;font-weight:900;color:var(--text);letter-spacing:-.02em}
+.plans button span{font-size:11px;font-weight:500;color:var(--faint);margin-left:5px}
+.plans button.on{background:var(--ink);border-color:var(--ink)}
+.plans button.on b{color:#fff}
+.plans button.on span{color:#d4d4d8}
+
 /* day tabs */
 .tabs{position:sticky;top:0;z-index:30;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;
   padding:11px 0;background:linear-gradient(var(--bg) 76%, rgba(255,255,255,0))}
 .tab{appearance:none;border:1px solid var(--border);background:var(--bg);color:var(--muted);
-  border-radius:11px;padding:8px 6px 9px;text-align:center;cursor:pointer;transition:.14s;font-family:inherit}
-.tab b{display:block;font-size:16px;font-weight:900;color:var(--text);letter-spacing:-.02em}
-.tab span{display:block;font-size:11px;margin-top:1px;font-weight:500}
+  border-radius:11px;padding:8px 4px 9px;text-align:center;cursor:pointer;transition:.14s;font-family:inherit;min-width:0}
+.tab b{display:block;font-size:15px;font-weight:900;color:var(--text);letter-spacing:-.02em}
+.tab span{display:block;font-size:10.5px;margin-top:1px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tab.active{border-color:var(--ink);background:var(--ink)}
 .tab.active b{color:#fff}
 .tab.active span{color:#d4d4d8}
 
 /* day meta + progress */
 .daymeta{display:flex;align-items:center;gap:12px;margin:3px 0 16px}
-.daymeta .t{font-size:12.5px;color:var(--muted);font-weight:500}
+.daymeta .t{font-size:12.5px;color:var(--muted);font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .daymeta .t b{color:var(--ink);font-weight:700}
-.bar{flex:1;height:6px;border-radius:99px;background:var(--surface2);overflow:hidden}
+.bar{flex:1;height:6px;border-radius:99px;background:var(--surface2);overflow:hidden;min-width:40px}
 .bar > i{display:block;height:100%;width:0;background:var(--ink);border-radius:99px;transition:width .3s}
 .pct{font-size:12px;font-weight:700;color:var(--ink);min-width:34px;text-align:right;font-variant-numeric:tabular-nums}
 
@@ -127,7 +137,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
 .presets button{border:1px solid var(--border);background:var(--bg);color:var(--ink);border-radius:10px;
   padding:11px 4px;font-family:inherit;font-weight:700;font-size:14px;cursor:pointer;transition:.12s;font-variant-numeric:tabular-nums}
 .presets button:active{transform:scale(.94);background:var(--ink);color:#fff}
-@media (max-width:380px){h1{font-size:27px}.dot{width:34px;height:34px}}
+@media (max-width:380px){h1{font-size:27px}.dot{width:34px;height:34px}.tab b{font-size:14px}}
 </style>
 </head>
 <body>
@@ -135,7 +145,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
   <header>
     <div class="kicker">Workout Guide</div>
     <h1>패션근육 분할</h1>
-    <div class="sub">측면델트 우선 · 전완 강화 · 가슴·하체 보강 — 월·수·금</div>
+    <div class="sub" id="sub"></div>
     <div class="prio">
       <span class="s1">측면델트</span><b>›</b>
       <span>전완</span><b>›</b>
@@ -158,6 +168,7 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
     </div>
   </details>
 
+  <div class="plans" id="plans"></div>
   <nav class="tabs" id="tabs"></nav>
 
   <div class="daymeta">
@@ -193,57 +204,121 @@ footer{text-align:center;color:var(--faint);font-size:11.5px;padding:6px 0 0;lin
 </div>
 
 <script>
-const ROUTINE = {
-  mon:{d:"월", t:"메인", sub:"측면델트·등·가슴·삼두·전완", ex:[
-    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:5, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"케이블을 몸 앞으로 가로질러 — 늘어난 구간 장력 유지. 1순위, 볼륨 몰빵.", v:"4hrf6PuPVgE", ch:"헬쌤"},
-    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:4, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"팔로 당기지 말고 견갑을 끝까지 모았다 풀기. 등 두께·뒤태.", v:"Pt9SsmK7Y_c", ch:"쇠질인생"},
-    {nm:"인클라인 덤벨 프레스", en:"Incline DB Press", sets:4, reps:"8–12", rir:"1–2", mus:"가슴", fa:0, min:1, tip:"가슴 보강(맨몸 핏). 깊게 내려 스트레치.", v:"o0RrsRC47RY", ch:"육체미 빅터"},
-    {nm:"삼두 오버헤드 익스텐션", en:"Overhead Triceps Extension", sets:4, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔을 머리 위로 — 장두 스트레치(Maeo 1.4배).", v:"g-KpdznbYwQ", ch:"명민정"},
-    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"중립그립 — 상완요골근(전완 윗두께) + 이두 동시. ★", v:"G3erEXi3bGg", ch:"피지컬뷰티"},
-    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"손바닥 위로, 손목만 말아올림. 전완 안쪽 볼륨. 기록해 과부하. ★", v:"DwPA31mKiFI", ch:"피지컬뷰티"},
-    {nm:"레그프레스", en:"Leg Press", sets:4, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 보강 — 레그프레스 4세트(대퇴·둔근). 햄까지면 레그컬 추가 가능.", v:"E0Gf13U7bVY", ch:"서울예스병원"},
-  ]},
-  wed:{d:"수", t:"변형", sub:"프레스·너비·이두·전완", ex:[
-    {nm:"오버헤드 프레스", en:"Overhead Press", sets:3, reps:"6–10", rir:"1–2", mus:"어깨", fa:0, tip:"코어 단단히 조이고 풀가동. 허리 과신전 금지.", v:"f_syArBFPm8", ch:"퍼스트 피지오"},
-    {nm:"덤벨 레터럴 레이즈", en:"DB Lateral Raise · 수축", sets:4, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"맨 위 수축 강조. 승모근 개입 없이.", v:"1HhMAvo9zTg", ch:"홈블리 FITVELY"},
-    {nm:"랫풀다운", en:"Lat Pulldown", sets:4, reps:"10–12", rir:"1–2", mus:"광배", fa:0, tip:"광배 너비용. 견갑을 내리며 당겨 V-테이퍼.", v:"fai7ppeU1do", ch:"마순호"},
-    {nm:"바벨 컬", en:"Barbell Curl", sets:4, reps:"8–12", rir:"0–1", mus:"이두", fa:0, tip:"반동 없이. 내릴 때 천천히 버티기.", v:"_AaVfJAkUrw", ch:"양선수 YangPT"},
-    {nm:"리버스 컬", en:"Reverse Curl", sets:2, reps:"12–15", rir:"0–1", mus:"전완·신근", fa:1, tip:"오버그립(손등 위) — 상완요골근 + 전완 신근. 니파드 추천. ★", v:"3zQFZDrkTF4", ch:"쇠질인생"},
-    {nm:"리버스 리스트 컬", en:"Reverse Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 신근", fa:1, tip:"손등 위로 들어올림. 바깥쪽·균형·팔꿈치 건강. ★", v:"YpI-g8NWNNY", ch:"알쓸참본"},
-  ]},
-  fri:{d:"금", t:"메인", sub:"측면델트·등·가슴·삼두·전완", ex:[
-    {nm:"케이블 레터럴 레이즈", en:"Cable Lateral Raise · 스트레치", sets:5, reps:"12–15", rir:"실패+부분", mus:"측면델트", fa:0, tip:"몸 앞 가로질러 스트레치. 측면델트 주3번째 — 1순위라 볼륨 몰빵.", v:"4hrf6PuPVgE", ch:"헬쌤"},
-    {nm:"체스트 서포티드 로우", en:"Chest-Supported Row", sets:4, reps:"8–12", rir:"1–2", mus:"등 상부", fa:0, tip:"견갑 끝까지 모으기. 등 두께·뒤태 라인.", v:"Pt9SsmK7Y_c", ch:"쇠질인생"},
-    {nm:"인클라인 덤벨 프레스", en:"Incline DB Press", sets:4, reps:"8–12", rir:"1–2", mus:"가슴", fa:0, min:1, tip:"가슴 보강. 깊게 내려 스트레치.", v:"o0RrsRC47RY", ch:"육체미 빅터"},
-    {nm:"트라이셉 푸시다운", en:"Triceps Pushdown", sets:4, reps:"10–12", rir:"실패+부분", mus:"삼두", fa:0, tip:"팔꿈치 고정. 끝에 부분반복으로 털기. (월 오버헤드와 변형)", v:"94Hqm8rVVAE", ch:"닥터핏24"},
-    {nm:"해머 컬", en:"Hammer Curl", sets:3, reps:"10–12", rir:"0–1", mus:"전완·이두", fa:1, tip:"전완 윗두께 2번째 자극. 무게 기록해 과부하. ★", v:"G3erEXi3bGg", ch:"피지컬뷰티"},
-    {nm:"바벨 리스트 컬", en:"Barbell Wrist Curl", sets:2, reps:"15–20", rir:"실패", mus:"전완 굴근", fa:1, tip:"굴근 2번째. 전완은 과부하 안 하면 절대 안 큼. ★", v:"DwPA31mKiFI", ch:"피지컬뷰티"},
-    {nm:"레그프레스", en:"Leg Press", sets:4, reps:"12–15", rir:"2", mus:"하체", fa:0, min:1, tip:"하체 보강 — 레그프레스 4세트(대퇴·둔근). 햄까지면 레그컬 추가 가능.", v:"E0Gf13U7bVY", ch:"서울예스병원"},
-  ]},
+// shared video ids (verified Korean shorts)
+const V = {
+  cableLat:["4hrf6PuPVgE","헬쌤"], dbLat:["1HhMAvo9zTg","홈블리 FITVELY"], ohp:["f_syArBFPm8","퍼스트 피지오"],
+  row:["Pt9SsmK7Y_c","쇠질인생"], pulldown:["fai7ppeU1do","마순호"], legpress:["E0Gf13U7bVY","서울예스병원"],
+  incline:["o0RrsRC47RY","육체미 빅터"], triExt:["g-KpdznbYwQ","명민정"], pushdown:["94Hqm8rVVAE","닥터핏24"],
+  curl:["_AaVfJAkUrw","양선수 YangPT"], hammer:["G3erEXi3bGg","피지컬뷰티"], wrist:["DwPA31mKiFI","피지컬뷰티"],
+  revCurl:["3zQFZDrkTF4","쇠질인생"], revWrist:["YpI-g8NWNNY","알쓸참본"],
+};
+const E = (nm,en,sets,reps,rir,mus,opt,tip,vk)=>({nm,en,sets,reps,rir,mus,fa:opt.fa?1:0,min:opt.min?1:0,tip,v:V[vk][0],ch:V[vk][1]});
+
+const PLANS = {
+  s3:{ label:"3분할", note:"월·수·금", sub:"측면델트 우선 · 전완 강화 · 가슴·하체 보강 — 월·수·금", days:{
+    mon:{d:"월",t:"메인",sub:"측면델트·등·가슴·삼두·전완",ex:[
+      E("케이블 레터럴 레이즈","Cable Lateral Raise · 스트레치",5,"12–15","실패+부분","측면델트",{},"몸 앞으로 가로질러 — 늘어난 구간 장력. 1순위, 볼륨 몰빵.","cableLat"),
+      E("체스트 서포티드 로우","Chest-Supported Row",4,"8–12","1–2","등 상부",{},"팔로 당기지 말고 견갑 끝까지 모았다 풀기. 등 두께.","row"),
+      E("인클라인 덤벨 프레스","Incline DB Press",4,"8–12","1–2","가슴",{min:1},"가슴 보강(맨몸 핏). 깊게 내려 스트레치.","incline"),
+      E("삼두 오버헤드 익스텐션","Overhead Triceps Extension",4,"10–12","실패+부분","삼두",{},"팔을 머리 위로 — 장두 스트레치(Maeo 1.4배).","triExt"),
+      E("해머 컬","Hammer Curl",3,"10–12","0–1","전완·이두",{fa:1},"중립그립 — 상완요골근(전완 윗두께)+이두. ★","hammer"),
+      E("바벨 리스트 컬","Barbell Wrist Curl",2,"15–20","실패","전완 굴근",{fa:1},"손바닥 위로 손목만 말아올림. 안쪽 볼륨. ★","wrist"),
+      E("레그프레스","Leg Press",4,"12–15","2","하체",{min:1},"하체 보강 — 4세트(대퇴·둔근). 햄까지면 레그컬 추가 가능.","legpress"),
+    ]},
+    wed:{d:"수",t:"변형",sub:"프레스·너비·이두·전완",ex:[
+      E("오버헤드 프레스","Overhead Press",3,"6–10","1–2","어깨",{},"코어 조이고 풀가동. 허리 과신전 금지.","ohp"),
+      E("덤벨 레터럴 레이즈","DB Lateral Raise · 수축",4,"12–15","실패+부분","측면델트",{},"맨 위 수축 강조. 승모근 개입 없이.","dbLat"),
+      E("랫풀다운","Lat Pulldown",4,"10–12","1–2","광배",{},"광배 너비용. 견갑 내리며 당겨 V-테이퍼.","pulldown"),
+      E("바벨 컬","Barbell Curl",4,"8–12","0–1","이두",{},"반동 없이. 내릴 때 천천히 버티기.","curl"),
+      E("리버스 컬","Reverse Curl",2,"12–15","0–1","전완·신근",{fa:1},"오버그립 — 상완요골근+신근. 니파드 추천. ★","revCurl"),
+      E("리버스 리스트 컬","Reverse Wrist Curl",2,"15–20","실패","전완 신근",{fa:1},"손등 위로. 바깥·균형·팔꿈치 건강. ★","revWrist"),
+    ]},
+    fri:{d:"금",t:"메인",sub:"측면델트·등·가슴·삼두·전완",ex:[
+      E("케이블 레터럴 레이즈","Cable Lateral Raise · 스트레치",5,"12–15","실패+부분","측면델트",{},"몸 앞 가로질러 스트레치. 측면델트 3번째 — 볼륨 몰빵.","cableLat"),
+      E("체스트 서포티드 로우","Chest-Supported Row",4,"8–12","1–2","등 상부",{},"견갑 끝까지 모으기. 등 두께·뒤태.","row"),
+      E("인클라인 덤벨 프레스","Incline DB Press",4,"8–12","1–2","가슴",{min:1},"가슴 보강. 깊게 내려 스트레치.","incline"),
+      E("트라이셉 푸시다운","Triceps Pushdown",4,"10–12","실패+부분","삼두",{},"팔꿈치 고정. 끝에 부분반복. (월 오버헤드와 변형)","pushdown"),
+      E("해머 컬","Hammer Curl",3,"10–12","0–1","전완·이두",{fa:1},"전완 윗두께 2번째. 기록해 과부하. ★","hammer"),
+      E("바벨 리스트 컬","Barbell Wrist Curl",2,"15–20","실패","전완 굴근",{fa:1},"굴근 2번째. 과부하 안 하면 안 큼. ★","wrist"),
+      E("레그프레스","Leg Press",4,"12–15","2","하체",{min:1},"하체 보강 — 4세트(대퇴·둔근). 햄까지면 레그컬 추가 가능.","legpress"),
+    ]},
+  }},
+  s4:{ label:"4분할", note:"Push·Pull ×2", sub:"측면델트 우선 · 전완 강화 · 가슴 2회 보강 — 4일 (밀기·당기기 ×2)", days:{
+    d1:{d:"1일",t:"밀기 A",sub:"가슴·어깨·삼두·전완",ex:[
+      E("인클라인 덤벨 프레스","Incline DB Press",4,"8–12","1–2","가슴",{min:1},"가슴 보강. 깊게 내려 스트레치.","incline"),
+      E("케이블 레터럴 레이즈","Cable Lateral Raise · 스트레치",5,"12–15","실패+부분","측면델트",{},"몸 앞 가로질러 스트레치. 1순위 — 볼륨 몰빵.","cableLat"),
+      E("삼두 오버헤드 익스텐션","Overhead Triceps Extension",4,"10–12","실패+부분","삼두",{},"머리 위로 — 장두 스트레치(Maeo 1.4배).","triExt"),
+      E("바벨 리스트 컬","Barbell Wrist Curl",3,"15–20","실패","전완 굴근",{fa:1},"손바닥 위로 손목만 말아올림. 안쪽 볼륨. ★","wrist"),
+    ]},
+    d2:{d:"2일",t:"당기기 A",sub:"등·이두·전완",ex:[
+      E("랫풀다운","Lat Pulldown",4,"10–12","1–2","광배",{},"광배 너비용. 견갑 내리며 당겨 V-테이퍼.","pulldown"),
+      E("체스트 서포티드 로우","Chest-Supported Row",4,"8–12","1–2","등 상부",{},"견갑 끝까지 모으기. 등 두께·뒤태.","row"),
+      E("해머 컬","Hammer Curl",4,"10–12","0–1","전완·이두",{fa:1},"중립그립 — 전완 윗두께+이두. ★","hammer"),
+      E("리버스 컬","Reverse Curl",3,"12–15","0–1","전완·신근",{fa:1},"오버그립 — 상완요골근+신근. ★","revCurl"),
+    ]},
+    d3:{d:"3일",t:"밀기 B",sub:"어깨·가슴·삼두·하체",ex:[
+      E("오버헤드 프레스","Overhead Press",3,"6–10","1–2","어깨",{},"코어 조이고 풀가동. 허리 과신전 금지.","ohp"),
+      E("덤벨 레터럴 레이즈","DB Lateral Raise · 수축",5,"12–15","실패+부분","측면델트",{},"맨 위 수축 강조. 측면델트 2번째.","dbLat"),
+      E("인클라인 덤벨 프레스","Incline DB Press",3,"8–12","1–2","가슴",{min:1},"가슴 2번째 자극. 깊게 내려.","incline"),
+      E("트라이셉 푸시다운","Triceps Pushdown",3,"10–12","실패+부분","삼두",{},"팔꿈치 고정. 끝에 부분반복.","pushdown"),
+      E("레그프레스","Leg Press",4,"12–15","2","하체",{min:1},"하체 보강 — 깊게. 햄까지면 레그컬 추가 가능.","legpress"),
+    ]},
+    d4:{d:"4일",t:"당기기 B",sub:"등·팔·전완",ex:[
+      E("케이블 레터럴 레이즈","Cable Lateral Raise · 스트레치",5,"12–15","실패+부분","측면델트",{},"측면델트 3번째 — 볼륨 몰빵.","cableLat"),
+      E("체스트 서포티드 로우","Chest-Supported Row",4,"8–12","1–2","등 상부",{},"등 2번째. 견갑 끝까지 모으기.","row"),
+      E("바벨 컬","Barbell Curl",4,"8–12","0–1","이두",{},"반동 없이. 내릴 때 버티기.","curl"),
+      E("바벨 리스트 컬","Barbell Wrist Curl",3,"15–20","실패","전완 굴근",{fa:1},"굴근 2번째. 기록해 과부하. ★","wrist"),
+      E("리버스 리스트 컬","Reverse Wrist Curl",2,"15–20","실패","전완 신근",{fa:1},"손등 위로. 신근·균형·팔꿈치 건강. ★","revWrist"),
+    ]},
+  }},
 };
 
-const KEY="compound-fashion-v2";
+const KEY="compound-fashion-v3", PLANKEY="compound-plan-v1";
 const store=JSON.parse(localStorage.getItem(KEY)||"{}");
 const save=()=>localStorage.setItem(KEY,JSON.stringify(store));
-let cur="mon";
+let curPlan=localStorage.getItem(PLANKEY)||"s3";
+if(!PLANS[curPlan]) curPlan="s3";
+let cur=Object.keys(PLANS[curPlan].days)[0];
 
 const $=s=>document.querySelector(s);
-const tabsEl=$("#tabs"), listEl=$("#list");
+const plansEl=$("#plans"), tabsEl=$("#tabs"), listEl=$("#list");
 
-Object.entries(ROUTINE).forEach(([k,d])=>{
-  const b=document.createElement("button");
-  b.className="tab"; b.dataset.k=k;
-  b.innerHTML=`<b>${d.d}</b><span>${d.t}</span>`;
-  b.onclick=()=>{cur=k;render()};
-  tabsEl.appendChild(b);
-});
-
-function setKey(k,i,s){return `${k}.${i}.${s}`}
+function buildPlanToggle(){
+  plansEl.innerHTML="";
+  Object.entries(PLANS).forEach(([k,p])=>{
+    const b=document.createElement("button");
+    b.className="plan"+(k===curPlan?" on":"");
+    b.dataset.k=k;
+    b.innerHTML=`<b>${p.label}</b><span>${p.note}</span>`;
+    b.onclick=()=>selectPlan(k);
+    plansEl.appendChild(b);
+  });
+}
+function buildTabs(){
+  tabsEl.innerHTML="";
+  const days=PLANS[curPlan].days, keys=Object.keys(days);
+  tabsEl.style.gridTemplateColumns=`repeat(${keys.length},1fr)`;
+  keys.forEach(k=>{
+    const d=days[k], b=document.createElement("button");
+    b.className="tab"; b.dataset.k=k;
+    b.innerHTML=`<b>${d.d}</b><span>${d.t}</span>`;
+    b.onclick=()=>{cur=k;render()};
+    tabsEl.appendChild(b);
+  });
+}
+function selectPlan(k){
+  curPlan=k; localStorage.setItem(PLANKEY,k);
+  cur=Object.keys(PLANS[k].days)[0];
+  buildPlanToggle(); buildTabs(); render();
+}
+function setKey(i,s){return `${curPlan}.${cur}.${i}.${s}`}
 
 function render(){
-  const d=ROUTINE[cur];
+  const plan=PLANS[curPlan], d=plan.days[cur];
+  $("#sub").textContent=plan.sub;
+  [...plansEl.children].forEach(b=>b.classList.toggle("on",b.dataset.k===curPlan));
   [...tabsEl.children].forEach(b=>b.classList.toggle("active",b.dataset.k===cur));
-  $("#dayTitle").innerHTML=`<b>${d.d}요일 · ${d.t}</b> · ${d.sub}`;
+  $("#dayTitle").innerHTML=`<b>${d.d} · ${d.t}</b> · ${d.sub}`;
 
   listEl.innerHTML="";
   let total=0, done=0;
@@ -251,10 +326,9 @@ function render(){
     total+=x.sets;
     const card=document.createElement("article");
     card.className="card";
-    let dots="";
-    let exDone=0;
+    let dots="", exDone=0;
     for(let s=0;s<x.sets;s++){
-      const on=store[setKey(cur,i,s)];
+      const on=store[setKey(i,s)];
       if(on){exDone++; done++;}
       dots+=`<button class="dot${on?" on":""}" data-i="${i}" data-s="${s}">${s+1}</button>`;
     }
@@ -263,10 +337,7 @@ function render(){
     card.innerHTML=`
       <div class="chead">
         <div class="num">${i+1}</div>
-        <div class="titles">
-          <div class="nm">${x.nm}</div>
-          <div class="en">${x.en}</div>
-        </div>
+        <div class="titles"><div class="nm">${x.nm}</div><div class="en">${x.en}</div></div>
       </div>
       <div class="badges">
         <span class="bdg"><span class="l">세트</span>${x.sets} × ${x.reps}</span>
@@ -286,12 +357,11 @@ function render(){
   });
 
   const p=total?Math.round(done/total*100):0;
-  $("#barFill").style.width=p+"%";
-  $("#pct").textContent=p+"%";
+  $("#barFill").style.width=p+"%"; $("#pct").textContent=p+"%";
 
   listEl.querySelectorAll(".dot").forEach(dot=>{
     dot.onclick=()=>{
-      const k=setKey(cur,+dot.dataset.i,+dot.dataset.s);
+      const k=setKey(+dot.dataset.i,+dot.dataset.s);
       if(store[k])delete store[k];else store[k]=1;
       save();render();
     };
@@ -306,11 +376,12 @@ function render(){
 }
 
 $("#reset").onclick=()=>{
-  Object.keys(store).forEach(k=>{if(k.startsWith(cur+"."))delete store[k]});
+  const pre=curPlan+"."+cur+".";
+  Object.keys(store).forEach(k=>{if(k.startsWith(pre))delete store[k]});
   save();render();
 };
 
-render();
+buildPlanToggle(); buildTabs(); render();
 
 /* ---- rest timer ---- */
 let tEnd=0, tInt=null;
@@ -330,13 +401,10 @@ function beep(){
 function stopTimer(){clearInterval(tInt);tInt=null;tstop.style.display="none";
   tstate.textContent="휴식 타이머 — 세트 사이 눌러서 시작";clock.textContent="0:00"}
 function startTimer(sec){
-  clearInterval(tInt);
-  tEnd=performance.now()+sec*1000;
-  tstop.style.display="";
+  clearInterval(tInt); tEnd=performance.now()+sec*1000; tstop.style.display="";
   const tick=()=>{
     const left=tEnd-performance.now();
-    clock.textContent=fmt(left);
-    tstate.textContent="휴식 중…";
+    clock.textContent=fmt(left); tstate.textContent="휴식 중…";
     if(left<=0){clearInterval(tInt);tInt=null;clock.textContent="0:00";
       tstop.style.display="none";tstate.textContent="✅ 휴식 끝 — 다음 세트!";
       beep();if(navigator.vibrate)navigator.vibrate([200,90,200]);}
