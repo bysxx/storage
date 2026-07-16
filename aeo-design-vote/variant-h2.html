@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 성적표 — H2 머신 픽션: AEO 진단 장비</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F2F0; --panel:#FBFBFA; --ink:#1A1A1A; --line:#D8D8D4;
+    --sub:#6E6E68; --red:#db2727; --green:#1a9c5b; --amber:#d97706;
+    --lcd:#111111;
+    --mono:"JetBrains Mono", ui-monospace, monospace;
+    --dot:"Doto", "JetBrains Mono", monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{font-size:16px}
+  body{
+    font-family:"Pretendard Variable", Pretendard, -apple-system, sans-serif;
+    background:var(--paper); color:var(--ink);
+    word-break:keep-all; overflow-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:var(--mono)}
+  .label{
+    font-family:var(--mono); font-size:10px; font-weight:500;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--sub);
+  }
+  .wrap{max-width:1160px; margin:0 auto; padding:0 24px}
+
+  /* ── header ── */
+  header.site{
+    border-bottom:1px solid var(--line); background:var(--paper);
+  }
+  header.site .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:60px; gap:16px;
+  }
+  .logo{display:flex; align-items:baseline; gap:8px; text-decoration:none; color:var(--ink)}
+  .logo b{font-size:16px; font-weight:800; letter-spacing:-.01em}
+  .logo span{font-family:var(--mono); font-size:10px; color:var(--sub); letter-spacing:.08em}
+  .nav{display:flex; align-items:center; gap:20px}
+  .nav a{
+    font-size:13px; font-weight:600; color:var(--ink); text-decoration:none;
+  }
+  .nav a:hover{color:var(--red)}
+  .nav .unit{
+    font-family:var(--mono); font-size:10px; color:var(--sub);
+    border:1px solid var(--line); padding:4px 8px; border-radius:2px;
+    letter-spacing:.1em; background:var(--panel);
+  }
+  @media (max-width:640px){ .nav .unit{display:none} }
+
+  /* ── hero ── */
+  .hero{padding:64px 0 56px; border-bottom:1px solid var(--line)}
+  .hero .wrap{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:start;
+  }
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:.1em;
+    border:1px solid var(--line); background:var(--panel);
+    padding:6px 12px; border-radius:2px; color:var(--ink);
+  }
+  .badge i{
+    width:6px; height:6px; background:var(--red); border-radius:50%;
+    display:inline-block; animation:led 2s steps(2,end) infinite;
+  }
+  @keyframes led{50%{opacity:.25}}
+  h1{
+    margin-top:22px; font-size:clamp(30px, 4.2vw, 46px); line-height:1.16;
+    font-weight:800; letter-spacing:-.02em;
+  }
+  h1 em{font-style:normal; color:var(--red)}
+  .sub{
+    margin-top:16px; font-size:17px; line-height:1.65; color:#3c3c38; font-weight:500;
+    max-width:34em;
+  }
+  form.scan{margin-top:28px; max-width:560px}
+  .scan-row{
+    display:flex; border:1px solid var(--ink); border-radius:3px; background:#fff;
+    overflow:hidden;
+  }
+  .scan-row .pfx{
+    display:flex; align-items:center; padding:0 10px 0 14px;
+    font-family:var(--mono); font-size:13px; color:var(--sub); border-right:1px solid var(--line);
+    background:var(--panel);
+  }
+  .scan-row input{
+    flex:1; min-width:0; border:0; outline:none; padding:0 14px; height:54px;
+    font-family:var(--mono); font-size:15px; color:var(--ink); background:#fff;
+  }
+  .scan-row input::placeholder{color:#9c9c96}
+  .scan-row button{
+    border:0; background:var(--red); color:#fff; cursor:pointer;
+    font-family:inherit; font-size:15px; font-weight:700; padding:0 22px;
+    letter-spacing:-.01em;
+  }
+  .scan-row button:hover{background:#c31f1f}
+  .scan-row button .bno{display:block; font-family:var(--mono); font-size:8px; font-weight:500; letter-spacing:.12em; opacity:.7}
+  .micro{
+    margin-top:10px; font-family:var(--mono); font-size:11px; color:var(--sub); letter-spacing:.02em;
+  }
+  .engines{margin-top:26px}
+  .engines .label{display:block; margin-bottom:8px}
+  .chips{display:flex; flex-wrap:wrap; gap:8px}
+  .chips span{
+    font-family:var(--mono); font-size:11px; font-weight:500;
+    border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:6px 10px; border-radius:2px; letter-spacing:.02em;
+  }
+  .bench-link{
+    display:inline-block; margin-top:24px; font-size:13px; font-weight:600;
+    color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+  }
+  .bench-link:hover{color:var(--red); border-color:var(--red)}
+
+  /* ── spec plate + boot panel ── */
+  .device{display:flex; flex-direction:column; gap:20px}
+  .plate{
+    border:1px solid var(--line); background:var(--panel); border-radius:3px;
+    position:relative;
+  }
+  .plate .head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 14px; border-bottom:1px solid var(--line);
+  }
+  .plate table{width:100%; border-collapse:collapse}
+  .plate td{
+    font-family:var(--mono); font-size:12px; padding:9px 14px;
+    border-bottom:1px solid var(--line);
+  }
+  .plate tr:last-child td{border-bottom:0}
+  .plate td:first-child{color:var(--sub); letter-spacing:.08em; font-size:10px; text-transform:uppercase}
+  .plate td:last-child{text-align:right; font-weight:700}
+  .plate td .rd{color:var(--red)}
+
+  .boot{
+    background:var(--lcd); border:1px solid #000; border-radius:3px;
+    padding:16px 16px 14px; position:relative;
+    box-shadow:inset 0 2px 10px rgba(0,0,0,.55);
+    background-image:radial-gradient(circle, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:6px 6px;
+  }
+  .boot .label{color:#8b8b85; margin-bottom:10px; display:block}
+  .boot ol{list-style:none}
+  .boot li{
+    font-family:var(--mono); font-size:12px; line-height:2; color:#e8e8e4;
+    opacity:0; animation:bootline .01s steps(1) forwards;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .boot li b{color:var(--green); font-weight:500}
+  .boot li .rd{color:#ff5d52}
+  .boot li:nth-child(1){animation-delay:.4s}
+  .boot li:nth-child(2){animation-delay:1.3s}
+  .boot li:nth-child(3){animation-delay:2.3s}
+  .boot li:nth-child(4){animation-delay:3.3s}
+  .boot li:nth-child(5){animation-delay:4.2s}
+  @keyframes bootline{to{opacity:1}}
+  .cursor{
+    display:inline-block; width:7px; height:13px; background:#e8e8e4;
+    vertical-align:-2px; margin-left:2px; animation:blink 1s steps(2,end) infinite;
+  }
+  @keyframes blink{50%{opacity:0}}
+  .screw{
+    position:absolute; width:7px; height:7px; border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #555, #0e0e0e 70%);
+    box-shadow:inset 0 0 1px #000;
+  }
+  .screw.tl{top:6px; left:6px} .screw.tr{top:6px; right:6px}
+  .screw.bl{bottom:6px; left:6px} .screw.br{bottom:6px; right:6px}
+
+  /* ── report section ── */
+  .report{padding:72px 0 64px; border-bottom:1px solid var(--line); position:relative}
+  .sec-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+    margin-bottom:34px; flex-wrap:wrap;
+  }
+  .sec-head h2{font-size:22px; font-weight:800; letter-spacing:-.01em}
+  .sec-head h2 .tgt{font-family:var(--mono); font-weight:500; font-size:14px; color:var(--sub)}
+
+  .dim-wrap{position:relative; padding:34px 44px 0 0}
+  .dim-top,.dim-right{position:absolute; font-family:var(--mono); font-size:9px; color:var(--sub); letter-spacing:.08em}
+  .dim-top{top:0; left:0; right:44px; height:22px}
+  .dim-right{top:34px; right:0; bottom:0; width:22px}
+  .dim-top svg,.dim-right svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+  .dim-top .t,.dim-right .t{
+    position:absolute; background:var(--paper); padding:0 6px;
+  }
+  .dim-top .t{left:50%; top:2px; transform:translateX(-50%)}
+  .dim-right .t{top:50%; left:50%; transform:translate(-50%,-50%) rotate(90deg); white-space:nowrap}
+  @media (max-width:900px){
+    .dim-wrap{padding:0}
+    .dim-top,.dim-right{display:none}
+  }
+
+  .report-frame{
+    border:1px solid var(--ink); background:var(--panel); border-radius:4px;
+    position:relative;
+  }
+  .rf-head{
+    display:flex; justify-content:space-between; align-items:center; gap:12px;
+    padding:12px 18px; border-bottom:1px solid var(--line); flex-wrap:wrap;
+  }
+  .rf-grid{
+    display:grid; grid-template-columns:340px 1fr; gap:0;
+  }
+  .rf-left{
+    padding:26px; border-right:1px solid var(--line);
+    display:flex; flex-direction:column; gap:18px;
+  }
+  .lcd{
+    background:var(--lcd); border:1px solid #000; border-radius:4px;
+    box-shadow:inset 0 2px 12px rgba(0,0,0,.6);
+    background-image:radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size:6px 6px;
+    padding:22px 20px 18px; position:relative; text-align:center;
+  }
+  .lcd .label{color:#8b8b85}
+  .lcd .num{
+    font-family:var(--dot); font-weight:900; font-size:104px; line-height:1;
+    color:#ff5148; margin-top:6px;
+    animation:lcdon .9s steps(4,end) both;
+  }
+  .lcd .den{font-family:var(--dot); font-weight:700; font-size:18px; color:#8b8b85}
+  .lcd .row2{
+    display:flex; justify-content:center; align-items:center; gap:14px; margin-top:12px;
+    padding-top:12px; border-top:1px solid rgba(255,255,255,.12);
+  }
+  .lcd .grade{
+    font-family:var(--dot); font-weight:900; font-size:30px; color:#f4f4f0;
+  }
+  .lcd .pct{
+    font-family:var(--mono); font-size:11px; color:#e8e8e4; letter-spacing:.06em;
+    border:1px solid rgba(255,255,255,.28); padding:5px 9px; border-radius:2px;
+  }
+  .lcd .pct b{color:#ff5148; font-weight:700}
+  @keyframes lcdon{0%{opacity:0}35%{opacity:.4}55%{opacity:.15}100%{opacity:1}}
+  .rf-left .note{font-size:12px; line-height:1.7; color:var(--sub)}
+
+  .rf-right{padding:26px; display:flex; flex-direction:column; gap:26px}
+  .cats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .cat{
+    border:1px solid var(--line); background:#fff; border-radius:3px; padding:14px;
+    position:relative;
+  }
+  .cat .top{display:flex; justify-content:space-between; align-items:center}
+  .cat .g{
+    font-family:var(--mono); font-size:11px; font-weight:700; padding:2px 7px;
+    border-radius:2px; color:#fff;
+  }
+  .cat .n{
+    font-family:var(--mono); font-size:30px; font-weight:700; margin-top:8px;
+    letter-spacing:-.02em;
+  }
+  .cat .n small{font-size:12px; color:var(--sub); font-weight:500}
+  .cat .bar{height:4px; background:#ECECE8; border-radius:2px; margin-top:10px; overflow:hidden}
+  .cat .bar i{display:block; height:100%; border-radius:2px; animation:grow 1s .3s cubic-bezier(.4,0,.2,1) both}
+  .cat .nm{margin-top:9px; font-size:12px; color:var(--sub)}
+  .cat.g-green .g{background:var(--green)} .cat.g-green .n,.cat.g-green .bar i{color:var(--green); background:var(--green)}
+  .cat.g-amber .g{background:var(--amber)} .cat.g-amber .n,.cat.g-amber .bar i{color:var(--amber); background:var(--amber)}
+  .cat.g-red .g{background:var(--red)} .cat.g-red .n,.cat.g-red .bar i{color:var(--red); background:var(--red)}
+  .cat .n{background:none}
+  @keyframes grow{from{width:0}}
+
+  .checks{border:1px solid var(--line); border-radius:3px; background:#fff; overflow:hidden}
+  .checks .chead{
+    display:flex; justify-content:space-between; padding:10px 14px;
+    border-bottom:1px solid var(--line); background:var(--panel);
+  }
+  .chk{
+    display:grid; grid-template-columns:64px 84px 1fr auto; gap:12px; align-items:center;
+    padding:11px 14px; border-bottom:1px solid #ECECE8; font-size:13px;
+  }
+  .chk:last-child{border-bottom:0}
+  .chk .no{font-family:var(--mono); font-size:10px; color:var(--sub); letter-spacing:.08em}
+  .chk .st{
+    font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.06em;
+    padding:3px 0; text-align:center; border-radius:2px; border:1px solid;
+  }
+  .chk.ok .st{color:var(--green); border-color:var(--green); background:rgba(26,156,91,.07)}
+  .chk.no-pass .st{color:var(--red); border-color:var(--red); background:rgba(219,39,39,.06)}
+  .chk .nm{font-weight:600}
+  .chk .val{font-family:var(--mono); font-size:11px; color:var(--sub); text-align:right}
+  @media (max-width:640px){
+    .chk{grid-template-columns:70px 1fr; grid-template-rows:auto auto}
+    .chk .no{display:none}
+    .chk .val{grid-column:1 / -1; text-align:left}
+  }
+
+  .bench{border:1px solid var(--line); border-radius:3px; background:#fff; padding:16px}
+  .bench .label{display:block; margin-bottom:14px}
+  .brow{display:grid; grid-template-columns:110px 1fr 46px; gap:12px; align-items:center; margin-bottom:12px}
+  .brow:last-child{margin-bottom:0}
+  .brow .bn{font-size:12px; font-weight:600}
+  .brow .bt{height:14px; background:#ECECE8; border-radius:2px; overflow:hidden; position:relative}
+  .brow .bt i{display:block; height:100%; animation:grow 1s .4s cubic-bezier(.4,0,.2,1) both}
+  .brow .bv{font-family:var(--mono); font-size:12px; font-weight:700; text-align:right}
+  .brow.me .bt i{background:var(--ink)} .brow.me .bv{color:var(--ink)}
+  .brow.avg .bt i{background:#B9B9B2} .brow.avg .bv{color:var(--sub)}
+  .brow.top .bt i{background:var(--green)} .brow.top .bv{color:var(--green)}
+
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+  .btn-p{
+    display:inline-flex; flex-direction:column; align-items:center; justify-content:center;
+    background:var(--red); color:#fff; text-decoration:none; border-radius:3px;
+    padding:14px 26px; font-size:15px; font-weight:700; line-height:1.2;
+  }
+  .btn-p:hover{background:#c31f1f}
+  .btn-p small{font-family:var(--mono); font-size:8px; font-weight:500; letter-spacing:.14em; opacity:.72; margin-top:3px}
+  .btn-s{
+    display:inline-flex; align-items:center; border:1px solid var(--ink); color:var(--ink);
+    text-decoration:none; border-radius:3px; padding:14px 22px; font-size:14px; font-weight:600;
+    background:#fff;
+  }
+  .btn-s:hover{border-color:var(--red); color:var(--red)}
+
+  /* ── trust + footer ── */
+  .trust{padding:34px 0; border-bottom:1px solid var(--line)}
+  .trust .wrap{
+    display:flex; justify-content:center; align-items:center; gap:12px; flex-wrap:wrap;
+    font-family:var(--mono); font-size:12px; color:var(--sub); letter-spacing:.03em;
+    text-align:center;
+  }
+  .trust b{color:var(--ink); font-weight:700}
+  footer.site{padding:26px 0 40px}
+  footer.site .wrap{
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    font-size:12px; color:var(--sub);
+  }
+  footer.site .doc{font-family:var(--mono); font-size:10px; letter-spacing:.1em}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:36px}
+    .rf-grid{grid-template-columns:1fr}
+    .rf-left{border-right:0; border-bottom:1px solid var(--line)}
+    .cats{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:560px){
+    .cats{grid-template-columns:1fr}
+    .scan-row{flex-direction:column}
+    .scan-row .pfx{display:none}
+    .scan-row input{border-bottom:1px solid var(--line); height:50px}
+    .scan-row button{height:50px}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .boot li{animation:none; opacity:1}
+    .cursor,.badge i{animation:none}
+    .lcd .num{animation:none}
+    .cat .bar i,.brow .bt i{animation:none}
+  }
+  .sr-only{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+    overflow:hidden; clip:rect(0,0,0,0); border:0;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#"><b>AI 성적표</b><span>BY CREATIP</span></a>
+    <nav class="nav" aria-label="주 메뉴">
+      <span class="unit">UNIT: AEO-94</span>
+      <a href="#">벤치마크</a>
+      <a href="#">상담 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge"><i aria-hidden="true"></i>SEO · AEO · GEO 통합 진단</span>
+        <h1>우리 회사 사이트<br><em>AI 성적표</em> 확인하기</h1>
+        <p class="sub">당신의 사이트의 AI 대응은 상위 몇%일까요? 1%로 만드는 방법까지 알려드립니다.</p>
+
+        <form class="scan" onsubmit="return false">
+          <div class="scan-row">
+            <span class="pfx" aria-hidden="true">https://</span>
+            <input type="text" inputmode="url" placeholder="example.com" aria-label="진단할 사이트 URL">
+            <button type="submit">1분 진단하기<span class="bno">BTN-01 · SCAN</span></button>
+          </div>
+          <p class="micro">가입 불필요 · 약 60초 · 점수는 바로 공개</p>
+        </form>
+
+        <div class="engines">
+          <span class="label">노출 기준 — Answer Engines</span>
+          <div class="chips">
+            <span>ChatGPT</span><span>Claude</span><span>Perplexity</span><span>Gemini</span><span>AI Overviews</span>
+          </div>
+        </div>
+
+        <a class="bench-link" href="#">국내 사이트 AEO 평균 점수 알아보기 →</a>
+      </div>
+
+      <!-- 장비 패널: 스펙 플레이트 + 부팅 시퀀스 -->
+      <aside class="device" aria-label="진단 장비 정보">
+        <div class="plate">
+          <div class="head">
+            <span class="label">Spec Sheet — Technical Data</span>
+            <span class="label">REV. 2.6</span>
+          </div>
+          <table>
+            <tbody>
+              <tr><td>Model</td><td>AEO-94</td></tr>
+              <tr><td>Checks</td><td>94</td></tr>
+              <tr><td>Engines</td><td>5</td></tr>
+              <tr><td>Scan Time</td><td>60s</td></tr>
+              <tr><td>Price</td><td class="rd"><span class="rd">₩0</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="boot" role="img" aria-label="진단 장비 부팅 로그: GPTBot 호출, 인용 가능성 계산 후 리포트 준비 완료">
+          <span class="screw tl" aria-hidden="true"></span><span class="screw tr" aria-hidden="true"></span>
+          <span class="screw bl" aria-hidden="true"></span><span class="screw br" aria-hidden="true"></span>
+          <span class="label">Boot Sequence</span>
+          <ol aria-hidden="true">
+            <li>AEO DIAGNOSTIC UNIT v2.6 — <b>BOOT OK</b></li>
+            <li>&gt; robots.txt 판독 중… <b>OK</b></li>
+            <li>&gt; GPTBot 호출 중… <b>OK</b></li>
+            <li>&gt; 인용 가능성 계산 중… <b>OK</b></li>
+            <li>&gt; <span class="rd">REPORT READY</span><span class="cursor"></span></li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- REPORT PREVIEW -->
+  <section class="report">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>진단 결과 미리보기 <span class="tgt">— example.co.kr</span></h2>
+        <span class="label">Report No. AEO-2026-0716 · Fig. 01</span>
+      </div>
+
+      <div class="dim-wrap">
+        <div class="dim-top" aria-hidden="true">
+          <svg preserveAspectRatio="none">
+            <line x1="0" y1="14" x2="100%" y2="14" stroke="#B9B9B2" stroke-width="1"/>
+            <line x1="1" y1="8" x2="1" y2="20" stroke="#B9B9B2" stroke-width="1"/>
+            <line x1="100%" y1="8" x2="100%" y2="20" stroke="#B9B9B2" stroke-width="1" transform="translate(-1,0)"/>
+          </svg>
+          <span class="t">W 1112</span>
+        </div>
+        <div class="dim-right" aria-hidden="true">
+          <svg preserveAspectRatio="none">
+            <line x1="12" y1="0" x2="12" y2="100%" stroke="#B9B9B2" stroke-width="1"/>
+            <line x1="6" y1="1" x2="18" y2="1" stroke="#B9B9B2" stroke-width="1"/>
+            <line x1="6" y1="100%" x2="18" y2="100%" stroke="#B9B9B2" stroke-width="1" transform="translate(0,-1)"/>
+          </svg>
+          <span class="t">H 640</span>
+        </div>
+
+        <div class="report-frame">
+          <div class="rf-head">
+            <span class="label">Output — Score Card</span>
+            <span class="label">Deterministic · Reproducible</span>
+          </div>
+          <div class="rf-grid">
+            <div class="rf-left">
+              <div class="lcd" role="img" aria-label="종합 점수 68점 / 100점, 등급 B, 국내 진단 사이트 상위 34%">
+                <span class="screw tl" aria-hidden="true"></span><span class="screw tr" aria-hidden="true"></span>
+                <span class="screw bl" aria-hidden="true"></span><span class="screw br" aria-hidden="true"></span>
+                <span class="label">Total Score</span>
+                <div class="num" aria-hidden="true">68</div>
+                <div class="den" aria-hidden="true">/ 100</div>
+                <div class="row2" aria-hidden="true">
+                  <span class="grade">B</span>
+                  <span class="pct">국내 상위 <b>34%</b></span>
+                </div>
+              </div>
+              <p class="note">종합 점수는 SEO 35% · AEO 35% · GEO 30% 가중 평균. 같은 사이트를 다시 진단해도 같은 점수가 나오는 결정론 방식입니다.</p>
+            </div>
+
+            <div class="rf-right">
+              <div>
+                <div class="cats">
+                  <div class="cat g-green">
+                    <div class="top"><span class="label">CAT-01 · SEO</span><span class="g">A</span></div>
+                    <div class="n">91<small> /100</small></div>
+                    <div class="bar"><i style="width:91%"></i></div>
+                    <div class="nm">검색엔진 기본기</div>
+                    <span class="sr-only">SEO 91점, 등급 A, 통과 수준</span>
+                  </div>
+                  <div class="cat g-amber">
+                    <div class="top"><span class="label">CAT-02 · AEO</span><span class="g">B-</span></div>
+                    <div class="n">61<small> /100</small></div>
+                    <div class="bar"><i style="width:61%"></i></div>
+                    <div class="nm">답변엔진 최적화</div>
+                    <span class="sr-only">AEO 61점, 등급 B마이너스, 개선 필요</span>
+                  </div>
+                  <div class="cat g-red">
+                    <div class="top"><span class="label">CAT-03 · GEO</span><span class="g">D</span></div>
+                    <div class="n">42<small> /100</small></div>
+                    <div class="bar"><i style="width:42%"></i></div>
+                    <div class="nm">생성엔진 최적화</div>
+                    <span class="sr-only">GEO 42점, 등급 D, 미흡</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="checks">
+                <div class="chead">
+                  <span class="label">Check Log — 6 / 94 표시</span>
+                  <span class="label">PASS 3 · FAIL 3</span>
+                </div>
+                <div class="chk ok">
+                  <span class="no">CHK-01</span><span class="st">✓ PASS</span>
+                  <span class="nm">HTTPS 적용됨<span class="sr-only"> — 통과</span></span><span class="val">TLS 1.3</span>
+                </div>
+                <div class="chk ok">
+                  <span class="no">CHK-02</span><span class="st">✓ PASS</span>
+                  <span class="nm">JSON-LD 구조화 데이터 감지<span class="sr-only"> — 통과</span></span><span class="val">Organization</span>
+                </div>
+                <div class="chk no-pass">
+                  <span class="no">CHK-03</span><span class="st">✗ FAIL</span>
+                  <span class="nm">meta description 누락<span class="sr-only"> — 실패</span></span><span class="val">14개 페이지</span>
+                </div>
+                <div class="chk no-pass">
+                  <span class="no">CHK-04</span><span class="st">✗ FAIL</span>
+                  <span class="nm">llms.txt 없음<span class="sr-only"> — 실패</span></span><span class="val">—</span>
+                </div>
+                <div class="chk no-pass">
+                  <span class="no">CHK-05</span><span class="st">✗ FAIL</span>
+                  <span class="nm">LCP 4.2s<span class="sr-only"> — 실패</span></span><span class="val">권장 ≤ 2.5s</span>
+                </div>
+                <div class="chk ok">
+                  <span class="no">CHK-06</span><span class="st">✓ PASS</span>
+                  <span class="nm">GPTBot 크롤링 허용<span class="sr-only"> — 통과</span></span><span class="val">robots.txt</span>
+                </div>
+              </div>
+
+              <div class="bench">
+                <span class="label">Benchmark — 국내 진단 사이트 기준</span>
+                <div class="brow me">
+                  <span class="bn">내 사이트</span>
+                  <div class="bt"><i style="width:68%"></i></div>
+                  <span class="bv">68</span>
+                </div>
+                <div class="brow avg">
+                  <span class="bn">업계 평균</span>
+                  <div class="bt"><i style="width:52%"></i></div>
+                  <span class="bv">52</span>
+                </div>
+                <div class="brow top">
+                  <span class="bn">상위 10%</span>
+                  <div class="bt"><i style="width:81%"></i></div>
+                  <span class="bv">81</span>
+                </div>
+              </div>
+
+              <div class="cta-row">
+                <a class="btn-p" href="#">점수 올리기 — 전문가 상담<small>BTN-02 · CONSULT</small></a>
+                <a class="btn-s" href="#">전체 리포트 이메일로 받기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="wrap">
+      <span>지금까지 <b>1,247</b>개 사이트 진단</span>
+      <span aria-hidden="true">·</span>
+      <span>결정론 점수 — 같은 사이트, 같은 점수</span>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Creatip — AI 검색 최적화 컨설팅</span>
+    <span class="doc">DOC NO. AEO-2026-0716 · PRINTED IN SEOUL</span>
+  </div>
+</footer>
+
+</body>
+</html>

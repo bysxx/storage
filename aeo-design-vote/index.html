@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AI 성적표 — 디자인 시안 투표</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root { --ink:#191f28; --sub:#6b7684; --line:#e5e8eb; --accent:#191f28; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family:"Pretendard Variable", Pretendard, -apple-system, sans-serif;
+    background:#fff; color:var(--ink); word-break:keep-all;
+  }
+  .wrap { max-width:1200px; margin:0 auto; padding:0 20px; }
+  header.top { padding:56px 0 8px; text-align:center; }
+  header.top h1 { font-size:clamp(24px,4vw,36px); font-weight:800; letter-spacing:-0.02em; }
+  header.top p { margin-top:12px; color:var(--sub); font-size:15px; line-height:1.7; }
+  .steps {
+    display:flex; justify-content:center; gap:18px; margin-top:20px; flex-wrap:wrap;
+    font-size:13px; color:var(--sub);
+  }
+  .steps b { color:var(--ink); }
+  .vote-cta {
+    display:inline-block; margin-top:24px; background:var(--accent); color:#fff;
+    font-size:16px; font-weight:700; padding:16px 32px; border-radius:12px; text-decoration:none;
+  }
+  .vote-cta:hover { opacity:.9; }
+  main.grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(480px,1fr));
+    gap:28px; padding:40px 0 24px;
+  }
+  @media (max-width:560px){ main.grid { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; }
+  .card .head { padding:18px 20px 14px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .card h2 { font-size:17px; font-weight:800; }
+  .card h2 span.tag {
+    display:inline-flex; align-items:center; justify-content:center;
+    min-width:34px; height:26px; padding:0 8px; margin-right:8px; border-radius:6px;
+    background:var(--ink); color:#fff; font-size:13px; font-weight:800;
+  }
+  .card p.d { padding:0 20px 14px; color:var(--sub); font-size:13.5px; line-height:1.6; }
+  .card .frame { position:relative; aspect-ratio:16/11; overflow:hidden; border-top:1px solid var(--line); background:#f8f9fa; }
+  .card .frame iframe {
+    width:1440px; height:2600px; border:0; position:absolute; top:0; left:0;
+    transform-origin:0 0; pointer-events:none;
+  }
+  .card .frame a.cover { position:absolute; inset:0; }
+  .card .foot { display:flex; gap:10px; padding:14px 20px 18px; }
+  .card .foot a {
+    flex:1; text-align:center; font-size:14px; font-weight:700; text-decoration:none;
+    padding:12px 0; border-radius:10px;
+  }
+  .card .foot a.view { border:1px solid var(--line); color:var(--ink); }
+  .card .foot a.view:hover { background:#f4f6f8; }
+  .card .foot a.vote { background:var(--ink); color:#fff; }
+  .card .foot a.vote:hover { opacity:.9; }
+  footer.bottom { text-align:center; padding:16px 0 72px; color:var(--sub); font-size:13px; line-height:1.8; }
+  footer.bottom a { color:var(--ink); font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>AI 성적표 — 디자인 시안 투표 🗳️</h1>
+    <p>랜딩 리디자인 후보 4종입니다. 4개 모두 <b>내용은 동일하고 디자인만 다릅니다.</b><br>각 시안을 크게 열어본 뒤, 가장 좋은 하나에 투표해 주세요. (약 2분)</p>
+    <div class="steps">
+      <span><b>1.</b> 시안 미리보기 (카드 클릭 = 크게 보기)</span>
+      <span><b>2.</b> 마음에 드는 시안 결정</span>
+      <span><b>3.</b> 투표 버튼 → 구글폼 제출</span>
+    </div>
+    <a class="vote-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">투표하러 가기 →</a>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <div class="head"><h2><span class="tag">B</span>웜 페이퍼</h2></div>
+      <p class="d">크림 종이 배경 위 부드러운 카드. 따뜻하고 신뢰감 있는 톤.</p>
+      <div class="frame"><iframe src="variant-b.html" loading="lazy" title="시안 B 미리보기"></iframe><a class="cover" href="variant-b.html" target="_blank" aria-label="시안 B 크게 보기"></a></div>
+      <div class="foot">
+        <a class="view" href="variant-b.html" target="_blank" rel="noopener">크게 보기 ↗</a>
+        <a class="vote" href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">이 시안에 투표</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="head"><h2><span class="tag">E</span>하이브리드</h2></div>
+      <p class="d">웜 페이퍼 × 문서 그리드 × 모노 숫자 계기판. 공식 진단서 격식.</p>
+      <div class="frame"><iframe src="variant-e.html" loading="lazy" title="시안 E 미리보기"></iframe><a class="cover" href="variant-e.html" target="_blank" aria-label="시안 E 크게 보기"></a></div>
+      <div class="foot">
+        <a class="view" href="variant-e.html" target="_blank" rel="noopener">크게 보기 ↗</a>
+        <a class="vote" href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">이 시안에 투표</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="head"><h2><span class="tag">H2</span>진단 장비</h2></div>
+      <p class="d">하드웨어 카탈로그 컨셉 — 도트매트릭스 점수, 스펙시트, 부팅 로그.</p>
+      <div class="frame"><iframe src="variant-h2.html" loading="lazy" title="시안 H2 미리보기"></iframe><a class="cover" href="variant-h2.html" target="_blank" aria-label="시안 H2 크게 보기"></a></div>
+      <div class="foot">
+        <a class="view" href="variant-h2.html" target="_blank" rel="noopener">크게 보기 ↗</a>
+        <a class="vote" href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">이 시안에 투표</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="head"><h2><span class="tag">H3</span>라이브 드롭</h2></div>
+      <p class="d">레드·블랙 3색, 실시간 채점 티커, 드롭 포스터 에너지.</p>
+      <div class="frame"><iframe src="variant-h3.html" loading="lazy" title="시안 H3 미리보기"></iframe><a class="cover" href="variant-h3.html" target="_blank" aria-label="시안 H3 크게 보기"></a></div>
+      <div class="foot">
+        <a class="view" href="variant-h3.html" target="_blank" rel="noopener">크게 보기 ↗</a>
+        <a class="vote" href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">이 시안에 투표</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom">
+    모바일에서는 "크게 보기"로 여는 걸 추천합니다 · 투표는 <a href="https://docs.google.com/forms/d/e/1FAIpQLSeo6ni8fDjF4faQqE3_TIj_EN7XqeLKCaamd1KtH_C9KbH1Kg/viewform" target="_blank" rel="noopener">구글폼</a>으로 집계됩니다
+  </footer>
+</div>
+<script>
+  function fit() {
+    document.querySelectorAll('.frame').forEach(f => {
+      const s = f.clientWidth / 1440;
+      const ifr = f.querySelector('iframe');
+      if (ifr) ifr.style.transform = 'scale(' + s + ')';
+    });
+  }
+  addEventListener('resize', fit); addEventListener('load', fit); fit();
+</script>
+</body>
+</html>
