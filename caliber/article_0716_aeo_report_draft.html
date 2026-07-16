@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[AEO 스페셜 리포트] AI가 답하는 시대, 검색 마케팅의 다음 단계</title>
+<meta name="description" content="AEO(Answer Engine Optimization)란 무엇인가? AI 검색 시대에 브랜드가 AI의 답변 안에 인용되기 위한 전략과, 퍼포먼스 마케팅과의 시너지까지 정리한 스페셜 리포트.">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --ink:#1a1a1a; --body:#333; --gray:#777; --light:#aaa; --line:#e5e5e5;
+  --red:#ff5b57; --blue:#5b7cfa; --green:#2eb872; --mint:#e6f7ef;
+  --lav:#efe9fb; --pink:#fdeaea; --sky:#e8f1fd; --sand:#fff6e5;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  color:var(--body); background:#fff; -webkit-font-smoothing:antialiased;
+  font-size:16px; line-height:1.9; word-break:keep-all;
+}
+.wrap{max-width:820px;margin:0 auto;padding:48px 24px 80px;}
+a{color:inherit;}
+
+/* ── masthead ── */
+.masthead{display:flex;justify-content:space-between;align-items:flex-end;
+  border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:2px;}
+.masthead .issue{font-size:14px;font-weight:700;color:var(--ink);}
+.masthead .date{font-size:14px;font-weight:700;color:var(--ink);}
+.logoband{display:flex;align-items:center;justify-content:center;gap:12px;
+  background:#f7f7f7;padding:26px 0;margin-bottom:14px;}
+.logoband .badge{background:var(--red);color:#fff;font-size:13px;font-weight:800;
+  letter-spacing:.08em;padding:4px 10px;border-radius:4px;transform:translateY(-2px);}
+.logoband .logotype{font-size:40px;font-weight:900;color:var(--ink);letter-spacing:-0.03em;}
+.logoband .logotype span{font-weight:300;}
+.hero img{width:100%;display:block;border-radius:6px;}
+
+/* ── common ── */
+.center{text-align:center;}
+.intro-title{font-size:26px;font-weight:800;color:var(--ink);text-align:center;
+  margin:56px 0 28px;letter-spacing:-0.02em;}
+p.lead{text-align:center;margin-bottom:14px;}
+p.body{margin:22px 0;text-align:left;}
+b,strong{color:var(--ink);font-weight:700;}
+.tocbox{border:1px solid var(--line);border-radius:8px;padding:34px 28px;
+  text-align:center;margin:48px 0;background:#fff;}
+.tocbox .toctitle{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:16px;}
+.tocbox .part{font-size:15.5px;font-weight:800;color:var(--ink);margin-top:14px;}
+.tocbox .desc{font-size:15px;color:var(--body);}
+hr.sect{border:0;border-top:1px solid var(--ink);margin:72px 0 64px;}
+hr.dashed{border:0;border-top:1px dashed #ccc;margin:72px 0 56px;}
+
+.sec-head{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 40px;}
+.sec-head img{width:76px;height:76px;object-fit:contain;mix-blend-mode:multiply;}
+.sec-head h2{font-size:34px;font-weight:900;color:var(--ink);letter-spacing:-0.03em;}
+.label{display:table;margin:52px auto 26px;border:1px solid var(--ink);
+  padding:5px 16px;font-size:15px;font-weight:800;color:var(--ink);background:#fff;}
+h3.numbered{font-size:21px;font-weight:800;color:var(--ink);text-align:center;
+  margin:64px 0 30px;letter-spacing:-0.02em;}
+
+/* ── stage diagram ── */
+.stages{display:flex;flex-direction:column;gap:14px;margin:8px 0 10px;}
+.stage{border-radius:12px;padding:18px 22px;}
+.stage .tag{display:inline-block;font-size:13px;font-weight:800;color:#fff;
+  border-radius:20px;padding:2px 12px;margin-right:10px;vertical-align:1px;}
+.stage .name{font-size:16px;font-weight:800;color:var(--ink);}
+.stage .flow{margin-top:8px;font-size:14.5px;color:var(--body);}
+.stage .flow .k{font-weight:700;color:var(--gray);margin-right:10px;font-size:13.5px;}
+.stage .flow .arr{color:var(--light);margin:0 8px;}
+.stage.s1{background:#f4f4f4;} .stage.s1 .tag{background:#9aa0a6;}
+.stage.s2{background:var(--mint);border:1px solid #bfe8d3;} .stage.s2 .tag{background:#57c28d;}
+.stage.s3{background:#d8f2e4;border:1px solid #9fdcbc;} .stage.s3 .tag{background:var(--green);}
+
+/* ── table ── */
+table.cmp{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14.5px;}
+table.cmp th,table.cmp td{padding:13px 16px;text-align:center;border-bottom:1px solid #f0f0f0;}
+table.cmp tr:last-child td{border-bottom:0;}
+table.cmp thead th{font-size:14px;font-weight:800;}
+table.cmp thead th.h-cat{background:#fafafa;color:var(--gray);}
+table.cmp thead th.h-seo{background:#f1f3f6;color:#556;}
+table.cmp thead th.h-aeo{background:var(--mint);color:var(--green);}
+table.cmp td.cat{background:#fafafa;font-weight:700;color:var(--ink);font-size:14px;width:26%;}
+table.cmp td.aeo{background:#f6fcf9;}
+
+/* ── cite flow ── */
+.citeflow{display:flex;gap:10px;justify-content:center;align-items:stretch;margin:6px 0 26px;flex-wrap:wrap;}
+.citeflow .step{flex:1;min-width:150px;border:1px solid var(--line);border-radius:12px;
+  padding:16px 12px;text-align:center;background:#fff;}
+.citeflow .step .no{display:inline-block;width:22px;height:22px;line-height:22px;border-radius:50%;
+  background:var(--ink);color:#fff;font-size:12px;font-weight:800;margin-bottom:8px;}
+.citeflow .step .t{font-size:15px;font-weight:800;color:var(--ink);}
+.citeflow .step .d{font-size:13px;color:var(--gray);margin-top:4px;line-height:1.6;}
+.citeflow .fa{align-self:center;color:var(--light);font-size:18px;font-weight:700;}
+
+/* ── checklist ── */
+.checks{border-radius:12px;background:#fafafa;padding:26px 30px;margin:10px 0;}
+.checks .row{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid #efefef;}
+.checks .row:last-child{border-bottom:0;}
+.checks .chip{flex-shrink:0;font-size:12.5px;font-weight:800;border-radius:6px;padding:3px 10px;margin-top:4px;}
+.checks .row:nth-child(1) .chip{background:var(--sky);color:var(--blue);}
+.checks .row:nth-child(2) .chip{background:var(--mint);color:var(--green);}
+.checks .row:nth-child(3) .chip{background:var(--lav);color:#7a5bd6;}
+.checks .row:nth-child(4) .chip{background:var(--pink);color:var(--red);}
+.checks .t{font-size:15px;color:var(--body);}
+.checks .t b{display:block;font-size:15.5px;}
+
+/* ── 3 cards ── */
+.cards3{display:flex;gap:14px;margin:8px 0 10px;flex-wrap:wrap;}
+.cards3 .card{flex:1;min-width:200px;border:1px solid var(--line);border-radius:14px;
+  padding:26px 18px;text-align:center;background:#fff;}
+.cards3 .card .no{font-size:15px;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.cards3 .card .kw{font-size:17px;font-weight:900;margin-top:10px;}
+.cards3 .card .sub{font-size:13.5px;color:var(--gray);line-height:1.6;}
+.cards3 .card:nth-child(1) .kw{color:var(--green);}
+.cards3 .card:nth-child(2) .kw{color:#d99a00;}
+.cards3 .card:nth-child(3) .kw{color:var(--red);}
+
+/* ── loop diagram ── */
+.loop{border-radius:14px;background:#fffaf0;border:1px solid #f3e3bd;padding:26px 24px;margin:10px 0;text-align:center;}
+.loop .lt{font-size:14px;font-weight:800;color:#b07d00;margin-bottom:14px;letter-spacing:.02em;}
+.loop .chain{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;font-size:14.5px;font-weight:700;color:var(--ink);}
+.loop .chain .node{background:#fff;border:1px solid #eadcae;border-radius:24px;padding:7px 16px;}
+.loop .chain .arr{color:#cbb26a;font-weight:800;}
+.loop .back{margin-top:12px;font-size:13px;color:#b07d00;font-weight:700;}
+
+/* ── CTA ── */
+.cta{text-align:center;margin:20px 0 0;}
+.cta img{width:96px;height:96px;object-fit:contain;margin-bottom:6px;mix-blend-mode:multiply;}
+.cta .q{font-size:24px;font-weight:900;color:var(--ink);letter-spacing:-0.02em;margin-bottom:14px;}
+.cta .s{font-size:15.5px;color:var(--body);margin-bottom:8px;}
+.cta .u{font-size:14.5px;color:var(--ink);text-decoration:underline;text-underline-offset:3px;margin-bottom:30px;display:block;}
+.btn{display:inline-block;background:var(--red);color:#fff;font-size:22px;font-weight:900;
+  padding:22px 54px;border-radius:60px;text-decoration:none;letter-spacing:-0.01em;
+  box-shadow:0 8px 24px rgba(255,91,87,.35);transition:transform .15s ease;}
+.btn:hover{transform:translateY(-2px);}
+.btn .arrow{display:inline-block;background:#fff;color:var(--red);width:28px;height:28px;line-height:28px;
+  border-radius:50%;font-size:16px;text-align:center;margin-right:12px;vertical-align:2px;}
+.cta .url{margin-top:18px;font-size:13.5px;color:var(--light);letter-spacing:.02em;}
+
+/* ── footer ── */
+footer{margin-top:80px;text-align:center;color:var(--light);font-size:13px;line-height:2;}
+footer .links{color:var(--gray);font-size:13.5px;margin-bottom:10px;}
+footer .links span{margin:0 10px;}
+
+@media (max-width:640px){
+  .logoband .logotype{font-size:30px;}
+  .sec-head h2{font-size:26px;}
+  .sec-head img{width:56px;height:56px;}
+  .citeflow{flex-direction:column;}
+  .citeflow .fa{transform:rotate(90deg);}
+  .cards3{flex-direction:column;}
+  .btn{font-size:18px;padding:18px 36px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- masthead -->
+  <div class="masthead">
+    <span class="issue">스페셜호</span>
+    <span class="date">2026.07</span>
+  </div>
+  <div class="logoband">
+    <span class="badge">SPECIAL</span>
+    <span class="logotype">AEO <span>report</span></span>
+  </div>
+
+  <!-- hero -->
+  <div class="hero">
+    <img src="https://i.ibb.co/1Gm36rP3/hero-aeo.png" alt="AEO(Answer Engine Optimization) 스페셜 리포트 — AI 답변 엔진 최적화">
+  </div>
+
+  <!-- intro -->
+  <h1 class="intro-title">AI가 답하는 시대,<br>검색 마케팅의 다음 단계 &#39;AEO&#39;</h1>
+
+  <p class="lead">이제 소비자는 검색창에 키워드를 입력하는 대신, AI에게 질문을 던집니다.</p>
+  <p class="lead">ChatGPT·Perplexity 같은 AI 서비스부터 구글 AI Overview, 네이버 AI 브리핑까지 —<br>
+  검색의 결과가 &#39;링크 목록&#39;에서 <b>&#39;하나의 답변&#39;</b>으로 바뀌고 있는데요.</p>
+  <p class="lead">이 변화 속에서 브랜드에게 던져지는 질문은 하나입니다.<br>
+  <b>&quot;AI의 답변 안에, 우리 브랜드가 등장하는가?&quot;</b></p>
+  <p class="lead">이번 리포트에서는 그 답을 만드는 전략, <b>AEO(Answer Engine Optimization)</b>를 정리했습니다.</p>
+
+  <div class="tocbox">
+    <div class="toctitle">💡 리포트 주요 내용 💡</div>
+    <div class="part">Part1. AEO란 무엇인가</div>
+    <div class="desc">검색 행태의 진화, SEO와의 차이, AI가 콘텐츠를 인용하는 원리</div>
+    <div class="part">Part2. AEO × 퍼포먼스 마케팅</div>
+    <div class="desc">지명 검색 · 고의도 트래픽 · AI 검색 광고, 세 가지 축에서 본 시너지</div>
+    <div class="part">Part3. 우리 브랜드 AEO 진단</div>
+    <div class="desc">aeo.caliberx.ai에서 브랜드의 AI 답변 노출 점수 측정하기</div>
+  </div>
+
+  <hr class="sect">
+
+  <!-- ───────────── PART 1 ───────────── -->
+  <div class="sec-head">
+    <img src="https://i.ibb.co/9H1Ss2fd/icon-theory.png" alt="AEO 이론 섹션 아이콘">
+    <h2>AEO란 무엇인가</h2>
+  </div>
+
+  <p class="lead"><b>AEO(Answer Engine Optimization, 답변 엔진 최적화)</b>는</p>
+  <p class="lead">검색 결과 페이지에서 &#39;상위에 랭크&#39;되는 것을 넘어,<br>
+  AI가 생성하는 답변 안에 <b>브랜드가 인용·언급되도록 만드는 최적화 전략</b>입니다.</p>
+  <p class="lead">왜 지금 AEO가 필요한지, 검색 행태의 변화에서부터 살펴볼게요.</p>
+
+  <div class="label">검색 행태의 진화</div>
+
+  <div class="stages">
+    <div class="stage s1">
+      <span class="tag">1단계</span><span class="name">링크 탐색형 검색 (기존 검색의 주류 모델)</span>
+      <div class="flow"><span class="k">검색 경험</span>키워드 입력 <span class="arr">→</span> 검색 결과 확인 <span class="arr">→</span> 웹페이지 직접 탐색</div>
+    </div>
+    <div class="stage s2">
+      <span class="tag">2단계</span><span class="name">AI 대화형 검색 (2024년 하반기 이후 본격화)</span>
+      <div class="flow"><span class="k">검색 경험</span>질문 입력 <span class="arr">→</span> AI 답변 확인 <span class="arr">→</span> 후속 질문으로 탐색 심화</div>
+    </div>
+    <div class="stage s3">
+      <span class="tag">3단계</span><span class="name">실행형 AI 검색 (2026년 이후 확대 전망)</span>
+      <div class="flow"><span class="k">검색 경험</span>질문·목적 입력 <span class="arr">→</span> AI 추천·비교 <span class="arr">→</span> 실행 연결</div>
+    </div>
+  </div>
+
+  <p class="body">키워드를 입력하고 링크를 하나씩 열어보던 검색은, 이제 <b>AI와 대화하며 답을 얻는 방식</b>으로 옮겨가고 있습니다.
+  이 구조에서 이용자는 여러 페이지를 비교하는 대신 AI가 요약한 답변을 그대로 신뢰하는데요. 링크 클릭 없이 답변 안에서 탐색이 끝나는
+  <b>&#39;제로 클릭(Zero-click)&#39;</b> 소비가 늘면서, 브랜드의 승부처는 &#39;검색 결과 몇 번째 줄&#39;이 아니라
+  <b>&#39;AI 답변에 언급되는가&#39;</b>로 이동했습니다. 이것이 AEO가 등장한 배경입니다.</p>
+
+  <div class="label">SEO vs AEO</div>
+
+  <table class="cmp">
+    <thead>
+      <tr>
+        <th class="h-cat">구분</th>
+        <th class="h-seo">SEO (검색엔진 최적화)</th>
+        <th class="h-aeo">AEO (답변엔진 최적화)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="cat">목표</td><td>검색 결과 상위 노출</td><td class="aeo">AI 답변 안에 인용·언급</td></tr>
+      <tr><td class="cat">최적화 단위</td><td>키워드</td><td class="aeo">질문과 의도(Intent)</td></tr>
+      <tr><td class="cat">성과 지표</td><td>순위 · 클릭 · 트래픽</td><td class="aeo">인용률 · 언급 점유율 · 지명 검색</td></tr>
+      <tr><td class="cat">콘텐츠 형태</td><td>키워드 중심 페이지</td><td class="aeo">질문-답변 구조, 명확한 근거</td></tr>
+      <tr><td class="cat">경쟁 구도</td><td>10개의 링크 자리</td><td class="aeo">하나의 답변 자리</td></tr>
+    </tbody>
+  </table>
+
+  <p class="body">중요한 것은 AEO가 SEO를 대체하는 개념이 아니라는 점입니다. AI 답변 엔진은 여전히 검색 인덱스 위에서 작동하기 때문에,
+  <b>SEO는 AEO의 기반</b>이 됩니다. 다만 &#39;순위&#39;를 위한 최적화와 &#39;인용&#39;을 위한 최적화는 기준이 다르기 때문에,
+  기존 SEO 콘텐츠를 AEO 관점에서 다시 설계하는 작업이 필요합니다.</p>
+
+  <div class="label">AI는 어떤 콘텐츠를 인용하는가</div>
+
+  <p class="lead">AI 답변 엔진은 대부분 <b>RAG(검색 증강 생성)</b> 구조로 작동합니다.<br>답변이 만들어지는 과정은 세 단계로 요약할 수 있는데요.</p>
+
+  <div class="citeflow">
+    <div class="step"><span class="no">1</span><div class="t">질문 해석</div><div class="d">이용자의 질문에서<br>의도와 맥락을 파악</div></div>
+    <div class="fa">→</div>
+    <div class="step"><span class="no">2</span><div class="t">소스 검색·선별</div><div class="d">웹에서 신뢰할 수 있는<br>근거 문서를 수집</div></div>
+    <div class="fa">→</div>
+    <div class="step"><span class="no">3</span><div class="t">답변 생성·인용</div><div class="d">선별된 소스를 종합해<br>답변과 출처를 구성</div></div>
+  </div>
+
+  <p class="lead">결국 2단계 &#39;소스 선별&#39;에서 선택받는 콘텐츠가 답변에 등장합니다.<br>AI가 인용하는 콘텐츠의 공통 조건은 다음 네 가지입니다.</p>
+
+  <div class="checks">
+    <div class="row"><span class="chip">구조</span><span class="t"><b>질문-답변 구조의 콘텐츠</b>실제 질문 형태의 소제목과 그에 대한 명확한 첫 문단 답변. AI가 발췌하기 쉬운 구조일수록 인용 확률이 올라갑니다.</span></div>
+    <div class="row"><span class="chip">근거</span><span class="t"><b>검증 가능한 근거와 수치</b>모호한 수사보다 구체적인 데이터·사례·출처. AI는 답변의 신뢰도를 근거의 명확성으로 판단합니다.</span></div>
+    <div class="row"><span class="chip">기술</span><span class="t"><b>기계가 읽기 좋은 마크업</b>스키마(구조화 데이터), 명확한 헤딩 구조, 크롤링 접근성. 사람보다 먼저 AI 크롤러가 읽는 시대의 기본기입니다.</span></div>
+    <div class="row"><span class="chip">평판</span><span class="t"><b>서드파티 언급과 신뢰도</b>자사 채널 밖의 리뷰·커뮤니티·미디어 언급. AI는 여러 소스가 교차 검증하는 브랜드를 우선 신뢰합니다.</span></div>
+  </div>
+
+  <p class="body">정리하면, AEO는 &#39;우리 사이트&#39; 하나를 고치는 일이 아니라 <b>AI가 참조하는 웹 전반에서 브랜드의 답변 지분을 넓히는 일</b>입니다.
+  자사 콘텐츠의 구조를 바꾸는 것에서 시작해, 브랜드가 언급되는 외부 소스까지 관리하는 것이 AEO의 전체 범위입니다.</p>
+
+  <hr class="sect">
+
+  <!-- ───────────── PART 2 ───────────── -->
+  <div class="sec-head">
+    <img src="https://i.ibb.co/hJXHYw6D/icon-synergy.png" alt="AEO와 퍼포먼스 마케팅 시너지 섹션 아이콘">
+    <h2>AEO × 퍼포먼스 마케팅</h2>
+  </div>
+
+  <p class="lead">AEO는 브랜딩 영역의 이야기처럼 들리지만,<br>실제로는 <b>퍼포먼스 마케팅의 효율을 끌어올리는 지렛대</b>에 가깝습니다.</p>
+  <p class="lead">시너지는 세 가지 축에서 만들어집니다.</p>
+
+  <div class="cards3">
+    <div class="card"><div class="no">01. 유입의 질</div><div class="kw">지명 검색 증가</div><div class="sub">AI 답변 언급이<br>브랜드 검색으로 이어짐</div></div>
+    <div class="card"><div class="no">02. 전환 효율</div><div class="kw">고의도 트래픽</div><div class="sub">비교를 마치고 오는<br>방문자의 높은 전환율</div></div>
+    <div class="card"><div class="no">03. 광고 지면</div><div class="kw">AI 검색 광고</div><div class="sub">오가닉 인용과 광고의<br>더블 노출 전략</div></div>
+  </div>
+
+  <h3 class="numbered">01. 지명 검색의 증가 : 광고 효율의 출발점</h3>
+
+  <p class="body">이용자가 AI 답변에서 브랜드를 처음 접하면, 다음 행동은 대부분 <b>브랜드명을 직접 검색</b>하는 것입니다.
+  AI 답변 노출이 늘어날수록 지명(브랜드) 검색량이 함께 움직이는데요. 지명 검색의 증가는 브랜드 키워드 캠페인의
+  <b>클릭률과 품질지수를 끌어올리고, 그만큼 클릭 단가를 낮추는</b> 방향으로 작동합니다.
+  퍼포먼스 지표가 좋아지는 출발점이 광고 바깥의 AI 답변에서 만들어지는 셈입니다.</p>
+
+  <h3 class="numbered">02. 고의도 트래픽 : 전환율과 ROAS</h3>
+
+  <p class="body">AI 답변을 거쳐 유입되는 방문자는 이미 AI와의 대화에서 <b>비교와 검증을 마친 상태</b>입니다.
+  탐색 단계의 이용자가 아니라 결정 단계의 이용자가 랜딩하기 때문에 전환율이 높고, 같은 광고비 기준으로 <b>ROAS가 개선</b>됩니다.
+  또한 이렇게 쌓인 고의도 방문자는 리타게팅 모수의 질을 높여, 이후 캠페인의 효율까지 연쇄적으로 끌어올립니다.</p>
+
+  <h3 class="numbered">03. AI 검색 광고 : 오가닉과 페이드의 결합</h3>
+
+  <p class="body">올해 들어 AI 지면의 광고 상품이 본격적으로 열리고 있습니다. <b>ChatGPT는 지난 6월 국내 지면에 광고를 도입</b>했고,
+  <b>네이버는 7월부터 AI 브리핑에 AI 검색 광고를 노출</b>할 예정인데요. AI 검색 광고는 키워드가 아니라 이용자의
+  <b>질문 의도와 탐색 맥락</b>을 반영해 노출되는 상품입니다.</p>
+
+  <p class="body">여기서 AEO가 페이드 효율을 가릅니다. AI 답변에 오가닉으로 인용되는 브랜드가 같은 지면에 광고까지 집행하면,
+  답변과 광고가 서로를 검증하는 <b>더블 노출</b>이 만들어집니다. 반대로 오가닉 기반 없이 광고만 집행하면 맥락 적합성이 떨어져
+  같은 예산으로 낮은 효율을 감수해야 합니다. AI 지면에서는 <b>AEO가 광고의 랜딩 품질이자 신뢰 기반</b>이 되는 것이죠.</p>
+
+  <div class="loop">
+    <div class="lt">AEO × 퍼포먼스 데이터 선순환</div>
+    <div class="chain">
+      <span class="node">캠페인 검색어·질문 데이터</span><span class="arr">→</span>
+      <span class="node">AEO 콘텐츠 기획</span><span class="arr">→</span>
+      <span class="node">AI 답변 인용 확대</span><span class="arr">→</span>
+      <span class="node">지명 검색·전환 상승</span>
+    </div>
+    <div class="back">↺ 성과 데이터가 다시 다음 AEO 콘텐츠의 소재가 됩니다</div>
+  </div>
+
+  <p class="body">마지막 축은 데이터입니다. 퍼포먼스 캠페인의 검색어 리포트에는 이용자가 실제로 던지는 질문이 쌓입니다.
+  이 질문 데이터를 AEO 콘텐츠의 주제로 환류시키면, 인용이 늘고 지명 검색과 전환이 오르고, 그 성과 데이터가 다시 콘텐츠 기획으로
+  돌아오는 <b>선순환 구조</b>가 완성됩니다. AEO와 퍼포먼스를 별도 조직의 일로 나누지 않고 하나의 루프로 운영해야 하는 이유입니다.</p>
+
+  <hr class="dashed">
+
+  <!-- ───────────── CTA ───────────── -->
+  <div class="cta">
+    <img src="https://i.ibb.co/2YCRWnk2/icon-score.png" alt="AEO 점수 측정 게이지 아이콘">
+    <div class="q">우리 브랜드는 AI의 답변에<br>얼마나 등장하고 있을까요?</div>
+    <div class="s">전략의 시작은 현재 위치를 아는 것입니다.</div>
+    <span class="u">아래 버튼을 눌러 브랜드의 AEO 점수를 확인해보세요 👇</span>
+    <a class="btn" href="https://aeo.caliberx.ai" target="_blank" rel="noopener">
+      <span class="arrow">→</span>AEO 점수 측정하러 가기
+    </a>
+    <div class="url">aeo.caliberx.ai</div>
+  </div>
+
+  <footer>
+    <div class="links"><span><a href="https://aeo.caliberx.ai" target="_blank" rel="noopener">AEO 진단</a></span>|<span><a href="https://caliberx.ai" target="_blank" rel="noopener">홈페이지</a></span>|<span><a href="https://caliberx.ai" target="_blank" rel="noopener">문의하기</a></span></div>
+    <div>본 리포트는 2026년 7월 기준 시장 동향을 바탕으로 작성되었습니다.</div>
+    <div>Copyright © CaliberX Co., Ltd. All Rights Reserved.</div>
+  </footer>
+
+</div>
+</body>
+</html>
