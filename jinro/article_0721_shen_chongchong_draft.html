@@ -72,6 +72,18 @@
         width: 100%;
         display: block;
       }
+      .video-block {
+        margin: 32px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .video-block video {
+        width: 100%;
+        max-width: 360px;
+        display: block;
+        border-radius: 8px;
+        background: #000;
+      }
       .article-body p { margin-bottom: 24px; }
       .article-body ul { margin-bottom: 24px; padding-left: 24px; }
       .article-body li { margin-bottom: 6px; }
@@ -157,9 +169,17 @@
 
         <h6>From JINRO Flavors to Dopamine Colors</h6>
 
-        <!-- VIDEO: MV 영상 URL 확정 시 임베드 교체 -->
-        <div class="image-block" style="min-height: 260px; display: flex; align-items: center; justify-content: center;">
-          <span style="color: var(--light); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">Video coming soon</span>
+        <div class="video-block">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="https://bysxx.github.io/storage/jinro/videos/shen_chongchong_poster.jpg"
+            aria-label="Shenchongchong's original JINRO Sounds music video, featuring JINRO Peach and JINRO Green Grape with dopamine-inspired look changes"
+          >
+            <source src="https://bysxx.github.io/storage/jinro/videos/shen_chongchong_mv.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <p>
@@ -278,7 +298,7 @@
 
       <div class="article-footer">
         JINRO x Creatip · July 2026<br />
-        <small>Draft v2</small>
+        <small>Draft v3</small>
       </div>
     </article>
   </body>
